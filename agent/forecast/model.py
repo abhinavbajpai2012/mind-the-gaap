@@ -247,11 +247,19 @@ class TabPFNForecaster:
         random_state: int = 0,
         n_estimators: int = 8,
         fallback: Optional[Forecaster] = None,
+        backend: str = "local",
     ) -> None:
         self.device = device
         self.random_state = random_state
         self.n_estimators = n_estimators
         self.fallback = fallback or NeighbourForecaster()
+        # "local" runs tabpfn on this machine, which needs the weights — and so
+        # needs the one-time licence acceptance that TABPFN_TOKEN alone does not
+        # satisfy (TabPFNLicenseError). "client" runs the identical estimator
+        # server-side through tabpfn_client, which needs only the token. The two
+        # constructors agree on every argument used here except `device`, which
+        # is meaningless remotely.
+        self.backend = backend
 
     def fit_predict(
         self,
@@ -278,7 +286,13 @@ class TabPFNForecaster:
         categorical_indices: Sequence[int],
     ) -> Forecast:
         import numpy as np
-        from tabpfn import TabPFNRegressor
+
+        if self.backend == "client":
+            from tabpfn_client import TabPFNRegressor
+            placement: dict = {}
+        else:
+            from tabpfn import TabPFNRegressor
+            placement = {"device": self.device}
 
         train = np.array([[np.nan if v is None else float(v) for v in row] for row in X], dtype=float)
         target = np.array([float(v) for v in y], dtype=float)
@@ -288,7 +302,7 @@ class TabPFNForecaster:
 
         regressor = TabPFNRegressor(
             categorical_features_indices=list(categorical_indices) or None,
-            device=self.device,
+            **placement,
             random_state=self.random_state,
             n_estimators=self.n_estimators,
             # These tables are ~20-60 rows, far below anything TabPFN was tuned
@@ -319,7 +333,8 @@ class TabPFNForecaster:
             quantiles=quantiles,
             model=self.name,
             n_train=int(train.shape[0]),
-            notes=[f"tabpfn n_estimators={self.n_estimators} device={self.device}"],
+            notes=[f"tabpfn ({self.backend}) n_estimators={self.n_estimators}"
+                   + (f" device={self.device}" if self.backend != "client" else "")],
         )
 
 
@@ -376,7 +391,7 @@ def choose(prefer: str = "auto", **kwargs) -> Forecaster:
     return TabPFNForecaster(**kwargs)
 
 
-def preflight(prefer: str = "auto") -> tuple[bool, str]:
+def preflight(prefer: str = "auto", **kwargs) -> tuple[bool, str]:
     """Fit a toy table to find out whether TabPFN really works here.
 
     Importing tabpfn proves nothing: version 8.3.0 downloads its weights on the
@@ -388,7 +403,7 @@ def preflight(prefer: str = "auto") -> tuple[bool, str]:
     Returns (working, message). A False is not fatal — the neighbour fallback
     covers it — but it means the entry script is not running the model you think.
     """
-    forecaster = choose(prefer)
+    forecaster = choose(prefer, **kwargs)
     if not isinstance(forecaster, TabPFNForecaster):
         return False, "tabpfn is not installed; the neighbour fallback will be used"
 
