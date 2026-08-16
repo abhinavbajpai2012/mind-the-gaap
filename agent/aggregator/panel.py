@@ -244,6 +244,7 @@ class Panel:
         self.profiles: dict[str, CompanyProfile] = {}
         self._docs: dict[str, list[Document]] = {}
         self.targets: list[Target] = []
+        self._segment_cache: dict[str, tuple[str, ...]] = {}
         self.frozen_at = "2026-08-14"
 
     # ---- construction ----------------------------------------------------
@@ -278,7 +279,44 @@ class Panel:
         return self
 
     def _segments(self, ticker: str) -> tuple[str, ...]:
-        return ()
+        """Segment names this company reports, discovered from its own tables.
+
+        Read off the corner cell of segment tables rather than configured, so a
+        new company brings its own segments with it. Only recent results filings
+        are scanned: segment names are stable, and parsing every table of every
+        document to learn them would not pay for itself.
+        """
+        cached = self._segment_cache.get(ticker)
+        if cached is not None:
+            return cached
+        from .tables import parse_tables
+
+        profile = self.profiles.get(ticker)
+        docs = [d for d in self._docs.get(ticker, [])
+                if d.doc_class == DocClass.STRUCTURED_RESULT]
+        docs.sort(key=lambda d: d.published_at, reverse=True)
+        seen: dict[str, set[str]] = defaultdict(set)
+        for doc in docs[:8]:
+            for table in parse_tables(doc, profile):
+                corner = table.scope_label.strip()
+                if not corner or corner.endswith(":"):
+                    continue
+                # a segment table reports that segment's sales and profit; a
+                # corner cell over anything else is a heading, not a segment
+                concepts = {parse_facets(r.label).concept for r in table.rows}
+                if not ({"revenue", "operating_profit"} <= concepts):
+                    continue
+                # a segment is named, not measured: "Reconciliation of net sales
+                # and revenues" is a heading that happens to sit in the corner
+                if parse_facets(corner).concept is not None:
+                    continue
+                seen[corner].add(doc.short)
+        found = tuple(sorted(
+            (s for s, docs_seen in seen.items() if len(docs_seen) >= 2),
+            key=len, reverse=True,
+        ))
+        self._segment_cache[ticker] = found
+        return found
 
     def _ticker(self, name: str) -> str:
         n = name.strip().upper().rsplit(":", 1)[-1]
@@ -395,16 +433,45 @@ class Panel:
         company, period, metric = key
         return self.value(company, period, metric)
 
+    @staticmethod
+    def _shape(period: FiscalPeriod) -> str:
+        return "Q" if period.quarter else ("H" if period.half else "FY")
+
     def history(self, company: str, metric: str, units: str | None = None,
-                periods: int = 12) -> list[tuple[FiscalPeriod, Value]]:
+                periods: int = 12,
+                like: FiscalPeriod | str | None = None) -> list[tuple[FiscalPeriod, Value]]:
+        """Cited history for a metric.
+
+        `like` restricts the series to periods of the same shape as the one
+        given. A full-year forecast must be built from full years: without it,
+        Hays' FY2026 target would be handed a run of H1 figures, which are
+        roughly half the size and not comparable.
+        """
         ticker = self._ticker(company)
         profile = self.profiles[ticker]
         quarterly = profile.calendar.granularity != "HALF_YEARLY"
-        seen = sorted(
-            {d.period for d in self._docs[ticker]
-             if d.period and (d.period.quarter if quarterly else True)},
-            reverse=True,
-        )
+        want_shape = None
+        if like is not None:
+            like = FiscalPeriod.parse(like) if isinstance(like, str) else like
+            want_shape = self._shape(like)
+        candidates: set[FiscalPeriod] = set()
+        for d in self._docs[ticker]:
+            if not d.period:
+                continue
+            if want_shape == "FY":
+                # the annual figures are filed in the Q4/H2 report, so the
+                # candidate is that document's fiscal YEAR, not its own label
+                if d.period.quarter == 4 or d.period.half == 2 or (
+                    d.period.quarter is None and d.period.half is None
+                ):
+                    candidates.add(FiscalPeriod(d.period.fy))
+                continue
+            if quarterly and not d.period.quarter:
+                continue
+            if want_shape and self._shape(d.period) != want_shape:
+                continue
+            candidates.add(d.period)
+        seen = sorted(candidates, reverse=True)
         out = []
         # walk back as far as needed: older filings format differently and not
         # every period yields a citable value, so a fixed window under-fills.

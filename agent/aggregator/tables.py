@@ -58,6 +58,12 @@ class Table:
     #: fails. Home Depot puts "$" in its own cell in data rows but not in
     #: header rows, so `4.68` lands at index 2 while its date header is at 1.
     slots: list[PeriodSpan | None] = field(default_factory=list)
+    #: the header's corner cell, which names the table's subject. Deere's
+    #: segment tables put "Production and Precision Agriculture" there and then
+    #: label the row merely "Operating profit" — three segments in one filing
+    #: carry that identical row label, so the corner is the only thing that
+    #: separates 580 from 485 from 237.
+    scope_label: str = ""
 
     def column_spans(self) -> list[PeriodSpan | None]:
         return [c.span for c in self.columns]
@@ -210,13 +216,37 @@ def parse_tables(doc: Document, profile=None) -> list[Table]:
                 )
             )
         slots = _positional_slots(header_rows, caption, doc, profile)
+        scope_label = _corner_scope(header_rows)
 
         if rows:
             tables.append(
                 Table(doc=doc, start_line=start + 1, caption=caption,
-                      units=units, columns=columns, rows=rows, slots=slots)
+                      units=units, columns=columns, rows=rows, slots=slots,
+                      scope_label=scope_label)
             )
     return tables
+
+
+#: corner cells that describe the table's units or shape rather than its subject
+_CORNER_NOISE_RE = re.compile(
+    r"^\s*\(?\s*(in|\$|£|€)\b|per share|amounts|months? ended|year ended|unaudited|"
+    r"^\s*$|^\s*(total|change|period|item)s?\s*$",
+    re.I,
+)
+
+
+def _corner_scope(header_rows) -> str:
+    """The header's corner cell, when it names a subject rather than units."""
+    for _, cells in header_rows:
+        corner = (cells[0] if cells else "").strip()
+        if not corner or len(corner) < 4 or len(corner) > 60:
+            continue
+        if _CORNER_NOISE_RE.search(corner):
+            continue
+        if not re.search(r"[A-Za-z]{3}", corner):
+            continue
+        return corner
+    return ""
 
 
 CHANGE_RE = re.compile(r"%\s*change|^\s*change\s*$", re.I)

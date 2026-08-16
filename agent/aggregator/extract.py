@@ -7,10 +7,10 @@ nine-month or prior-year column into a quarterly answer.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 
 from .corpus import Document
-from .facets import MetricSpec, parse as parse_facets
+from .facets import MetricSpec, parse as parse_facets, scope_matches
 from .fiscal import FiscalPeriod, PeriodSpan
 from .tables import Table, parse_tables
 from .units import parse_cell
@@ -82,6 +82,14 @@ def extract(
         for table in parse_tables(doc, profile):
             for row in table.rows:
                 row_spec = parse_facets(row.effective_label, segments)
+                if row_spec.scope is None and table.scope_label and segments:
+                    # Only a corner cell that names a KNOWN segment scopes its
+                    # rows. Most tables have some heading in the corner; if any
+                    # of them counted, every row would look segment-scoped and
+                    # an unscoped query would match nothing.
+                    if any(scope_matches(table.scope_label, seg) and
+                           scope_matches(seg, table.scope_label) for seg in segments):
+                        row_spec = replace(row_spec, scope=table.scope_label)
                 if not spec.matches(row_spec):
                     continue
                 seen_labels.add(row.label)

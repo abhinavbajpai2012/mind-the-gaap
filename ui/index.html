@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind the GAAP — Control Room</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Hanken+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#12141A;          /* Northern line, softened */
+  --ink-2:#191C24;
+  --ink-3:#212530;
+  --cream:#F4EEE1;        /* tube map paper */
+  --cream-dim:#A9A396;
+  --rule:#2C3140;
+  --red:#DC241F;          /* roundel */
+  --central:#E1251B;
+  --victoria:#00A0E2;
+  --piccadilly:#3A4BC8;
+  --district:#00863E;
+  --amber:#F0A500;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --ui:'Hanken Grotesk',-apple-system,'Segoe UI',sans-serif;
+  --display:'Bricolage Grotesque','Hanken Grotesk',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased}
+body{
+  min-height:100vh;font-family:var(--ui);color:var(--cream);
+  background:
+    radial-gradient(1100px 620px at 12% -12%, #232A3C 0%, transparent 62%),
+    radial-gradient(760px 520px at 92% 8%, #2A1E22 0%, transparent 60%),
+    linear-gradient(178deg,#14171E 0%,#101218 100%);
+  background-attachment:fixed;
+  padding:clamp(20px,4vw,54px) clamp(16px,5vw,64px) 90px;
+}
+/* faint moquette weave, the seat-fabric texture */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
+  background-image:
+    repeating-linear-gradient(45deg,var(--cream) 0 1px,transparent 1px 11px),
+    repeating-linear-gradient(-45deg,var(--cream) 0 1px,transparent 1px 11px);
+}
+.wrap{max-width:1180px;margin:0 auto;position:relative;z-index:1}
+
+/* ---------- header ---------- */
+header{display:flex;align-items:flex-start;gap:22px;flex-wrap:wrap;
+  animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.roundel{width:58px;height:58px;position:relative;flex:none;margin-top:4px}
+.roundel i{position:absolute;inset:0;border:9px solid var(--red);border-radius:50%}
+.roundel b{position:absolute;left:-7px;right:-7px;top:50%;height:10px;
+  transform:translateY(-50%);background:var(--cream)}
+h1{font-family:var(--display);font-size:clamp(31px,5vw,52px);font-weight:800;
+  letter-spacing:-.03em;line-height:.95}
+h1 em{font-style:normal;color:var(--red)}
+.sub{color:var(--cream-dim);font-size:14px;margin-top:8px;max-width:56ch;line-height:1.5}
+.frozen{font-family:var(--mono);font-size:11px;color:var(--cream-dim);
+  border:1px solid var(--rule);border-radius:2px;padding:4px 9px;margin-left:auto;
+  align-self:flex-start;white-space:nowrap}
+
+/* ---------- console ---------- */
+.console{margin-top:38px;background:linear-gradient(#1A1E28,#161922);
+  border:1px solid var(--rule);border-radius:4px;padding:24px clamp(18px,3vw,30px);
+  animation:rise .7s .08s cubic-bezier(.2,.8,.2,1) both}
+.row{display:flex;gap:18px;align-items:flex-end;flex-wrap:wrap}
+label{display:block;font-size:10.5px;letter-spacing:.19em;text-transform:uppercase;
+  color:var(--cream-dim);margin-bottom:9px;font-weight:700}
+.field{flex:1 1 300px;min-width:250px}
+input[type=text]{width:100%;background:#0E1015;border:1px solid var(--rule);
+  border-radius:3px;color:var(--cream);font-family:var(--mono);font-size:16px;
+  padding:14px 15px;transition:border-color .2s,box-shadow .2s}
+input[type=text]::placeholder{color:#5B6070}
+input[type=text]:focus{outline:none;border-color:var(--victoria);
+  box-shadow:0 0 0 3px rgba(0,160,226,.15)}
+
+button.go{
+  position:relative;border:0;cursor:pointer;background:var(--red);color:var(--cream);
+  font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:.03em;
+  padding:15px 34px;border-radius:999px;display:flex;align-items:center;gap:11px;
+  transition:transform .16s cubic-bezier(.2,.8,.2,1),box-shadow .2s,background .2s;
+  box-shadow:0 5px 0 #8E1310,0 12px 26px rgba(220,36,31,.28)}
+button.go:hover:not(:disabled){transform:translateY(-2px);
+  box-shadow:0 7px 0 #8E1310,0 16px 32px rgba(220,36,31,.36)}
+button.go:active:not(:disabled){transform:translateY(3px);box-shadow:0 2px 0 #8E1310}
+button.go:disabled{background:#3A3F4C;box-shadow:none;cursor:progress;color:var(--cream-dim)}
+button.go span.dot{width:11px;height:11px;border-radius:50%;background:var(--cream);
+  box-shadow:0 0 0 3px rgba(244,238,225,.25)}
+button.go.running span.dot{animation:blink .9s ease-in-out infinite}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.chip{font-family:var(--mono);font-size:11.5px;padding:6px 12px;border-radius:999px;
+  border:1px solid var(--rule);color:var(--cream-dim);cursor:pointer;background:none;
+  transition:.18s;display:flex;align-items:center;gap:7px}
+.chip:hover{color:var(--cream);border-color:var(--cream-dim)}
+.chip i{width:8px;height:8px;border-radius:50%;background:currentColor;display:block}
+
+/* ---------- the line ---------- */
+.line{margin-top:34px;position:relative;padding:30px 0 4px;
+  animation:rise .7s .16s cubic-bezier(.2,.8,.2,1) both}
+.track{position:absolute;left:5%;right:5%;top:41px;height:5px;border-radius:3px;
+  background:var(--rule)}
+.track b{position:absolute;inset:0 auto 0 0;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--victoria),var(--amber));
+  transition:width .55s cubic-bezier(.4,0,.2,1)}
+.stations{display:flex;justify-content:space-between;position:relative}
+.stn{flex:1;text-align:center;position:relative}
+.stn u{display:block;width:19px;height:19px;border-radius:50%;margin:0 auto 12px;
+  background:var(--ink);border:4px solid var(--rule);transition:.35s;position:relative;z-index:1}
+.stn p{font-size:11px;color:#666C7C;letter-spacing:.05em;transition:color .3s;line-height:1.35}
+.stn.on u{border-color:var(--victoria);background:var(--victoria);
+  box-shadow:0 0 0 6px rgba(0,160,226,.16)}
+.stn.on p{color:var(--cream)}
+.stn.now u{animation:pulse 1.15s ease-in-out infinite}
+.stn.done u{border-color:var(--amber);background:var(--amber);box-shadow:none}
+.stn.done p{color:var(--cream-dim)}
+.ticker{font-family:var(--mono);font-size:12px;color:var(--cream-dim);margin-top:22px;
+  min-height:18px;text-align:center}
+
+/* ---------- results ---------- */
+.results{margin-top:40px}
+.results h2{font-family:var(--display);font-size:15px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cream-dim);font-weight:600;margin-bottom:16px;
+  display:flex;align-items:center;gap:14px}
+.results h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+.grp{margin-bottom:26px;border-left:4px solid var(--co);padding-left:0;
+  background:#171A22;border-radius:0 4px 4px 0;overflow:hidden;
+  animation:rise .5s cubic-bezier(.2,.8,.2,1) both}
+.grp header{display:flex;align-items:baseline;gap:12px;padding:14px 20px;
+  background:linear-gradient(90deg,color-mix(in srgb,var(--co) 15%,transparent),transparent);
+  animation:none}
+.grp header b{font-family:var(--display);font-size:19px;font-weight:800;letter-spacing:-.01em}
+.grp header em{font-family:var(--mono);font-style:normal;font-size:11.5px;
+  color:var(--co);border:1px solid var(--co);padding:3px 8px;border-radius:2px}
+.grp header i{font-style:normal;font-size:11.5px;color:var(--cream-dim);margin-left:auto;
+  font-family:var(--mono)}
+table{width:100%;border-collapse:collapse}
+th{text-align:left;font-size:10px;letter-spacing:.17em;text-transform:uppercase;
+  color:#6E7484;font-weight:700;padding:9px 20px;border-bottom:1px solid var(--rule)}
+th.n,td.n{text-align:right}
+td{padding:13px 20px;border-bottom:1px solid #21242E;vertical-align:top;font-size:14px}
+tr:last-child td{border-bottom:none}
+td.val{font-family:var(--mono);font-size:19px;font-weight:600;white-space:nowrap}
+td.val small{font-size:11px;color:var(--cream-dim);font-weight:400;margin-left:5px}
+td.meth{font-size:11.5px;color:var(--cream-dim);font-family:var(--mono);max-width:290px}
+td.meth .tilt{color:var(--amber)}
+td.meth .cite{display:block;color:#5E6474;margin-top:5px;font-size:10.5px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fail{color:#E4736E;font-family:var(--mono);font-size:12px}
+.empty{color:var(--cream-dim);font-size:13px;padding:26px 0;text-align:center;
+  border:1px dashed var(--rule);border-radius:4px}
+
+footer{margin-top:44px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
+  display:flex;gap:20px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:16px}
+
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 5px rgba(0,160,226,.20)}
+  50%{box-shadow:0 0 0 13px rgba(0,160,226,0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="roundel"><i></i><b></b></div>
+    <div>
+      <h1>Mind the <em>GAAP</em></h1>
+      <p class="sub">Every figure is pulled from the frozen filing corpus with a file and line
+        behind it. Nothing here is typed in by hand.</p>
+    </div>
+    <div class="frozen" id="frozen">corpus · loading</div>
+  </header>
+
+  <section class="console">
+    <div class="row">
+      <div class="field">
+        <label for="co">Company</label>
+        <input id="co" type="text" list="colist" autocomplete="off"
+               placeholder="all four — or type ADI, Home Depot, Hays…">
+        <datalist id="colist"></datalist>
+      </div>
+      <button class="go" id="go"><span class="dot"></span>Start the run</button>
+    </div>
+    <div class="chips" id="chips"></div>
+  </section>
+
+  <section class="line">
+    <div class="track"><b id="fill"></b></div>
+    <div class="stations" id="stations"></div>
+    <div class="ticker" id="ticker">idle</div>
+  </section>
+
+  <section class="results" id="results"></section>
+
+  <footer>
+    <span>Agents vs Wall Street</span>
+    <span id="foot-docs">—</span>
+    <span>hard filters, never relevance scores</span>
+  </footer>
+</div>
+
+<script>
+const LINES = ['--central','--victoria','--piccadilly','--district'];
+const $ = s => document.querySelector(s);
+let META = null, RUNNING = false;
+
+function colourFor(i){ return getComputedStyle(document.documentElement)
+  .getPropertyValue(LINES[i % LINES.length]).trim(); }
+
+/* ---------- boot ---------- */
+async function boot(){
+  drawStations([{key:'index',label:'Index corpus'},{key:'periods',label:'Resolve periods'},
+                {key:'history',label:'Extract history'},{key:'tone',label:'Call-tone signal'},
+                {key:'forecast',label:'Forecast'},{key:'table',label:'Results'}]);
+  $('#ticker').textContent = 'building the document index…';
+  try{
+    const r = await fetch('/api/meta'); META = await r.json();
+    if(META.status !== 'ready') throw new Error(META.error || 'index failed');
+    drawStations(META.stages);
+    $('#frozen').textContent = 'corpus frozen · ' + META.frozen_at;
+    const total = META.companies.reduce((a,c)=>a+c.documents,0);
+    $('#foot-docs').textContent = total.toLocaleString() + ' documents indexed';
+    const dl = $('#colist'), chips = $('#chips');
+    META.companies.forEach((c,i)=>{
+      [c.ticker, c.name].forEach(v=>{ const o=document.createElement('option'); o.value=v; dl.appendChild(o); });
+      const b = document.createElement('button');
+      b.className='chip'; b.style.color=colourFor(i);
+      b.innerHTML = `<i></i>${c.ticker} · ${c.period} · ${c.documents} docs`;
+      b.onclick = ()=>{ $('#co').value = c.ticker; };
+      chips.appendChild(b);
+    });
+    $('#ticker').textContent = 'ready — press start';
+  }catch(e){
+    $('#ticker').textContent = 'index failed: ' + e.message;
+  }
+}
+
+function drawStations(stages){
+  $('#stations').innerHTML = stages.map(s =>
+    `<div class="stn" data-k="${s.key}"><u></u><p>${s.label}</p></div>`).join('');
+}
+
+/* ---------- run ---------- */
+function startRun(){
+  if(RUNNING) return;
+  RUNNING = true;
+  const btn = $('#go');
+  btn.disabled = true; btn.classList.add('running');
+  btn.lastChild.textContent = 'Running…';
+  document.querySelectorAll('.stn').forEach(s=>s.className='stn');
+  $('#fill').style.width = '0%';
+  $('#results').innerHTML = '';
+
+  const co = $('#co').value.trim();
+  const url = '/api/run' + (co ? '?company=' + encodeURIComponent(co) : '');
+  const es = new EventSource(url);
+  const keys = [...document.querySelectorAll('.stn')].map(s=>s.dataset.k);
+
+  es.onmessage = ev => {
+    const m = JSON.parse(ev.data);
+    if(m.type === 'stage'){
+      const i = keys.indexOf(m.stage);
+      document.querySelectorAll('.stn').forEach((s,j)=>{
+        s.classList.remove('now');
+        if(j < i) s.classList.add('on','done');
+        if(j === i) s.classList.add('on','now');
+      });
+      $('#fill').style.width = ((i)/(keys.length-1)*100) + '%';
+      $('#ticker').textContent = m.message;
+    }
+    if(m.type === 'done'){
+      document.querySelectorAll('.stn').forEach(s=>s.classList.add('on','done'));
+      document.querySelectorAll('.stn').forEach(s=>s.classList.remove('now'));
+      $('#fill').style.width = '100%';
+      render(m.result); finish(es);
+    }
+    if(m.type === 'error'){
+      $('#ticker').textContent = m.message;
+      $('#results').innerHTML = `<div class="empty fail">${m.message}</div>`;
+      finish(es);
+    }
+  };
+  es.onerror = () => { if(RUNNING){ $('#ticker').textContent = 'connection closed'; finish(es);} };
+}
+
+function finish(es){
+  es.close(); RUNNING = false;
+  const btn = $('#go');
+  btn.disabled = false; btn.classList.remove('running');
+  btn.lastChild.textContent = 'Run again';
+}
+
+/* ---------- render ---------- */
+function fmt(v, units){
+  if(v === null || v === undefined) return '—';
+  const abs = Math.abs(v);
+  const dp = abs >= 1000 ? 0 : (abs >= 100 ? 1 : 2);
+  return v.toLocaleString(undefined,{minimumFractionDigits:dp,maximumFractionDigits:dp});
+}
+
+function render(res){
+  const order = [...new Set(res.results.map(r=>r.ticker))];
+  const idx = t => (META ? META.companies.findIndex(c=>c.ticker===t) : 0);
+  const secs = order.map((t,n)=>{
+    const rows = res.results.filter(r=>r.ticker===t);
+    const co = colourFor(idx(t) < 0 ? n : idx(t));
+    const good = rows.filter(r=>r.value!==null).length;
+    const body = rows.map(r=>{
+      if(r.value === null)
+        return `<tr><td>${r.metric}</td><td class="n"><span class="fail">refused</span></td>
+                <td class="meth">${r.error||''}</td></tr>`;
+      const tilt = r.tilt ? ` · <span class="tilt">tone ${(r.tilt*100>0?'+':'')}${(r.tilt*100).toFixed(1)}%</span>` : '';
+      const cite = r.cites && r.cites.length ? `<span class="cite">${r.cites[0]}${r.cites.length>1?' +'+(r.cites.length-1)+' more':''}</span>` : '';
+      return `<tr><td>${r.metric}</td>
+        <td class="n val">${fmt(r.value,r.units)}<small>${r.units}</small></td>
+        <td class="meth">${r.method}${tilt}${cite}</td></tr>`;
+    }).join('');
+    return `<div class="grp" style="--co:${co};animation-delay:${n*90}ms">
+      <header><b>${rows[0].company}</b><em>${t}</em><span>${rows[0].period}</span>
+        <i>${good}/${rows.length} produced</i></header>
+      <table><thead><tr><th>Metric</th><th class="n">Forecast</th><th>Method &amp; source</th></tr></thead>
+      <tbody>${body}</tbody></table></div>`;
+  }).join('');
+  $('#results').innerHTML =
+    `<h2>Forecasts</h2>${secs || '<div class="empty">nothing returned</div>'}`;
+  $('#ticker').textContent =
+    `${res.filled}/${res.total} forecasts produced · finished ${res.finished_at}`;
+}
+
+$('#go').onclick = startRun;
+$('#co').addEventListener('keydown', e => { if(e.key === 'Enter') startRun(); });
+boot();
+</script>
+</body>
+</html>

@@ -73,13 +73,49 @@ class MetricSpec:
             return False
         if self.statistic != other.statistic:
             return False
-        if self.scope and self.scope != other.scope:
+        if self.scope and not scope_matches(self.scope, other.scope):
+            return False
+        if not self.scope and other.scope:
+            # "Worldwide net sales and revenues" is the group total; it must not
+            # silently take Production & Precision Agriculture's 4,273.
             return False
         return True
 
     @property
     def is_per_share(self) -> bool:
         return self.unit_class == "per_share"
+
+
+_SCOPE_STOP = {"and", "&", "the", "of", "segment", "segments", "operations", "business"}
+
+
+def scope_tokens(text: str) -> tuple[str, ...]:
+    t = (text or "").casefold().replace("&", " and ")
+    t = re.sub(r"[^a-z0-9 ]+", " ", t)
+    return tuple(w for w in t.split() if w and w not in _SCOPE_STOP)
+
+
+def scope_matches(query_scope: str | None, doc_scope: str | None) -> bool:
+    """Does a requested segment match the one a table declares?
+
+    The challenge asks for "Production & Precision Ag"; Deere's filing says
+    "Production and Precision Agriculture". Requiring string equality would
+    miss it, and ignoring scope entirely would silently return a different
+    segment's number. Each query token must prefix the document token in the
+    same order, so "ag" matches "agriculture" but never "turf".
+    """
+    if not query_scope or query_scope == "total":
+        return True
+    if not doc_scope:
+        return False           # a scoped query must not fall back to an unscoped row
+    q, d = scope_tokens(query_scope), scope_tokens(doc_scope)
+    if not q:
+        return True
+    i = 0
+    for token in d:
+        if i < len(q) and token.startswith(q[i]):
+            i += 1
+    return i == len(q)
 
 
 def _normalise(text: str) -> str:
@@ -166,6 +202,19 @@ def parse(text: str, segments: tuple[str, ...] = (),
         if statistic != "level":
             break
     t = residual
+
+    # --- scope from the leftover text, but only if the company reports it ---
+    # "Production & Precision Ag operating profit" leaves "production precision
+    # ag" once the concept is removed. Treating any residual as a scope would
+    # break "Worldwide net sales and revenues" (residual "worldwide") against a
+    # row labelled "Total net sales and revenues", so it must match a segment
+    # the company actually declares.
+    if scope is None and residual and segments:
+        for seg in segments:
+            if scope_matches(residual, seg):
+                scope = residual
+                residual = ""
+                break
 
     # --- unit class -------------------------------------------------------
     if concept == "eps" or "per share" in _normalise(original):

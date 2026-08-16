@@ -28,13 +28,39 @@ DURATION_WORDS = {
 }
 
 
-@dataclass(frozen=True, order=True)
+@dataclass(frozen=True)
 class FiscalPeriod:
     """A fiscal period label."""
 
     fy: int
     quarter: int | None = None
     half: int | None = None
+
+    @property
+    def sort_key(self) -> tuple[int, int]:
+        """Chronological ordering across mixed granularities.
+
+        A half-yearly reporter has `quarter=None`, so comparing the raw fields
+        puts None against int and raises. H1 sorts where Q2 would, H2 where Q4
+        would, and a full-year label sorts after both.
+        """
+        if self.quarter:
+            return (self.fy, self.quarter)
+        if self.half:
+            return (self.fy, self.half * 2)
+        return (self.fy, 5)
+
+    def __lt__(self, other: "FiscalPeriod") -> bool:
+        return self.sort_key < other.sort_key
+
+    def __le__(self, other: "FiscalPeriod") -> bool:
+        return self.sort_key <= other.sort_key
+
+    def __gt__(self, other: "FiscalPeriod") -> bool:
+        return self.sort_key > other.sort_key
+
+    def __ge__(self, other: "FiscalPeriod") -> bool:
+        return self.sort_key >= other.sort_key
 
     def __str__(self) -> str:
         if self.quarter:
