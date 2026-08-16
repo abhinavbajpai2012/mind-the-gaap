@@ -1,0 +1,11 @@
+# Secrets — never commit these.
+.env
+.env.*
+!.env.example
+
+# Python / tooling artifacts
+.venv/
+__pycache__/
+*.py[cod]
+.ruff_cache/
+.impeccable/
