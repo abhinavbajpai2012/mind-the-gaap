@@ -263,6 +263,12 @@ def _pick_forecaster(choose, preflight, prefer: str, notes: list[str]):
     if prefer == "neighbours":
         notes.append("neighbour forecaster requested")
         return choose("neighbours")
+    if prefer == "selector":
+        # Backtests eleven regression families against the neighbour model on
+        # identical folds, per target. Without this branch "selector" fell
+        # through to the neighbour fallback and every metric used one model.
+        notes.append("backtest selector requested")
+        return choose("selector")
 
     working, why = preflight(prefer)
     notes.append(_one_line(why))
@@ -464,10 +470,20 @@ def run(panel: Panel, companies: Iterable[str] | None = None,
                     guides = guidance_cache.get(key_gp := (target.ticker,
                                                            str(target.period)))
                     if guides is None:
+                        from .guidance import extract_consensus
                         guides = extract_guidance(panel, target.ticker, target.period)
+                        # company-compiled sell-side consensus counts as guidance:
+                        # Hays publishes the range and says where in it it will land
+                        from .guidance import load_research_anchors
+                        guides = (load_research_anchors(target.ticker, target.period)
+                                  + extract_consensus(panel, target.ticker,
+                                                      target.period) + guides)
                         guidance_cache[key_gp] = guides
+                    # 1% slack, not 5%: a stated band already expresses the
+                    # uncertainty, so padding it a second time lets a forecast
+                    # 4% outside an analyst range stand as "within guidance"
                     verdict = challenge(res.value, target.metric_label,
-                                        target.units, guides)
+                                        target.units, guides, slack=0.01)
                     if verdict.action == "overridden":
                         res.notes.append(f"ADVERSARIAL: {verdict.reason}")
                         res.notes += verdict.notes
