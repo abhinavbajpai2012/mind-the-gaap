@@ -25,12 +25,12 @@ ROOT = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 
 from agent.aggregator.panel import Panel          # noqa: E402
-from agent.pipeline import STAGES, format_table, run  # noqa: E402
+from agent.pipeline import STAGES, format_table, make_builder, run  # noqa: E402
 
 UI = ROOT / "ui" / "index.html"
 ARCH = ROOT / "ui" / "architecture.html"
 
-_state: dict = {"panel": None, "status": "cold", "error": None}
+_state: dict = {"panel": None, "builder": None, "status": "cold", "error": None}
 _lock = threading.Lock()
 
 
@@ -41,6 +41,7 @@ def get_panel() -> Panel:
             _state["status"] = "indexing"
             try:
                 _state["panel"] = Panel.challenge()
+                _state["builder"] = make_builder(_state["panel"])
                 _state["status"] = "ready"
             except Exception as exc:
                 _state["status"] = "error"
@@ -118,7 +119,8 @@ class Handler(BaseHTTPRequestHandler):
         def worker() -> None:
             try:
                 panel = get_panel()
-                result = run(panel, companies or None, on_event=emit)
+                result = run(panel, companies or None, on_event=emit,
+                             builder=_state["builder"])
                 events.put({"type": "done", "result": result.to_dict()})
             except Exception as exc:
                 events.put({"type": "error", "message": f"{type(exc).__name__}: {exc}"})
@@ -168,6 +170,15 @@ def cli(companies: list[str] | None, audit: bool) -> int:
 
     result = run(panel, companies, on_event=emit)
     print(format_table(result))
+
+    try:
+        from agent.workbooks import write_workbooks
+        for path in write_workbooks(result, ROOT):
+            print(f"  workbook: {path.relative_to(ROOT)}")
+    except Exception as exc:
+        print(f"\n  workbooks NOT written: {exc}\n")
+        return 1
+
     if audit:
         out = ROOT / "logs" / f"run-{result.started_at.replace(':', '')}.md"
         out.parent.mkdir(exist_ok=True)

@@ -1,74 +1,358 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Agent architecture — team name</title>
-  <style>
-    :root { color-scheme: light; --ink:#101828; --muted:#667085; --line:#d0d5dd; --blue:#155eef; --paper:#fff; --wash:#f8fafc; }
-    * { box-sizing: border-box; }
-    body { margin: 0; color: var(--ink); background: var(--wash); font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
-    main { width: min(920px, calc(100% - 32px)); margin: 40px auto; padding: clamp(24px, 6vw, 64px); background: var(--paper); border: 1px solid var(--line); border-radius: 20px; }
-    h1 { margin: 0 0 8px; font-size: clamp(40px, 8vw, 72px); line-height: .98; letter-spacing: -.05em; }
-    h2 { margin: 48px 0 12px; font-size: 24px; letter-spacing: -.02em; }
-    p, li { max-width: 72ch; }
-    .eyebrow { color: var(--blue); font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .lede { color: var(--muted); font-size: 20px; }
-    .card { margin-top: 24px; padding: 20px; background: var(--wash); border: 1px solid var(--line); border-radius: 12px; }
-    code { padding: 2px 6px; border-radius: 5px; background: #eef4ff; }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mind the GAAP — Architecture</title>
+<style>
+:root{
+  --ink:#12141A;--ink-2:#191C24;--cream:#F4EEE1;--cream-dim:#A9A396;--rule:#2C3140;
+  --red:#DC241F;--central:#E1251B;--victoria:#00A0E2;--piccadilly:#3A4BC8;
+  --district:#00863E;--amber:#F0A500;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --ui:'Hanken Grotesk',-apple-system,'Segoe UI',sans-serif;
+  --display:'Bricolage Grotesque','Hanken Grotesk',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{min-height:100vh;font-family:var(--ui);color:var(--cream);
+  background:radial-gradient(1100px 620px at 12% -12%,#232A3C 0%,transparent 62%),
+    radial-gradient(760px 520px at 92% 8%,#2A1E22 0%,transparent 60%),
+    linear-gradient(178deg,#14171E 0%,#101218 100%);
+  background-attachment:fixed;padding:clamp(20px,4vw,54px) clamp(16px,5vw,64px) 90px}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
+  background-image:repeating-linear-gradient(45deg,var(--cream) 0 1px,transparent 1px 11px),
+    repeating-linear-gradient(-45deg,var(--cream) 0 1px,transparent 1px 11px)}
+.wrap{max-width:1240px;margin:0 auto;position:relative;z-index:1}
+
+header{display:flex;align-items:flex-start;gap:22px;flex-wrap:wrap;
+  animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+.roundel{width:52px;height:52px;position:relative;flex:none;margin-top:4px}
+.roundel i{position:absolute;inset:0;border:8px solid var(--red);border-radius:50%}
+.roundel b{position:absolute;left:-6px;right:-6px;top:50%;height:9px;
+  transform:translateY(-50%);background:var(--cream)}
+h1{font-family:var(--display);font-size:clamp(30px,4.6vw,48px);font-weight:800;
+  letter-spacing:-.03em;line-height:.95}
+h1 em{font-style:normal;color:var(--red)}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);margin-bottom:9px}
+.back{margin-left:auto;align-self:flex-start;font-family:var(--mono);font-size:11.5px;
+  color:var(--cream-dim);text-decoration:none;border:1px solid var(--rule);
+  padding:8px 14px;border-radius:999px;transition:.2s;white-space:nowrap}
+.back:hover{color:var(--cream);border-color:var(--victoria)}
+
+.thesis{margin-top:30px;font-size:clamp(17px,2vw,21px);line-height:1.55;max-width:74ch;
+  color:#D8D2C4;animation:rise .7s .07s cubic-bezier(.2,.8,.2,1) both}
+.thesis b{color:var(--cream);font-weight:700}
+.thesis .hl{color:var(--amber)}
+
+h2{font-family:var(--display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--cream-dim);font-weight:600;margin:56px 0 22px;display:flex;
+  align-items:center;gap:16px}
+h2::after{content:'';flex:1;height:1px;background:var(--rule)}
+
+/* ---------- the two-line map ---------- */
+.map{position:relative;animation:rise .7s .14s cubic-bezier(.2,.8,.2,1) both}
+.legend{display:flex;gap:26px;flex-wrap:wrap;margin-bottom:26px;font-family:var(--mono);
+  font-size:12px;color:var(--cream-dim)}
+.legend span{display:flex;align-items:center;gap:9px}
+.legend u{width:26px;height:5px;border-radius:3px;display:block;text-decoration:none}
+
+.stop{display:grid;grid-template-columns:1fr 108px 1fr;gap:0;align-items:stretch;
+  position:relative}
+.rail{position:relative;display:flex;flex-direction:column;align-items:center}
+.rail::before,.rail::after{content:'';position:absolute;width:5px;top:0;bottom:0}
+.rail::before{left:34px;background:#4A5060}
+.rail::after{right:34px;background:var(--red)}
+.stop:first-child .rail::before,.stop:first-child .rail::after{top:38px}
+.stop:last-child .rail::before,.stop:last-child .rail::after{bottom:calc(100% - 38px)}
+.node{position:absolute;top:32px;width:100%;display:flex;justify-content:space-between;
+  padding:0 24px}
+.node u{width:21px;height:21px;border-radius:50%;background:var(--ink);display:block;
+  text-decoration:none;position:relative;z-index:2}
+.node u.a{border:5px solid #6B7280}
+.node u.b{border:5px solid var(--red)}
+.num{position:absolute;top:34px;left:50%;transform:translateX(-50%);z-index:3;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink);
+  background:var(--amber);width:19px;height:19px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center}
+
+.side{padding:22px 26px 30px}
+.side.left{text-align:right}
+.side h3{font-family:var(--display);font-size:18px;font-weight:700;letter-spacing:-.01em;
+  margin-bottom:7px;line-height:1.2}
+.side.left h3{color:#B9BECB}
+.side.right h3{color:var(--cream)}
+.side p{font-size:13.5px;line-height:1.6;color:var(--cream-dim);max-width:46ch}
+.side.left p{margin-left:auto}
+.side.right code{font-family:var(--mono);font-size:11.5px;color:var(--victoria);
+  background:#0E1015;padding:2px 6px;border-radius:3px;border:1px solid var(--rule)}
+.pill{display:inline-block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;
+  text-transform:uppercase;padding:3px 8px;border-radius:2px;margin-bottom:9px;font-weight:600}
+.pill.live{background:rgba(0,134,62,.18);color:#4BC97D;border:1px solid #29713F}
+.pill.next{background:transparent;color:#8A8F9E;border:1px solid var(--rule)}
+
+/* ---------- cards ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px}
+.card{background:#171A22;border:1px solid var(--rule);border-radius:4px;padding:22px;
+  border-top:3px solid var(--c,var(--victoria));animation:rise .6s both}
+.card h4{font-family:var(--display);font-size:16px;font-weight:700;margin-bottom:9px}
+.card p{font-size:13px;line-height:1.6;color:var(--cream-dim)}
+.card p b{color:var(--cream);font-weight:600}
+
+/* ---------- traps ---------- */
+table{width:100%;border-collapse:collapse;background:#171A22;border:1px solid var(--rule);
+  border-radius:4px;overflow:hidden}
+th{text-align:left;font-size:10px;letter-spacing:.17em;text-transform:uppercase;
+  color:#6E7484;font-weight:700;padding:12px 18px;border-bottom:1px solid var(--rule)}
+td{padding:13px 18px;border-bottom:1px solid #21242E;font-size:13.5px;vertical-align:top}
+tr:last-child td{border-bottom:none}
+td.t{color:var(--cream);font-weight:600;white-space:nowrap}
+td.d{color:var(--cream-dim)}
+td.d b{color:var(--amber);font-family:var(--mono);font-size:12.5px;font-weight:500}
+
+/* ---------- numbers ---------- */
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(178px,1fr));gap:14px}
+.stat{background:linear-gradient(#1A1E28,#161922);border:1px solid var(--rule);
+  border-radius:4px;padding:22px}
+.stat b{display:block;font-family:var(--mono);font-size:31px;font-weight:600;
+  color:var(--amber);letter-spacing:-.02em}
+.stat span{display:block;font-size:11.5px;color:var(--cream-dim);margin-top:7px;line-height:1.45}
+
+footer{margin-top:52px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
+  display:flex;gap:22px;flex-wrap:wrap;border-top:1px solid var(--rule);padding-top:16px}
+
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@media (max-width:880px){
+  .stop{grid-template-columns:1fr}
+  .rail{display:none}
+  .side.left{text-align:left;border-left:4px solid #6B7280}
+  .side.right{border-left:4px solid var(--red)}
+  .side.left p{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
 </head>
 <body>
-  <main>
-    <p class="eyebrow">Agents vs Wall Street</p>
-    <h1>Team name</h1>
-    <p class="lede">In one sentence, explain what your agent does and what makes the approach worth understanding.</p>
+<div class="wrap">
 
-    <div class="card">
-      <p>Agent name: <strong>add agent name</strong></p>
-      <p>Team: <strong>add everyone's name</strong></p>
-      <p>Build style and harness: <strong>add headless agent, coding harness or hybrid setup</strong></p>
-      <p>Models: <strong>add the primary models</strong></p>
+  <header>
+    <div class="roundel"><i></i><b></b></div>
+    <div>
+      <div class="kicker">Agents vs Wall Street · Architecture</div>
+      <h1>Mind the <em>GAAP</em></h1>
+    </div>
+    <a class="back" href="/">← Control room</a>
+  </header>
+
+  <p class="thesis">
+    We did not invent a method. We took <b>the way an equity analyst actually forecasts</b> —
+    split the business into categories, read what each did last quarter, read what management
+    said about next quarter, judge each part forward — and rebuilt it so it runs over
+    <b>1,139 documents instead of a handful</b>, and so that
+    <span class="hl">every number carries the file and line it came from</span>.
+  </p>
+
+  <h2>The analyst's method, rebuilt</h2>
+
+  <div class="map">
+    <div class="legend">
+      <span><u style="background:#6B7280"></u> How an analyst does it</span>
+      <span><u style="background:var(--red)"></u> How our agent does it</span>
+      <span><u style="background:var(--amber);height:14px;width:14px;border-radius:50%"></u> Interchange — same job, more breadth</span>
     </div>
 
-    <section>
-      <h2>How it works</h2>
-      <p>Explain the path from a company ticker to the three forecasts. Name the main stages, models, tools and data sources. A simple diagram is welcome.</p>
-    </section>
-
-    <section>
-      <h2>Research and financial reasoning</h2>
-      <p>Explain how the agent finds information, interprets the requested metrics and units, deals with conflicting evidence and turns the research into a forecast.</p>
-    </section>
-
-    <section>
-      <h2>Important design choices</h2>
-      <p>Describe the decisions that most affected autonomy, quality, runtime or cost. Include the alternatives you rejected and why.</p>
-    </section>
-
-    <section>
-      <h2>Checks and tests</h2>
-      <p>Show how the system catches missing information, bad units, implausible values, malformed workbooks and failed model calls. Explain what you tested and what happened.</p>
-    </section>
-
-    <section>
-      <h2>Reproducing the run</h2>
-      <p>State what someone needs to install or configure, the command they run and any remaining human input. Explain how the system accepts the company and metric specification.</p>
-    </section>
-
-    <section>
-      <h2>Known weaknesses</h2>
-      <p>Be specific about where the agent still needs human help, where it may fail and what you would improve next.</p>
-    </section>
-
-    <section>
-      <h2>How to reproduce the final run</h2>
-      <div class="card">
-        <p>Final commit: <code>add commit hash</code></p>
-        <p>Final command: <code>add command</code></p>
-        <p>Expected output: four completed workbooks in <code>submission/</code>.</p>
+    <div class="stop">
+      <div class="side left">
+        <h3>Gather the filings</h3>
+        <p>Opens the last few quarterly reports, the earnings call transcript and the results
+          deck. Realistically: a handful of documents, the ones he already knows.</p>
       </div>
-    </section>
-  </main>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">1</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Index the whole corpus</h3>
+        <p>All <b>1,139</b> documents classified from their filenames, then each one's fiscal
+          period resolved from ranked evidence. The corpus's own <code>period:</code> field is
+          read but <b>never trusted</b> — it labels ADI's Q2 10-Q as "Q3 2026".</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Split the business into categories</h3>
+        <p>Decides the product or segment breakdown — what the range is, which lines carry the
+          revenue, which matter to the story.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">2</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Discover the split from the tables</h3>
+        <p>Segments are read off the corner cell of the company's own segment tables, not
+          configured by us. Deere's filings yield <code>Production &amp; Precision Agriculture</code>,
+          <code>Small Agriculture &amp; Turf</code>, <code>Construction &amp; Forestry</code> —
+          each row separately addressable.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Read last quarter's performance</h3>
+        <p>Pulls the actuals off the results tables and the slides, and builds a history to
+          extrapolate from.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">3</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Extract cited actuals</h3>
+        <p>Markdown tables parsed so that the period belongs to the <b>column</b>, not the
+          document. Every figure returns as <code>value · period · file:line</code>. Ask any
+          number <code>.why()</code> and it lists what it accepted <b>and what it refused</b>.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Read management guidance</h3>
+        <p>The outlook section and the call: what the company says about the quarter that has
+          not happened yet. This is where most of the signal is.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">4</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Retrieve guidance deterministically</h3>
+        <p>Next quarter's guidance lives in <b>this</b> quarter's 8-K and call, so retrieval is
+          period-aware by design: <code>docs("ADI","FY2026Q2",kind="transcript")</code> is how
+          you reach the Q3 outlook.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Decide what drives what</h3>
+        <p>Knows from experience which drivers move which line — footfall to comparable sales,
+          order book to revenue — and weights them by judgement.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">5</div></div>
+      <div class="side right">
+        <span class="pill next">Next</span>
+        <h3>Feature selection over extracted CSVs</h3>
+        <p>The corpus is reduced to quantifiable fields — actuals, guidance, operational drivers,
+          segment mix. A model then selects <b>which columns predict which target</b>, rather
+          than a human asserting it. Extraction is done; selection is the next build.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Judge each category forward</h3>
+        <p>Applies growth to each category and sums to a number. One method, one analyst,
+          one opinion.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">6</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Forecast, then backtest the method</h3>
+        <p>Today: <b>seasonal year-on-year</b> — anchor on the same period a year earlier, grow
+          by the company's own recent rate. Seasonality is not optional; Home Depot's Q2 is its
+          spring peak. Next: several models scored against held-out quarters, best one wins.</p>
+      </div>
+    </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Adjust for tone and macro</h3>
+        <p>Nudges the number if the call felt defensive, or if the macro backdrop turned. Real
+          skill, entirely unrecorded.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">7</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Quantify tone, and cap it</h3>
+        <p>A call-tone subagent scores the Q&amp;A against <b>the company's own prior calls</b>,
+          not an absolute scale, and returns ordinal channels. It enters as a
+          <b>capped tilt — 3%, or 0.5pp on a rate</b> — because tone should move a forecast,
+          never drive it.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Where the machine goes past the analyst</h2>
+  <div class="grid">
+    <div class="card" style="--c:var(--victoria);animation-delay:.05s">
+      <h4>Breadth</h4>
+      <p>An analyst reads the documents he already trusts. The agent reads <b>every</b> document
+        for a company and keeps only what survives a period filter — then tells you what it
+        threw away and why.</p>
+    </div>
+    <div class="card" style="--c:var(--amber);animation-delay:.12s">
+      <h4>Defensibility</h4>
+      <p>A pipeline cannot contribute a number without citations — <code>push()</code> raises
+        <b>Undefensible</b> if you try. The run log is not written for the judges; it is a
+        by-product of the design.</p>
+    </div>
+    <div class="card" style="--c:var(--district);animation-delay:.19s">
+      <h4>Generality</h4>
+      <p>Nothing about these four companies is compiled in. A new company is
+        <code>Profiler.fit(dir)</code>, which derives its fiscal calendar and self-certifies. A
+        new metric is one entry in a JSON file.</p>
+    </div>
+    <div class="card" style="--c:var(--central);animation-delay:.26s">
+      <h4>Refusal</h4>
+      <p>When the evidence does not support an answer, it raises instead of guessing — and names
+        the corrected call. <b>Hays has no Q2</b>, so asking for one gets you a pointer to H1,
+        not a plausible fabrication.</p>
+    </div>
+  </div>
+
+  <h2>Traps this exists to survive · all measured in this corpus</h2>
+  <table>
+    <thead><tr><th>Trap</th><th>What it does to a naive reader</th></tr></thead>
+    <tbody>
+      <tr><td class="t">Metadata is wrong</td><td class="d">The corpus labels ADI's Q2 FY2026 10-Q as <b>"Q3 2026"</b>. Filtering on it drops the single most important document.</td></tr>
+      <tr><td class="t">Year-to-date columns</td><td class="d">ADI's Q3 10-Q holds <b>74 "Nine Months Ended"</b> headers beside 70 "Three Months". Taking the wrong one is a <b>~3× error</b>.</td></tr>
+      <tr><td class="t">Prior-year comparatives</td><td class="d">Last year's column sits directly beside this year's in every results table.</td></tr>
+      <tr><td class="t">Scale captions</td><td class="d"><b>(in thousands)</b> appears <b>459×</b> against output cells denominated in millions — a <b>1000× error</b>.</td></tr>
+      <tr><td class="t">Pence, not pounds</td><td class="d">Hays quotes EPS as <b>1.31p</b>. Read as £1.31 that is a <b>100× error</b>, and <b>(0.49)p</b> is negative.</td></tr>
+      <tr><td class="t">Fiscal year offsets</td><td class="d">Home Depot's February Q4 belongs to the <b>previous</b> fiscal year. Only one of the four does this.</td></tr>
+      <tr><td class="t">Identical row labels</td><td class="d">Deere prints <b>"Diluted"</b> twice in one table: <b>4.75</b> (EPS) and <b>271.4</b> (share count). Only the section header separates them.</td></tr>
+      <tr><td class="t">Unlabelled segments</td><td class="d">Three Deere segments each label their row merely "Operating profit" — <b>580 / 485 / 237</b>. The segment name is in the table's corner cell.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Where it stands</h2>
+  <div class="stats">
+    <div class="stat"><b>1,139</b><span>documents indexed and period-resolved across four companies</span></div>
+    <div class="stat"><b>370/371</b><span>golden-set check: derived calendars predict the filing's own period token</span></div>
+    <div class="stat"><b>12/12</b><span>challenge targets forecast, each one cited</span></div>
+    <div class="stat"><b>0</b><span>fiscal calendars written by hand — all derived from the documents</span></div>
+  </div>
+
+  <h2>One command</h2>
+  <div class="grid">
+    <div class="card" style="--c:var(--piccadilly)">
+      <h4>Run it</h4>
+      <p><code>python3 main.py</code> — index, run, and this UI.<br>
+         <code>python3 main.py --cli --audit</code> — headless, prints the table and writes the
+         run log.</p>
+    </div>
+    <div class="card" style="--c:var(--victoria)">
+      <h4>Stack</h4>
+      <p>Aggregator is <b>standard-library Python</b>, no dependencies. Signal subagents use
+        pydantic. No network calls at run time — the corpus is frozen and local.</p>
+    </div>
+    <div class="card" style="--c:var(--amber)">
+      <h4>Honest gaps</h4>
+      <p>The model layer is a <b>seasonal baseline</b>, not yet a scored ensemble. Hays' forecast
+        does not yet use its already-reported H1. Both are named, not hidden.</p>
+    </div>
+  </div>
+
+  <footer>
+    <span>Agents vs Wall Street</span>
+    <span>corpus frozen 2026-08-14</span>
+    <span>every figure traceable to a file and a line</span>
+  </footer>
+</div>
 </body>
 </html>

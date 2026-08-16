@@ -1,8 +1,27 @@
 """End-to-end run: corpus -> cited history -> signals -> forecast -> table.
 
-This is the orchestration layer. It owns no financial logic of its own beyond
-the baseline forecaster below; the numbers come from the aggregator and the
-tilt comes from the signal subagents.
+This is the orchestration layer, and the run script `agent/forecast` deliberately
+does not provide. It owns no financial logic of its own beyond the baseline
+forecaster below; the numbers come from the aggregator, the framing from
+`forecast.features`, and the forecast from `forecast.model`.
+
+Two paths, and which one ran is always recorded:
+
+1. **The model.** `FeatureBuilder` turns a target into a `Frame` — a pooled,
+   backfilled matrix in year-on-year space — and `forecast.model` predicts the
+   transform, which `Frame.invert()` turns back into a level. This is the
+   intended path and covers ten of the twelve challenge targets.
+
+2. **The baseline**, below, for a frame `Frame.usable` refuses. Two of the twelve
+   land here: Home Depot's adjusted diluted EPS and comparable sales each resolve
+   for only two periods in this corpus, which is not enough year-on-year rows to
+   train on. The frame's own note says so, and it is carried into `notes` so the
+   fallback is never mistaken for the model.
+
+The call-tone tilt applies **only to the baseline path**. On the model path the
+signal is already in the matrix — `features._covariates` folds the call-tone
+channels in as columns, rebuilt at each row's own print date — so tilting the
+output as well would count the same evidence twice.
 
 Every forecast records the base figures it was built from and their citations,
 so a row in the final table can always be taken apart.
@@ -50,6 +69,13 @@ class MetricResult:
     tone: dict | None = None
     notes: list[str] = field(default_factory=list)
     error: str | None = None
+    because: str = ""                    # the rationale carried into Panel.push
+    # --- model path only; the baseline reports no interval it could defend ----
+    model: str = ""                      # "tabpfn", "neighbours", or "" for baseline
+    low: float | None = None             # 10th/90th percentile, as levels
+    high: float | None = None
+    n_train: int = 0                     # rows the model saw...
+    n_own: int = 0                       # ...and how many were this metric's own
 
     def to_dict(self) -> dict:
         return {
@@ -58,7 +84,11 @@ class MetricResult:
             "value": None if self.value is None else round(self.value, 4),
             "method": self.method, "basis": self.basis, "cites": self.cites[:8],
             "tilt": round(self.tilt, 4), "tone": self.tone,
-            "notes": self.notes, "error": self.error,
+            "notes": self.notes, "error": self.error, "because": self.because,
+            "model": self.model,
+            "low": None if self.low is None else round(self.low, 4),
+            "high": None if self.high is None else round(self.high, 4),
+            "n_train": self.n_train, "n_own": self.n_own,
         }
 
 
@@ -68,11 +98,12 @@ class RunResult:
     finished_at: str = ""
     results: list[MetricResult] = field(default_factory=list)
     companies: list[str] = field(default_factory=list)
+    notes: list[str] = field(default_factory=list)   # run-wide, e.g. which model
 
     def to_dict(self) -> dict:
         return {
             "started_at": self.started_at, "finished_at": self.finished_at,
-            "companies": self.companies,
+            "companies": self.companies, "notes": self.notes,
             "results": [r.to_dict() for r in self.results],
             "filled": sum(1 for r in self.results if r.value is not None),
             "total": len(self.results),
@@ -189,10 +220,172 @@ def _load_sentiment():
         return None, None
 
 
+def _load_forecast():
+    """Import the forecast package lazily, for the same reason as the signal.
+
+    It pulls in pydantic through `forecast.signals`, and `forecast.model` will
+    reach for torch if tabpfn is installed. Neither is needed to run the
+    baseline, so an environment missing them degrades instead of failing to
+    import — the run says which forecaster produced each number anyway.
+    """
+    try:
+        from .forecast.features import FeatureBuilder
+        from .forecast.model import choose, preflight
+        return FeatureBuilder, choose, preflight
+    except Exception:
+        return None, None, None
+
+
+def _one_line(message: str) -> str:
+    """A note fit for a table row.
+
+    `preflight` quotes the library's own failure verbatim, and tabpfn's licence
+    error is a ten-line block with numbered setup steps. The first line names
+    the failure and the hint after the dash says what to do about it; the middle
+    is the library repeating itself.
+    """
+    head, dash, hint = message.partition(" — ")
+    head = head.splitlines()[0].rstrip()
+    return f"{head}{dash}{hint}" if dash else head
+
+
+def _pick_forecaster(choose, preflight, prefer: str, notes: list[str]):
+    """Settle on one forecaster before the run, not once per target.
+
+    `TabPFNForecaster` falls back per call, which is the right behaviour for a
+    fit that dies halfway — but when the cause is a missing licence it is the
+    same failure twelve times over, twelve stack unwinds and twelve warnings
+    deep into a run that is already committed. `preflight` answers it once, on a
+    toy table, before any frame is built.
+    """
+    if choose is None:
+        return None
+    if prefer == "neighbours":
+        notes.append("neighbour forecaster requested")
+        return choose("neighbours")
+
+    working, why = preflight(prefer)
+    notes.append(_one_line(why))
+    if working:
+        return choose(prefer)
+    if prefer == "tabpfn":
+        # The caller insisted. Downgrading silently would defeat the point of
+        # having asked for it by name.
+        raise RuntimeError(why)
+    return choose("neighbours")
+
+
+def _tone(panel: Panel, builder, frame, target,
+          tone_cache: dict, SignalInput, SentimentSignal,
+          res: MetricResult) -> dict | None:
+    """The call-tone output for the period being forecast.
+
+    Taken off the builder's own fan-out cache when there is one — the same run
+    of the signal that produced the matrix columns, not a second one. Only when
+    the forecast package is unavailable does this score the calls itself.
+    """
+    if builder is not None and frame is not None:
+        as_of = frame.target_row.as_of if frame.target_row else None
+        output = builder.fan_out(target.ticker, target.period, as_of).outputs.get("calltone")
+        return output.model_dump() if output is not None else None
+
+    key = (target.ticker, str(target.period))
+    if key not in tone_cache:
+        tone_cache[key] = None
+        if SignalInput and SentimentSignal:
+            try:
+                payload = panel.signal_input(target.ticker, target.period)
+                tone_cache[key] = SentimentSignal().run(SignalInput(**payload)).model_dump()
+            except Exception as exc:
+                res.notes.append(f"call-tone signal unavailable: {exc}")
+    return tone_cache[key]
+
+
+def _from_model(res: MetricResult, frame, forecaster) -> None:
+    """Fill `res` from the model.
+
+    `res.tilt` deliberately stays at zero. The call-tone channels are already
+    columns of `frame.X`, so the signal has had its say before this point.
+    """
+    fc = forecaster.fit_predict(frame.X, frame.y, frame.x_pred,
+                                categorical_indices=frame.categorical)
+    unit = "pp" if frame.kind == "diff" else "%"
+    scale = 1.0 if frame.kind == "diff" else 100.0
+
+    res.value = frame.invert(fc.point)
+    res.model = fc.model
+    res.method = f"{fc.model} · {frame.n_self}/{len(frame.y)} rows"
+    res.low = None if fc.low is None else frame.invert(fc.low)
+    res.high = None if fc.high is None else frame.invert(fc.high)
+    res.n_train, res.n_own = fc.n_train, frame.n_self
+    res.cites = list(frame.cites)
+    res.because = frame.because(fc)
+    res.basis = [
+        {"label": "prior-year base", "value": round(frame.base, 4)},
+        {"label": f"forecast YoY ({unit})", "value": round(fc.point * scale, 4)},
+    ]
+    if fc.low is not None:
+        res.basis += [
+            {"label": f"p10 YoY ({unit})", "value": round(fc.low * scale, 4)},
+            {"label": f"p90 YoY ({unit})", "value": round(fc.high * scale, 4)},
+        ]
+    res.notes += fc.notes + frame.notes
+
+
+def _from_baseline(res: MetricResult, panel: Panel, target,
+                   history_periods: int) -> None:
+    """Fill `res` from the seasonal baseline, tilted by the call-tone signal.
+
+    Reached only when the frame is unusable, so the history is pulled here
+    rather than up front — on the model path `frame.cites` already carries the
+    documents the forecast rests on, and `Panel.history` is not cheap.
+    """
+    hist = panel.history(target.ticker, target.metric_label, target.units,
+                         periods=history_periods, like=target.period)
+    series = [(p, float(v)) for p, v in hist]
+    res.cites = [v.cites[0] for _, v in hist if v.cites]
+    if not series:
+        res.error = "no citable history for this metric"
+        return
+
+    point, method, basis = baseline_forecast(series, target.period)
+    if point is None:
+        res.error = method
+        return
+
+    tilt, tilt_notes = tone_tilt(res.tone)
+    res.value = apply_tilt(point, target.units, tilt)
+    res.method = f"{method} (baseline)"
+    res.tilt = tilt
+    res.basis = basis + [{"label": "pre-tilt forecast", "value": round(point, 4)}]
+    res.notes += tilt_notes
+    res.because = f"{method}; tone tilt {tilt:+.2%}"
+
+
+def make_builder(panel: Panel):
+    """A `FeatureBuilder` for this panel, or None if the package is unavailable.
+
+    Worth holding on to. Its caches — metric levels, the signal fan-out per
+    print date, each series' backfilled rows — are what the ~40s of a first run
+    buys, and none of it depends on which companies were asked for. A second run
+    that reuses the builder is seconds; one that rebuilds it pays in full again.
+    """
+    FeatureBuilder, _, _ = _load_forecast()
+    return FeatureBuilder(panel) if FeatureBuilder else None
+
+
 def run(panel: Panel, companies: Iterable[str] | None = None,
         on_event: Callable[[str, str, dict], None] | None = None,
-        history_periods: int = 10) -> RunResult:
-    """Run the whole pipeline and return the filled table."""
+        history_periods: int = 10, prefer: str = "auto",
+        builder=None) -> RunResult:
+    """Run the whole pipeline and return the filled table.
+
+    `prefer` is passed to `forecast.model.choose`: "auto" uses TabPFN when it
+    imports and falls back per call, "neighbours" skips it, "tabpfn" insists.
+
+    `builder` is an optional `FeatureBuilder` to reuse across runs — see
+    `make_builder`. One is made here when it is not supplied.
+    """
 
     def emit(stage: str, message: str, **extra) -> None:
         if on_event:
@@ -212,7 +405,15 @@ def run(panel: Panel, companies: Iterable[str] | None = None,
     emit("periods", f"{sum(len(v) for v in panel._docs.values())} documents resolved")
 
     SignalInput, SentimentSignal = _load_sentiment()
+    _, choose, preflight = _load_forecast()
     tone_cache: dict[tuple[str, str], dict | None] = {}
+
+    if builder is None:
+        builder = make_builder(panel)
+    forecaster = _pick_forecaster(choose, preflight, prefer, out.notes)
+    if builder is None or forecaster is None:
+        out.notes.append("forecast package unavailable; every row uses the baseline")
+    scored: set[str] = set()   # companies whose fan-out has been announced
 
     for target in targets:
         res = MetricResult(
@@ -220,50 +421,48 @@ def run(panel: Panel, companies: Iterable[str] | None = None,
             period=str(target.period), metric=target.metric_label, units=target.units,
         )
         try:
+            # --- frame: history, backfill and the signal fan-out ------------
+            # One call does all three. It is the expensive step (~40s for the
+            # twelve targets), and it is where the as-of cutoff is enforced.
             emit("history", f"{target.ticker} · {target.metric_label}")
-            hist = panel.history(target.ticker, target.metric_label, target.units,
-                                 periods=history_periods, like=target.period)
-            series = [(p, float(v)) for p, v in hist]
-            res.cites = [v.cites[0] for _, v in hist if v.cites]
-            if not series:
-                res.error = "no citable history for this metric"
-                out.results.append(res)
-                continue
+            frame = None
+            if builder is not None:
+                if target.ticker not in scored:
+                    scored.add(target.ticker)
+                    emit("tone", f"{target.ticker} · scoring earnings calls")
+                try:
+                    frame = builder.build_target(target)
+                except Exception as exc:
+                    res.notes.append(
+                        f"frame build failed, falling back to the baseline: "
+                        f"{type(exc).__name__}: {exc}"
+                    )
 
-            # --- call-tone signal, once per (company, period) ---------------
-            key = (target.ticker, str(target.period))
-            if key not in tone_cache:
-                tone_cache[key] = None
-                if SignalInput and SentimentSignal:
-                    try:
-                        emit("tone", f"{target.ticker} · scoring earnings calls")
-                        payload = panel.signal_input(target.ticker, target.period)
-                        result = SentimentSignal().run(SignalInput(**payload))
-                        tone_cache[key] = result.model_dump()
-                    except Exception as exc:
-                        tone_cache[key] = None
-                        res.notes.append(f"call-tone signal unavailable: {exc}")
-            res.tone = tone_cache[key]
+            res.tone = _tone(panel, builder, frame, target, tone_cache,
+                             SignalInput, SentimentSignal, res)
 
             emit("forecast", f"{target.ticker} · {target.metric_label}")
-            point, method, basis = baseline_forecast(series, target.period)
-            if point is None:
-                res.error = method
+            if frame is not None and frame.usable and forecaster is not None:
+                _from_model(res, frame, forecaster)
+            else:
+                if frame is not None and not frame.usable:
+                    # The frame's own explanation of why it refused. It names the
+                    # metric label and the aggregator gap behind it, so this is
+                    # the note worth keeping.
+                    res.notes += frame.notes
+                _from_baseline(res, panel, target, history_periods)
+
+            if res.tone and res.tone.get("notes"):
+                res.notes += list(res.tone["notes"])[:2]
+            if res.value is None:
                 out.results.append(res)
                 continue
 
-            tilt, tilt_notes = tone_tilt(res.tone)
-            res.value = apply_tilt(point, target.units, tilt)
-            res.method = method
-            res.tilt = tilt
-            res.basis = basis + [{"label": "pre-tilt forecast", "value": round(point, 4)}]
-            res.notes += tilt_notes
-            if res.tone and res.tone.get("notes"):
-                res.notes += list(res.tone["notes"])[:2]
-
             panel.push(target.ticker, target.period, target.metric_label,
-                       value=res.value, origin="pipeline:baseline+calltone",
-                       because=f"{method}; tone tilt {tilt:+.2%}",
+                       value=res.value,
+                       origin=f"pipeline:{res.model}" if res.model
+                              else "pipeline:baseline+calltone",
+                       because=res.because,
                        cites=res.cites or ["no-citation"], unit=target.units)
         except (NotReported, AmbiguousMetric) as exc:
             res.error = f"{type(exc).__name__}: {exc}"
@@ -300,5 +499,9 @@ def format_table(run_result: RunResult) -> str:
             f"{shown:>13}  {r.units:<12}  {method}"
         )
     filled = sum(1 for r in rows if r.value is not None)
-    lines += ["", f"  {filled}/{len(rows)} forecasts produced", ""]
+    modelled = sum(1 for r in rows if r.model)
+    lines += ["", f"  {filled}/{len(rows)} forecasts produced "
+                  f"({modelled} from the model, {filled - modelled} from the baseline)"]
+    lines += [f"  note: {n}" for n in run_result.notes]
+    lines += [""]
     return "\n".join(lines)
