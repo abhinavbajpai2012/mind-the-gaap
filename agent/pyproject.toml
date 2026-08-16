@@ -1,0 +1,8 @@
+[project]
+name = "mind-the-gaap-agent"
+version = "0.1.0"
+description = "Forecasting agent and signal subagents for Agents vs Wall Street."
+requires-python = ">=3.12"
+dependencies = [
+    "pydantic>=2.13.4",
+]
