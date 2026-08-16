@@ -407,6 +407,7 @@ def run(panel: Panel, companies: Iterable[str] | None = None,
     SignalInput, SentimentSignal = _load_sentiment()
     _, choose, preflight = _load_forecast()
     tone_cache: dict[tuple[str, str], dict | None] = {}
+    guidance_cache: dict[tuple[str, str], list] = {}
 
     if builder is None:
         builder = make_builder(panel)
@@ -451,6 +452,37 @@ def run(panel: Panel, companies: Iterable[str] | None = None,
                     # the note worth keeping.
                     res.notes += frame.notes
                 _from_baseline(res, panel, target, history_periods)
+
+            # Adversarial check: does the company's own guidance for this exact
+            # period contradict the forecast? Guidance can veto a model; a model
+            # cannot veto guidance. ADI published "third quarter of fiscal 2026
+            # ... revenue of $3.9 billion, +/- $100 million" — a model output of
+            # 3.26bn is not conservative, it is wrong against a public number.
+            if res.value is not None:
+                try:
+                    from .guidance import challenge, extract_guidance
+                    guides = guidance_cache.get(key_gp := (target.ticker,
+                                                           str(target.period)))
+                    if guides is None:
+                        guides = extract_guidance(panel, target.ticker, target.period)
+                        guidance_cache[key_gp] = guides
+                    verdict = challenge(res.value, target.metric_label,
+                                        target.units, guides)
+                    if verdict.action == "overridden":
+                        res.notes.append(f"ADVERSARIAL: {verdict.reason}")
+                        res.notes += verdict.notes
+                        res.value = verdict.value
+                        res.method = f"company guidance (overrode {res.method})"
+                        if verdict.guided:
+                            res.cites = [verdict.guided.cite] + list(res.cites)
+                            res.because = (f"company guided {verdict.guided.mid:g} "
+                                           f"for this period")
+                    elif verdict.action == "kept" and verdict.guided:
+                        res.notes.append(
+                            f"guidance check: within company guidance "
+                            f"{verdict.guided.mid:g} ({verdict.guided.cite})")
+                except Exception as exc:
+                    res.notes.append(f"guidance check unavailable: {exc}")
 
             if res.tone and res.tone.get("notes"):
                 res.notes += list(res.tone["notes"])[:2]
