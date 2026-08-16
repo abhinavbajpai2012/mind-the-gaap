@@ -1,0 +1,72 @@
+company,ticker,published_at,period,source_file,division,country,contract_type,specialism,sector_type,enterprise_channel,net_fees,net_fee_share_pct,reported_growth_pct,lfl_growth_pct,operating_profit,conversion_rate_pct
+Hays plc,LSE:HAS,2015-09-18,FY 2015,filings/2015-09-18__has-ln-20150918-h2-8k__671208.md,Germany,Germany,,,,,6,,-1,-1,,
+Hays plc,LSE:HAS,2016-09-27,FY 2016,filings/2016-09-27__has-ln-20160927-h2-8k__671209.md,Germany,Germany,,,,,13,,-1,-1,,
+Hays plc,LSE:HAS,2017-09-22,FY 2017,filings/2017-09-22__has-ln-20170922-h2-8k__671210.md,Germany,Germany,,,,,14,,-1,-1,,
+Hays plc,LSE:HAS,2017-09-22,FY 2017,filings/2017-09-22__has-ln-20170922-h2-8k__671210.md,,,,Engineering,,,73,,-1,-1,,
+Hays plc,LSE:HAS,2019-01-15,Q2 2019,filings/2019-01-15__has-ln-20190115-q2-8k__545537.md,Germany,Australia,temp,,,,15,,-1,-1,,
+Hays plc,LSE:HAS,2019-02-21,H1 2019,filings/2019-02-21__has-ln-20190221-h1-8k__545552.md,Germany,Australia,temp_and_contracting,,,,10,,-3,-3,14,
+Hays plc,LSE:HAS,2019-02-21,H1 2019,filings/2019-02-21__has-ln-20190221-h1-8k__545552.md,Germany,Germany,,,,,38,,-5,-5,14,-2
+Hays plc,LSE:HAS,2019-02-21,H1 2019,filings/2019-02-21__has-ln-20190221-h1-8k__545552.md,Rest of World,,,,,,16,,-5,-5,18,-2
+Hays plc,LSE:HAS,2019-02-21,H1 2019,filings/2019-02-21__has-ln-20190221-h1-8k__545552.md,United Kingdom & Ireland,Australia,,,,,,,-6.9,-6.9,,
+Hays plc,LSE:HAS,2019-04-16,Q3 2019,filings/2019-04-16__has-ln-20190416-q3-8k__545905.md,ANZ,Australia,,,,,3,,-1,-1,,
+Hays plc,LSE:HAS,2019-07-16,Q4 2019,filings/2019-07-16__has-ln-20190716-q4-8k__545941.md,ANZ,,temp,,,,,,-1,-1,,
+Hays plc,LSE:HAS,2019-07-16,Q4 2019,filings/2019-07-16__has-ln-20190716-q4-8k__545941.md,Germany,Germany,,,,,2,,-1,-1,,
+Hays plc,LSE:HAS,2019-08-29,FY 2019,filings/2019-08-29__has-ln-20190829-h2-8k-2__671212.md,Australia & New Zealand,Australia,temp,,,,18,,-1,-1,-1,
+Hays plc,LSE:HAS,2019-08-29,FY 2019,filings/2019-08-29__has-ln-20190829-h2-8k-2__671212.md,ANZ,Australia,,,,,198.5,,-3,-3,-3,
+Hays plc,LSE:HAS,2019-08-29,FY 2019,filings/2019-08-29__has-ln-20190829-h2-8k__545563.md,ANZ,Australia,,,,,27,,-2,-2,-2,-4
+Hays plc,LSE:HAS,2019-08-29,FY 2019,filings/2019-08-29__has-ln-20190829-h2-8k__545563.md,Germany,Germany,,,,,36,,-7,-7,-2,-4
+Hays plc,LSE:HAS,2019-08-29,FY 2019,filings/2019-08-29__has-ln-20190829-h2-8k__545563.md,Rest of World,,,,,,17,,-7,-7,-2,-4
+Hays plc,LSE:HAS,2019-10-15,Q1 2020,filings/2019-10-15__has-ln-20191015-q1-8k__547669.md,Germany,Germany,temp,,,,,,-1,-1,,
+Hays plc,LSE:HAS,2020-02-20,H1 FY2020,filings/2020-02-20__has-ln-20200220-h1-8k__545729.md,Germany,Germany,,Automotive,,,37,,-6,-6,,-2
+Hays plc,LSE:HAS,2020-02-20,H1 FY2020,filings/2020-02-20__has-ln-20200220-h1-8k__545729.md,Rest of World,USA,,,,,16,,-6,-6,,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k-2__671211.md,Australia & New Zealand,Australia,temp,,,,17,,-1,-1,-1,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k-2__671211.md,ANZ,Australia,,,,,11,,-3,-3,-3,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k-2__671211.md,Germany,Germany,,,,,9,,-3,-3,-3,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,Germany,Germany,temp,,,,6,,-2,-2,-2,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,Rest of World,,,,public,,19,,-2,-2,-2,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,ANZ,Australia,temp,,,,-1,,-2,-2,-2,-5
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,Germany,Germany,,,,,39,,-7,-7,-2,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,Rest of World,Japan,,,,,13,,-7,-7,-2,
+Hays plc,LSE:HAS,2020-08-27,FY 2020,filings/2020-08-27__has-ln-20200827-h2-8k__119727.md,United Kingdom & Ireland,Australia,temp,Accountancy & Finance,public,,30,30,-6.6,-6.6,,
+Hays plc,LSE:HAS,2021-02-18,H1 2021,filings/2021-02-18__has-ln-20210218-h1-8k__119751.md,Germany,Germany,,Automotive,,,37,,-6,-6,2,-2
+Hays plc,LSE:HAS,2021-07-15,Q4 2021,filings/2021-07-15__has-ln-20210715-q4-8k__119740.md,Germany,Germany,,,,,38,,19,19,,
+Hays plc,LSE:HAS,2021-07-15,Q4 2021,filings/2021-07-15__has-ln-20210715-q4-8k__119740.md,Rest of World,,,,,,28,,19,19,,
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k-2__671213.md,Germany,Germany,,,,,5,,-3,-3,-3,
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k__119734.md,Germany,Germany,permanent,,,,7,,-2,-2,-2,
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k__119734.md,Rest of World,,temp,,,,6,,-2,-2,-2,
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k__119734.md,ANZ,Australia,permanent,,,,42,,-2,-2,-2,-5
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k__119734.md,Germany,Germany,,,,,33,,-7,-7,-2,
+Hays plc,LSE:HAS,2021-08-26,FY 2021,filings/2021-08-26__has-ln-20210826-h2-8k__119734.md,Rest of World,China,permanent,,,,13,,-7,-7,-2,-5
+Hays plc,LSE:HAS,2021-10-14,Q1 2022,filings/2021-10-14__has-ln-20211014-q1-8k__119741.md,Group,,,Technology,,,36,,-1,-1,,
+Hays plc,LSE:HAS,2021-10-14,Q1 2022,filings/2021-10-14__has-ln-20211014-q1-8k__119741.md,ANZ,,,,,,1,,-1,-1,,
+Hays plc,LSE:HAS,2021-10-14,Q1 2022,filings/2021-10-14__has-ln-20211014-q1-8k__119741.md,Germany,Germany,,,,,4,,-1,-1,,
+Hays plc,LSE:HAS,2021-10-14,Q1 2022,filings/2021-10-14__has-ln-20211014-q1-8k__119741.md,Rest of World,,,,,,6,,-1,-1,,
+Hays plc,LSE:HAS,2022-01-13,Q2 2022,filings/2022-01-13__has-ln-20220113-q2-8k__119728.md,Group,,,Technology,,,33,,-1,-1,,
+Hays plc,LSE:HAS,2022-01-13,Q2 2022,filings/2022-01-13__has-ln-20220113-q2-8k__119728.md,ANZ,,,,,,6,,-1,-1,,
+Hays plc,LSE:HAS,2022-01-13,Q2 2022,filings/2022-01-13__has-ln-20220113-q2-8k__119728.md,Germany,Germany,,,,,10,,-1,-1,,
+Hays plc,LSE:HAS,2022-01-13,Q2 2022,filings/2022-01-13__has-ln-20220113-q2-8k__119728.md,Rest of World,,,,,,19,,-1,-1,,
+Hays plc,LSE:HAS,2022-02-24,H1 2022,filings/2022-02-24__has-ln-20220224-h1-8k__119746.md,Group,,,Technology,,,35,35,20,20,,
+Hays plc,LSE:HAS,2022-02-24,H1 2022,filings/2022-02-24__has-ln-20220224-h1-8k__119746.md,Germany,Germany,contracting,,,,35,,-7,-7,,-2
+Hays plc,LSE:HAS,2022-02-24,H1 2022,filings/2022-02-24__has-ln-20220224-h1-8k__119746.md,Rest of World,,,,,,21,,-7,-7,20,-2
+Hays plc,LSE:HAS,2022-08-25,FY 2022,filings/2022-08-25__has-ln-20220825-h2-8k__119750.md,Germany,Germany,contracting,,,,35,,-7,-7,,-2
+Hays plc,LSE:HAS,2022-08-25,FY 2022,filings/2022-08-25__has-ln-20220825-h2-8k__119750.md,Rest of World,,,,,,19,,-7,-7,22,-2
+Hays plc,LSE:HAS,2023-02-23,H1 2023,filings/2023-02-23__has-ln-20230223-h1-8k__119736.md,Germany,Germany,,,,,24,,-4,-4,17,
+Hays plc,LSE:HAS,2023-02-23,H1 2023,filings/2023-02-23__has-ln-20230223-h1-8k__119736.md,Germany,Germany,contracting,,,,45,,-7,-7,,-2
+Hays plc,LSE:HAS,2023-02-23,H1 2023,filings/2023-02-23__has-ln-20230223-h1-8k__119736.md,Rest of World,,,,,,21,,-7,-7,17,
+Hays plc,LSE:HAS,2023-08-24,FY 2023,filings/2023-08-24__has-ln-20230824-h2-8k-2__671216.md,,,permanent,Technology,,,-2,,-2,-2,,
+Hays plc,LSE:HAS,2023-08-24,FY 2023,filings/2023-08-24__has-ln-20230824-h2-8k__119735.md,Germany,Germany,,,,,19,,-4,-4,2,2
+Hays plc,LSE:HAS,2023-08-24,FY 2023,filings/2023-08-24__has-ln-20230824-h2-8k__119735.md,Germany,Germany,,,,,51,,-6,-6,2,28.2
+Hays plc,LSE:HAS,2023-08-24,FY 2023,filings/2023-08-24__has-ln-20230824-h2-8k__119735.md,Rest of World,,,,,,18,,-6,-6,19,
+Hays plc,LSE:HAS,2024-02-22,H1 2024,filings/2024-02-22__has-ln-20240222-h1-8k__119744.md,Germany,Australia,,,,,68,,-7,-7,3,-3
+Hays plc,LSE:HAS,2024-02-22,H1 2024,filings/2024-02-22__has-ln-20240222-h1-8k__119744.md,Germany,Germany,temp_and_contracting,,,,3,,-5,-5,,
+Hays plc,LSE:HAS,2024-02-22,H1 2024,filings/2024-02-22__has-ln-20240222-h1-8k__119744.md,Rest of World,China,,,,,12,,-7,-7,-2,-3
+Hays plc,LSE:HAS,2024-08-22,FY 2024,filings/2024-08-22__has-ln-20240822-h2-8k-2__671217.md,ANZ,Australia,,,,,20,,-3,-3,-3,
+Hays plc,LSE:HAS,2024-08-22,FY 2024,filings/2024-08-22__has-ln-20240822-h2-8k__119721.md,Germany,Australia,,,,,65,,-7,-7,2,-3
+Hays plc,LSE:HAS,2024-08-22,FY 2024,filings/2024-08-22__has-ln-20240822-h2-8k__119721.md,Germany,Germany,temp_and_contracting,,,,7,,-5,-5,,
+Hays plc,LSE:HAS,2024-08-22,FY 2024,filings/2024-08-22__has-ln-20240822-h2-8k__119721.md,ANZ,Australia,,,,,11,,-2,-2,-2,-3
+Hays plc,LSE:HAS,2024-08-22,FY 2024,filings/2024-08-22__has-ln-20240822-h2-8k__119721.md,Rest of World,,,,,,18,,-7,-7,,
+Hays plc,LSE:HAS,2025-02-20,H1 2025,filings/2025-02-20__has-ln-20250220-q2-8k__119730.md,ANZ,Australia,,,,,-1,,-2,-2,-2,-3
+Hays plc,LSE:HAS,2025-08-21,FY 2025,filings/2025-08-21__has-ln-20250821-filing__143845.md,Australia & New Zealand,Australia,,,,,-1,,-2,-2,-2,-3
+Hays plc,LSE:HAS,2025-08-21,FY 2025,filings/2025-08-21__has-ln-20250821-h2-8k-2__671218.md,ANZ,Australia,,,,,13,,-3,-3,-3,
+Hays plc,LSE:HAS,2025-08-21,FY 2025,filings/2025-08-21__has-ln-20250821-h2-8k__143890.md,ANZ,Australia,,,,,-1,,-2,-2,-2,-3
+Hays plc,LSE:HAS,2026-02-27,H1 2026,filings/2026-02-27__has-ln-20260227-h1-8k__642921.md,ANZ,Australia,,,,,-2,,-3,-3,-3,-4
