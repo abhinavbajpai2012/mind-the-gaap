@@ -360,6 +360,9 @@ def choose(prefer: str = "auto", **kwargs) -> Forecaster:
     """
     if prefer == "neighbours":
         return NeighbourForecaster()
+    if prefer == "selector":
+        from .selector import BacktestSelector
+        return BacktestSelector(NeighbourForecaster())
     try:
         import tabpfn  # noqa: F401
     except ImportError as exc:

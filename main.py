@@ -73,6 +73,8 @@ class Handler(BaseHTTPRequestHandler):
             return self._send(200, ARCH.read_bytes(), "text/html; charset=utf-8")
         if url.path == "/api/meta":
             return self._meta()
+        if url.path == "/api/backtest":
+            return self._backtest()
         if url.path == "/api/run":
             return self._run(parse_qs(url.query))
         self._send(404, b"not found", "text/plain")
@@ -101,6 +103,23 @@ class Handler(BaseHTTPRequestHandler):
         except Exception as exc:
             payload = {"status": "error", "error": str(exc)}
         self._send(200, json.dumps(payload).encode(), "application/json")
+
+    def _backtest(self) -> None:
+        """Walk-forward scores per target. Cached on disk; recomputed on demand."""
+        import json as _json
+        cache = ROOT / "output" / "backtest.json"
+        try:
+            if cache.exists():
+                payload = {"status": "ready", "rows": _json.loads(cache.read_text())}
+            else:
+                from agent.mlforecast import backtest_report
+                rows = backtest_report(get_panel())
+                cache.parent.mkdir(parents=True, exist_ok=True)
+                cache.write_text(_json.dumps(rows, indent=1))
+                payload = {"status": "ready", "rows": rows}
+        except Exception as exc:
+            payload = {"status": "error", "error": f"{type(exc).__name__}: {exc}"}
+        self._send(200, _json.dumps(payload).encode(), "application/json")
 
     def _run(self, params: dict) -> None:
         """Stream progress as Server-Sent Events, then the finished table."""

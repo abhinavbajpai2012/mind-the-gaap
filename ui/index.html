@@ -145,6 +145,14 @@ td.val{font-family:var(--mono);font-size:19px;font-weight:600;white-space:nowrap
 td.val small{font-size:11px;color:var(--cream-dim);font-weight:400;margin-left:5px}
 td.meth{font-size:11.5px;color:var(--cream-dim);font-family:var(--mono);max-width:290px}
 td.meth .tilt{color:var(--amber)}
+.bt table{width:100%;border-collapse:collapse;background:#171A22;border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+.bt td.win{font-family:var(--mono);font-size:12.5px;color:var(--cream)}
+.bt td.mape{font-family:var(--mono);font-size:15px;font-weight:600;text-align:right;white-space:nowrap}
+.bt td.base{font-family:var(--mono);font-size:12px;text-align:right;color:var(--cream-dim);white-space:nowrap}
+.bt .beat{color:#4BC97D}.bt .same{color:var(--cream-dim)}.bt .none{color:#6E7484}
+.bar{display:block;height:4px;border-radius:2px;background:var(--rule);margin-top:6px;position:relative;overflow:hidden}
+.bar i{position:absolute;inset:0 auto 0 0;background:linear-gradient(90deg,var(--victoria),var(--amber));display:block}
+.btnote{font-size:12px;color:var(--cream-dim);margin:14px 0 18px;line-height:1.6;max-width:82ch}
 td.meth .cite{display:block;color:#5E6474;margin-top:5px;font-size:10.5px;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .fail{color:#E4736E;font-family:var(--mono);font-size:12px}
@@ -195,6 +203,7 @@ footer{margin-top:44px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
   </section>
 
   <section class="results" id="results"></section>
+  <section class="results" id="backtest"></section>
 
   <footer>
     <span>Agents vs Wall Street</span>
@@ -276,7 +285,7 @@ function startRun(){
       document.querySelectorAll('.stn').forEach(s=>s.classList.add('on','done'));
       document.querySelectorAll('.stn').forEach(s=>s.classList.remove('now'));
       $('#fill').style.width = '100%';
-      render(m.result); finish(es);
+      render(m.result); loadBacktest(); finish(es);
     }
     if(m.type === 'error'){
       $('#ticker').textContent = m.message;
@@ -329,6 +338,38 @@ function render(res){
     `<h2>Forecasts</h2>${secs || '<div class="empty">nothing returned</div>'}`;
   $('#ticker').textContent =
     `${res.filled}/${res.total} forecasts produced · finished ${res.finished_at}`;
+}
+
+async function loadBacktest(){
+  try{
+    const r = await fetch('/api/backtest'); const d = await r.json();
+    if(d.status !== 'ready' || !d.rows) return;
+    const rows = d.rows.filter(x => x.scores && x.scores.length);
+    const skipped = d.rows.length - rows.length;
+    const worst = Math.max(...rows.map(r => Math.max(r.scores[0].mape, r.baseline_mape||0)));
+    const body = rows.map(r=>{
+      const s = r.scores[0], b = r.baseline_mape;
+      const beat = b!=null && s.mape < b*0.999;
+      const cls = b==null ? 'none' : (beat ? 'beat' : 'same');
+      const verdict = b==null ? 'no baseline' :
+        (beat ? `beats baseline by ${Math.round((b-s.mape)/b*100)}%` : 'baseline retained');
+      return `<tr>
+        <td>${r.ticker} · ${r.metric}</td>
+        <td class="win">${r.best_model}<span class="bar"><i style="width:${Math.min(100,s.mape/worst*100)}%"></i></span></td>
+        <td class="mape ${cls}">${(s.mape*100).toFixed(1)}%</td>
+        <td class="base">${b==null?'—':(b*100).toFixed(1)+'%'}</td>
+        <td class="meth">${s.folds} folds · n=${r.n_rows}<span class="cite">${verdict}</span></td></tr>`;
+    }).join('');
+    $('#backtest').innerHTML = `<h2>Backtest · walk-forward, out of sample</h2>
+      <p class="btnote">Every score below is out-of-sample: an expanding window that never sees
+      the future, one fold per quarter. Eleven model families compete against a seasonal-naive
+      baseline and a drift baseline. <b>A model is used only if it beat the baseline out of
+      sample</b> — otherwise the baseline stands.${skipped?` ${skipped} targets had too little
+      history to score and fall back to the baseline.`:''}</p>
+      <div class="grp bt" style="--co:var(--amber)">
+      <table><thead><tr><th>Target</th><th>Winning model</th><th class="n">MAPE</th>
+      <th class="n">Baseline</th><th>Evidence</th></tr></thead><tbody>${body}</tbody></table></div>`;
+  }catch(e){}
 }
 
 $('#go').onclick = startRun;
