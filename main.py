@@ -28,6 +28,7 @@ from agent.aggregator.panel import Panel          # noqa: E402
 from agent.pipeline import STAGES, format_table, run  # noqa: E402
 
 UI = ROOT / "ui" / "index.html"
+ARCH = ROOT / "ui" / "architecture.html"
 
 _state: dict = {"panel": None, "status": "cold", "error": None}
 _lock = threading.Lock()
@@ -67,6 +68,8 @@ class Handler(BaseHTTPRequestHandler):
         url = urlparse(self.path)
         if url.path in ("/", "/index.html"):
             return self._send(200, UI.read_bytes(), "text/html; charset=utf-8")
+        if url.path in ("/architecture", "/architecture.html"):
+            return self._send(200, ARCH.read_bytes(), "text/html; charset=utf-8")
         if url.path == "/api/meta":
             return self._meta()
         if url.path == "/api/run":
