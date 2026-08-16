@@ -5,7 +5,7 @@ from __future__ import annotations
 import re
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Any, Literal
+from typing import Any, Literal, Optional
 
 from pydantic import BaseModel, field_validator, model_validator
 
@@ -26,10 +26,26 @@ DocumentType = Literal["call_transcript", "filing", "slide"]
 
 
 class RelevantDocument(BaseModel):
-    """One corpus document handed to a subagent, with what kind of document it is."""
+    """One corpus document handed to a subagent, with what kind of document it is.
+
+    The three optional fields are what the aggregator knows and the document itself
+    does not say reliably. A subagent should prefer them when they are present and
+    fall back to the front matter when the caller assembled the list by hand:
+
+    - `doc_class`  the aggregator's classification (EARNINGS_CALL, CONFERENCE, AGM,
+      STRUCTURED_RESULT, ...), which separates an earnings call from a conference
+      appearance far better than a filename can.
+    - `period`     the *resolved* fiscal period ("FY2026Q2"). The corpus's own
+      `period:` front matter is wrong often enough that the aggregator refuses to
+      use it — it labels Deere's May 2026 Q2 call "Q3 2026". Neither should we.
+    - `published_at`  ISO date, for ordering and for as-of cutoffs.
+    """
 
     path: Path
     document_type: DocumentType
+    doc_class: Optional[str] = None
+    period: Optional[str] = None
+    published_at: Optional[str] = None
 
     @model_validator(mode="before")
     @classmethod
@@ -47,6 +63,14 @@ class RelevantDocument(BaseModel):
     def _normalise_type(cls, value: str) -> str:
         """The corpus writes 'CALL_TRANSCRIPT'; store the lower-case form."""
         return str(value).strip().lower().replace("-", "_")
+
+    @field_validator("period", "published_at", mode="before")
+    @classmethod
+    def _stringify(cls, value: Any) -> Any:
+        """The aggregator hands over FiscalPeriod and date objects; store their text."""
+        if value is None or isinstance(value, str):
+            return value
+        return value.isoformat() if hasattr(value, "isoformat") else str(value)
 
     @property
     def name(self) -> str:

@@ -10,7 +10,7 @@ from __future__ import annotations
 import json
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 from .classify import DocClass
@@ -150,26 +150,50 @@ class DocSet:
     def paths(self) -> list[Path]:
         return [d.path for d in self.docs]
 
-    def to_signal_input(self) -> dict:
+    def to_signal_input(self, period: str | FiscalPeriod | None = None) -> dict:
         """Arguments for signal_subagents.abc_subagent.SignalInput.
 
         Returned as a plain dict so the aggregator stays standard-library only;
         the subagent side does `SignalInput(**docset.to_signal_input())`.
         `period` is emitted in the corpus convention ("Q3 2026") that
         SignalInput normalises to.
+
+        `period` is the period being *forecast*, which is not always the period
+        these documents belong to — a signal that standardises a company against
+        its own past is handed years of calls and asked about one quarter. It
+        defaults to this DocSet's period, which is right only when the DocSet is
+        the target period's own documents. `Panel.signal_input()` is the usual
+        way in and passes it explicitly.
+
+        Each document carries its resolved period and class, so a subagent never
+        has to fall back on the corpus's `period:` front matter — the one that
+        labels Deere's May 2026 Q2 call "Q3 2026".
         """
-        if self.period is None:
-            raise ValueError("to_signal_input() needs a period-scoped DocSet")
-        if self.period.quarter:
-            period = f"Q{self.period.quarter} {self.period.fy}"
-        elif self.period.half:
-            period = f"H{self.period.half} {self.period.fy}"
+        want = FiscalPeriod.parse(period) if isinstance(period, str) else period
+        want = want or self.period
+        if want is None:
+            raise ValueError(
+                "to_signal_input() needs a period: pass period=..., or build the "
+                "DocSet with one"
+            )
+        if want.quarter:
+            label = f"Q{want.quarter} {want.fy}"
+        elif want.half:
+            label = f"H{want.half} {want.fy}"
         else:
-            period = f"FY {self.period.fy}"
+            label = f"FY {want.fy}"
         return {
             "company": self.company,
-            "period": period,
-            "relevant_documents": self.paths(),
+            "period": label,
+            "relevant_documents": [
+                {
+                    "path": d.path,
+                    "doc_class": d.doc_class,
+                    "period": str(d.period) if d.period else None,
+                    "published_at": d.published_at.isoformat(),
+                }
+                for d in self.docs
+            ],
         }
 
     def excluded(self, limit: int = 20) -> list[tuple[str, str]]:
@@ -296,6 +320,35 @@ class Panel:
         keep.sort(key=lambda d: (d.published_at, d.kind))
         return DocSet(company=ticker, period=want, docs=keep,
                       excluded_docs=dropped, total=len(all_docs))
+
+    def signal_input(self, company: str, period: str | FiscalPeriod,
+                     kind: str | None = "transcript",
+                     as_of: str | date | None = None) -> dict:
+        """Documents for a signal subagent forecasting `period`, with its history.
+
+        `docs(company, period)` is a hard filter and returns that period alone —
+        for ADI FY2026Q2, two transcripts. A signal that standardises a company
+        against its own past needs more than that: hand the call-tone signal one
+        quarter and every channel abstains, correctly and uselessly. So this
+        returns *every* document of `kind` for the company, and carries `period`
+        separately as the period being forecast. Subagents select within what
+        they are given; this decides what is on the table.
+
+        `as_of` drops documents published on or after that date. The twelve
+        challenge targets do not need it — the corpus is frozen 2026-08-14 and
+        none of those prints have happened — but a backtest of an already-reported
+        period does, or the signal reads the answer off the call that announced it.
+        """
+        cutoff = date.fromisoformat(as_of) if isinstance(as_of, str) else as_of
+        found = self.docs(company, kind=kind)
+        keep, dropped = [], list(found.excluded_docs)
+        for d in found:
+            if cutoff and d.published_at >= cutoff:
+                dropped.append((d.short, f"published {d.published_at} >= as_of {cutoff}"))
+                continue
+            keep.append(d)
+        return DocSet(company=found.company, period=None, docs=keep,
+                      excluded_docs=dropped, total=found.total).to_signal_input(period)
 
     def _mentions(self, doc: Document, spec: MetricSpec) -> bool:
         from .facets import _lexicons

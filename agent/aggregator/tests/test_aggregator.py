@@ -5,6 +5,7 @@ No test framework dependency, matching starter/test_search.py's style.
 
 from __future__ import annotations
 
+import re
 import sys
 
 from ..classify import DocClass
@@ -160,6 +161,15 @@ def test_document_hygiene(panel: Panel):
           all(d.period is None for d in noise), True)
     check("there are noise filings to exclude", len(noise) > 0, True)
 
+    # 'call-q4-qna' is an earnings call that happens to name its quarter, not a
+    # results document. Classifying it as one hid 27 calls from kind="transcript",
+    # including 4 of Deere's last 8 quarters.
+    tagged = [d for company in panel._docs.values() for d in company
+              if re.match(r"^call-(q[1-4]|h[12])", d.kind)]
+    check("there are quarter-tagged call files", len(tagged) > 20, True)
+    check("a quarter-tagged call is still an earnings call",
+          {d.doc_class for d in tagged}, {DocClass.EARNINGS_CALL})
+
     docs = panel.docs("ADI", "FY2025Q3")
     check("every returned document is in the requested period",
           all(d.period == FiscalPeriod(2025, quarter=3) for d in docs), True)
@@ -175,6 +185,57 @@ def test_granularity(panel: Panel):
         print("  FAIL Hays Q2 did not raise")
     except NotReported as exc:
         check("Hays Q2 raises NotReported with a pointer", "H1" in str(exc), True)
+
+
+def test_signal_bridge(panel: Panel):
+    """Panel.signal_input() -> SignalInput -> a signal subagent, end to end.
+
+    The seam has three ways to look fine and be useless: hand over one period's
+    documents to a signal that needs history, hand over the front-matter period
+    instead of the resolved one, or hand over documents the subagent then
+    silently drops. Each is checked here on real corpus documents.
+    """
+    from ...signal_subagents.abc_subagent import SignalInput
+    from ...signal_subagents.sentiment import SentimentSignal
+
+    print("\n[bridge] aggregator -> signal subagent")
+
+    si = panel.signal_input("ADI", "FY2026Q3")
+    check("the target period is carried, not the documents'", si["period"], "Q3 2026")
+    check("history comes with it, not one quarter",
+          len(si["relevant_documents"]) > 40, True)
+    check("a period-scoped DocSet is still one period",
+          len(panel.docs("ADI", "FY2026Q2", kind="transcript")), 2)
+
+    # The corpus labels Deere's May 2026 Q2 call "Q3 2026" in its front matter.
+    call = next(d for d in panel.signal_input("DE", "FY2026Q3")["relevant_documents"]
+                if "de-us-20260521-call-qna" in d["path"].name)
+    check("documents carry the resolved period", call["period"], "FY2026Q2")
+    check("documents carry the aggregator's class", call["doc_class"], DocClass.EARNINGS_CALL)
+
+    # All twelve targets are for unreported periods, so every signal must produce a
+    # reading rather than abstain; abstention here means the bridge starved it.
+    for ticker, period in [("HD", "FY2026Q2"), ("ADI", "FY2026Q3"),
+                           ("HAS", "FY2026"), ("DE", "FY2026Q3")]:
+        out = SentimentSignal().run(SignalInput(**panel.signal_input(ticker, period)))
+        check(f"{ticker} {period} scores rather than abstains",
+              out.qa_neg is not None and out.n_baseline >= 6, True)
+        check(f"{ticker} lag-1 call is dated before the print",
+              out.as_of_call < "2026-08-14", True)
+
+    # A backtest must not read the call that announced the number.
+    before = SentimentSignal().run(
+        SignalInput(**panel.signal_input("HD", "FY2025Q2", as_of="2025-08-19")))
+    check("as_of drops the print's own call", before.as_of_call < "2025-08-19", True)
+
+    # Wrong input fails loudly, naming what it was given.
+    try:
+        SentimentSignal().run(SignalInput(**panel.signal_input("ADI", "FY2026Q3",
+                                                              kind="filing")))
+        FAILS.append("a filing-only DocSet should raise")
+        print("  FAIL filings were accepted as call transcripts")
+    except ValueError as exc:
+        check("filings are refused with a reason", "not a call transcript" in str(exc), True)
 
 
 def test_push_requires_citations(panel: Panel):
@@ -202,6 +263,7 @@ def main() -> int:
     test_ytd_trap(panel)
     test_document_hygiene(panel)
     test_granularity(panel)
+    test_signal_bridge(panel)
     test_push_requires_citations(panel)
     print("=" * 68)
     if FAILS:

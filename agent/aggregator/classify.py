@@ -98,10 +98,14 @@ def _doc_class(kind: str) -> str:
         return DocClass.CONFERENCE
     if kind.startswith("call-agm"):
         return DocClass.AGM
-    if PERIOD_TOKEN_RE.match(kind):
-        return DocClass.STRUCTURED_RESULT
+    # Before the period-token test: PERIOD_TOKEN_RE deliberately allows a 'call-' prefix
+    # so that 'call-q3-qna' yields the token q3, and testing it first classified 27
+    # quarter-tagged earnings calls across the corpus as results documents. A call is a
+    # call whether or not its filename names the quarter.
     if kind.startswith("call"):
         return DocClass.EARNINGS_CALL
+    if PERIOD_TOKEN_RE.match(kind):
+        return DocClass.STRUCTURED_RESULT
     if kind == "slide":
         return DocClass.SLIDE
     return DocClass.GENERIC_FILING

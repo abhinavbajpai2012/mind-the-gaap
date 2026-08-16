@@ -42,13 +42,30 @@ for d in docs:
 **Hand documents straight to a signal subagent** (bridges to `abc_subagent.SignalInput`):
 
 ```python
-from signal_subagents.abc_subagent import SignalInput
-from signal_subagents.sentiment import SentimentSignal
+from agent.signal_subagents.abc_subagent import SignalInput
+from agent.signal_subagents.sentiment import SentimentSignal
 
-docs = p.docs("ADI", "FY2026Q2", kind="transcript")
-result = SentimentSignal().run(SignalInput(**docs.to_signal_input()))
-# to_signal_input() emits the corpus period convention ("Q2 2026") SignalInput expects
+result = SentimentSignal().run(SignalInput(**p.signal_input("ADI", "FY2026Q3")))
+# qa_neg='typical' · qa_neg_change='stable' · lag-1 call 2026-05-20 · baseline 8 calls
 ```
+
+`signal_input(company, period)` is **not** `docs(company, period)`. It hands over the
+company's whole run of transcripts and carries `period` separately as the period being
+*forecast* — a signal that standardises a company against its own past needs years, not
+one quarter. Give the call-tone signal a single quarter and every channel abstains,
+correctly and uselessly. Each document arrives with its **resolved** period and class, so
+the subagent never touches the front matter that labels Deere's May 2026 Q2 call
+`"Q3 2026"`.
+
+Backtesting a period that has already reported? Pass `as_of=` and the call that announced
+the number is dropped:
+
+```python
+p.signal_input("HD", "FY2025Q2", as_of="2025-08-19")
+```
+
+The twelve challenge targets don't need it — the corpus is frozen before all twelve
+prints.
 
 **Push your pipeline's answer back:**
 

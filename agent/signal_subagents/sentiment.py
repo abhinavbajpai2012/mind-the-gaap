@@ -39,15 +39,7 @@ from typing import Literal, Optional, Sequence
 
 from pydantic import BaseModel, Field
 
-if __package__ in (None, ""):
-    # Called as a plain script (python signal_subagents/sentiment.py), which puts this
-    # file's own directory on sys.path instead of the package root. Add the root so the
-    # import below resolves; `python -m signal_subagents.sentiment` needs none of this.
-    import sys
-
-    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-from signal_subagents.abc_subagent import AbstractSignal, RelevantDocument, SignalInput
+from .abc_subagent import AbstractSignal, RelevantDocument, SignalInput
 
 log = logging.getLogger(__name__)
 
@@ -61,8 +53,17 @@ log = logging.getLogger(__name__)
 _QNA_RE = re.compile(r"call-(?:q[1-4]|h[12])?-?qna", re.IGNORECASE)
 # Recognised only so a rejected file can be told apart from an unrecognised one.
 _PRES_RE = re.compile(r"call-(?:q[1-4]|h[12])?-?pres", re.IGNORECASE)
+# Two documents in this corpus (one HD, one Hays) are a whole call in one file, prepared
+# remarks and Q&A together, rather than the -pres/-qna pair every other call comes as.
+# Skipped rather than scored: half of one is a drafted script, and dropping that into a
+# baseline built from unscripted answers makes the call incomparable with its own history.
+_COMBINED_RE = re.compile(r"-call(?=__|$)", re.IGNORECASE)
 # Conference appearances and AGMs are not earnings calls; they would pollute the baseline.
+# Only consulted for documents that arrive without the aggregator's classification.
 _NOT_EARNINGS_RE = re.compile(r"call-conf|call-agm|investor-day", re.IGNORECASE)
+# agent.aggregator.classify.DocClass.EARNINGS_CALL, by value rather than by import: this
+# signal reads documents, and must not depend on the thing that selected them.
+_EARNINGS_CALL_CLASS = "EARNINGS_CALL"
 
 _FRONT_MATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 _FRONT_MATTER_FIELD_RE = re.compile(r'^([a-z_]+):\s*"?(.*?)"?\s*$', re.MULTILINE)
@@ -268,7 +269,11 @@ class _CallScore(BaseModel):
     guidance_raw: float
 
 
-def _score_call(path: Path, front: dict[str, str], body: str) -> _CallScore:
+def _score_call(
+    document: RelevantDocument, front: dict[str, str], body: str
+) -> _CallScore:
+    """Score one call. Aggregator-supplied period and date win over the front matter,
+    which mislabels enough calls that it is a fallback, not a source."""
     text = _clean_body(body)
     tokens, negative, _, uncertain = _counts(text)
 
@@ -280,9 +285,9 @@ def _score_call(path: Path, front: dict[str, str], body: str) -> _CallScore:
     guidance_tokens, guidance_neg, guidance_pos, _ = _counts(guidance)
 
     return _CallScore(
-        published_at=front.get("published_at", ""),
-        period=front.get("period", ""),
-        source=path.name,
+        published_at=document.published_at or front.get("published_at", ""),
+        period=document.period or front.get("period", ""),
+        source=document.name,
         tokens=tokens,
         qa_neg_raw=negative / tokens if tokens else 0.0,
         uncertainty_raw=uncertain / tokens if tokens else 0.0,
@@ -475,6 +480,11 @@ class SentimentSignal(AbstractSignal):
         Returns the scored calls, how many were cut by `as_of`, and (name, reason) for
         every document that was turned away, so a caller with no usable input can be told
         what was wrong with what it passed.
+
+        Where the aggregator has classified a document, its class decides whether the
+        call is an earnings call; the filename patterns are the fallback for hand-built
+        lists. Nothing but the filename tells prepared remarks from Q&A, so that split
+        stays a filename test either way.
         """
         scores: list[_CallScore] = []
         skipped = 0
@@ -487,24 +497,28 @@ class SentimentSignal(AbstractSignal):
                     (path.name, f"a {document.document_type}, not a call transcript")
                 )
                 continue
-            if _NOT_EARNINGS_RE.search(path.stem):
+            if document.doc_class and document.doc_class != _EARNINGS_CALL_CLASS:
+                rejected.append(
+                    (path.name, f"{document.doc_class}, not an earnings call")
+                )
+                continue
+            if not document.doc_class and _NOT_EARNINGS_RE.search(path.stem):
                 rejected.append(
                     (path.name, "conference or AGM call, not an earnings call")
                 )
                 continue
             if not _QNA_RE.search(path.stem):
-                rejected.append(
-                    (
-                        path.name,
-                        "prepared remarks; this signal scores the Q&A only"
-                        if _PRES_RE.search(path.stem)
-                        else "not a recognised earnings-call Q&A file",
-                    )
-                )
+                if _PRES_RE.search(path.stem):
+                    reason = "prepared remarks; this signal scores the Q&A only"
+                elif _COMBINED_RE.search(path.stem):
+                    reason = "whole call in one file; the Q&A cannot be separated out"
+                else:
+                    reason = "not a recognised earnings-call Q&A file"
+                rejected.append((path.name, reason))
                 continue
 
             front, body = _parse_document(path)
-            published = front.get("published_at", "")
+            published = document.published_at or front.get("published_at", "")
             if (
                 self._as_of
                 and published
@@ -516,7 +530,7 @@ class SentimentSignal(AbstractSignal):
                 )
                 continue
 
-            score = _score_call(path, front, body)
+            score = _score_call(document, front, body)
             log.debug(
                 "%s %s: %d tokens, qa_neg=%.4f",
                 score.published_at,
@@ -533,12 +547,16 @@ class SentimentSignal(AbstractSignal):
 # --------------------------------------------------------------------------------------
 # Smoke test: run this file against specific transcripts to eyeball the signal.
 #
-#   python -m signal_subagents.sentiment ../challenge/offline-data/analog-devices/call-transcripts/*.md
-#   python -m signal_subagents.sentiment <one-file>.md            # single call, levels abstain
-#   python -m signal_subagents.sentiment <dir> --period 'Q3 2026' -v
+# Run from the repository root, as with `python -m agent.aggregator`:
 #
-# The orchestrator calls run(SignalInput) directly; this block exists only so a human can
-# point the scorer at a handful of files and read the result.
+#   python -m agent.signal_subagents.sentiment challenge/offline-data/analog-devices/call-transcripts/*.md
+#   python -m agent.signal_subagents.sentiment <one-file>.md      # single call, levels abstain
+#   python -m agent.signal_subagents.sentiment <dir> --period 'Q3 2026' -v
+#
+# This block reads paths off disk and knows nothing about resolved periods, so its notes
+# show the corpus's own (unreliable) front-matter period. Going through the aggregator —
+# Panel.signal_input() — is what gets the resolved one. The orchestrator calls
+# run(SignalInput) directly; this exists only so a human can eyeball a few files.
 # --------------------------------------------------------------------------------------
 
 
@@ -548,8 +566,8 @@ def _smoke_test(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         description="Score the earnings-call Q&A among the given transcripts and print the signal.",
         epilog=(
-            "example: uv run python signal_subagents/sentiment.py "
-            "../challenge/offline-data/analog-devices/call-transcripts/*.md --period 'Q3 2026'"
+            "example: python -m agent.signal_subagents.sentiment "
+            "challenge/offline-data/analog-devices/call-transcripts/*.md --period 'Q3 2026'"
         ),
     )
     parser.add_argument(
