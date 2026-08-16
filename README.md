@@ -57,6 +57,124 @@ Start from the supplied files in `challenge/templates/`. Do not rename the `Summ
 
 Run `npm install` and `npm run setup:entry` once. Complete the private `entry.json` and `architecture/index.html`, then use `npm run check:submission` before uploading. It checks the entry record, architecture file and four workbooks. It does not judge whether the forecasts are good.
 
+## Running our agent
+
+Everything is one command. It indexes the corpus, resolves every document's
+fiscal period, extracts cited history, runs the call-tone signal, selects a
+forecast method by backtest and writes all four workbooks.
+
+### Requirements
+
+- **Python 3.12+** — `numpy scipy pandas scikit-learn pydantic openpyxl`
+- **Node 20.11+** *only* for the organisers' check scripts. They use
+  `import.meta.dirname`, so Node 18 fails with `ERR_INVALID_ARG_TYPE` before
+  reading anything. If you have nvm: `nvm use 20`.
+
+```bash
+pip3 install numpy scipy pandas scikit-learn pydantic openpyxl
+```
+
+### The final run
+
+```bash
+python3 main.py --cli --audit
+```
+
+Takes roughly two minutes from cold. It prints the twelve forecasts, writes
+`submission/*.xlsx` and a timestamped run log to `logs/`. `--audit` is what
+produces the log; drop it and everything else still happens.
+
+Restrict it to one company while iterating:
+
+```bash
+python3 main.py --cli --company ADI
+```
+
+### The control room
+
+```bash
+python3 main.py
+```
+
+Serves a UI on <http://127.0.0.1:8420/> and opens a browser. Type a company (or
+leave it blank for all four) and press start; stages light up as they finish.
+Below the forecasts is the **backtest panel**: per target, the winning model,
+its out-of-sample MAPE and the baseline it had to beat. `/architecture`
+explains the design.
+
+The first request builds the index and takes ~40s; every run after that is
+seconds.
+
+### Checking a figure
+
+No number is taken on trust — each one reports what it accepted *and what it
+refused*:
+
+```python
+from agent.aggregator.panel import Panel
+p = Panel.challenge()
+
+p.value("ADI", "FY2025Q3", "Adjusted diluted EPS", "USD / share")
+# 2.05 USD/share · FY2025Q3 (3 months to 2025-08-02) · adi-us-20250820-q3-8k.md:67
+
+p.value("ADI", "FY2025Q3", "Adjusted diluted EPS", "USD / share",
+        strict=False).why()
+# ACCEPTED  :67  2.05 …
+# REJECTED  :349c3  9-month column ('Nine Months Ended Aug. 2, 2025') — needs 3
+#           :349c2  column period FY2024Q3 != FY2025Q3
+```
+
+Command line equivalents:
+
+```bash
+python3 -m agent.aggregator ADI FY2025Q3 "Adjusted diluted EPS" --units "USD / share" --why
+python3 -m agent.aggregator ADI FY2025Q3 x --docs --kind transcript
+python3 -m agent.aggregator DE x x --list-metrics
+python3 -m agent.aggregator --fit challenge/offline-data/deere
+```
+
+### CSVs and backtest
+
+```bash
+python3 -c "from agent.aggregator.panel import Panel; from agent.export_csv import export_all; export_all(Panel.challenge())"
+```
+
+Writes `output/<company>/`: `metrics_long`, `metrics_wide` (the modelling
+table), `categories_master` (per segment: sales, profit, margin, mix),
+`guidance`, `call_signals`, `document_inventory`. Extraction is deterministic —
+the same parser the forecasts use — so no cell can be invented.
+
+### Tests
+
+```bash
+python3 -m agent.aggregator.tests.test_aggregator
+```
+
+Includes the golden-set check: fiscal calendars are *derived* from each
+company's documents, then have to predict the period token in the filenames of
+371 filings. Nothing about the four companies is hand-written — Home Depot's
+February Q4 belonging to the prior fiscal year, and Hays reporting half-years,
+are both discovered.
+
+### Adding a company or a metric
+
+```python
+from agent.aggregator.profiler import fit          # any directory of documents
+fit("challenge/offline-data/nvidia/").report()   # derives the calendar, self-tests
+```
+
+A new metric is one entry in `agent/aggregator/data/concepts.json`; it composes
+with every adjustment, share basis and statistic automatically. See
+[agent/aggregator/README.md](agent/aggregator/README.md).
+
+### Submitting
+
+```bash
+nvm use 20            # the check scripts need Node 20.11+
+npm install
+npm run check:submission
+```
+
 ## Optional document-search helper
 
 [`starter/search.py`](starter/search.py) is a small, dependency-free example of searching the supplied Markdown corpus and producing a cited research note. It does not make forecasts or edit a workbook.
@@ -71,6 +189,13 @@ Use `HD`, `ADI`, `HAS` or `DE` for the four challenge companies. The output cont
 ## Repository map
 
 ```text
+main.py                    One command: index, forecast, write the workbooks
+agent/aggregator/          Deterministic, cited extraction from the corpus
+agent/forecast/            Feature building and model selection
+agent/signal_subagents/    Call-tone and other text signals
+agent/export_csv.py        Corpus -> ML-ready CSVs in output/
+ui/                        Control room and architecture pages
+output/                    Generated CSVs and backtest results
 challenge/                 Companies, metrics, workbooks and historical documents
 architecture/index.html    Template for the required architecture explanation
 entry.template.json        Template for private team and agent details
