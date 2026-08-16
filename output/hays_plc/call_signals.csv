@@ -1,0 +1,25 @@
+company,ticker,fiscal_period,as_of_call,n_history,n_baseline,qa_neg,qa_neg_ord,qa_neg_z,qa_neg_change,qa_neg_change_ord,uncertainty,uncertainty_ord,guidance_language,guidance_language_ord
+Hays plc,HAS,FY2021Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2021H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2021Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2021H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2022Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2022H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2022Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2022H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2023Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2023H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2023Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2023H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2024Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2024H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2024Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2024H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2025Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2025H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2025Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2025H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2026Q1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2026H1,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2026Q3,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1
+Hays plc,HAS,FY2026H2,2026-07-10,46,8,low,0,-1.5,stable,1,normal,1,neutral,1

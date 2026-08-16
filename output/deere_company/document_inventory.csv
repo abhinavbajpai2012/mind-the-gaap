@@ -1,0 +1,311 @@
+company,ticker,published_at,doc_class,doc_kind,resolved_period,period_confidence,corpus_period_field,title,source_file
+Deere & Company,DE,2026-05-28,STRUCTURED_RESULT,q2-10q,FY2026Q2,1.0,Q2 2026,Quarterly Report,challenge/offline-data/deere/filings/2026-05-28__de-us-20260528-q2-10q__1055932.md
+Deere & Company,DE,2026-05-26,SLIDE,slide,FY2026Q2,1.0,FY 2025,Investor Presentation,challenge/offline-data/deere/slides/2026-05-26__de-us-20260526-slide__1053239.md
+Deere & Company,DE,2026-05-21,EARNINGS_CALL,call-pres,FY2026Q2,1.0,Q2 2026,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2026-05-21__de-us-20260521-call-pres__1042774.md
+Deere & Company,DE,2026-05-21,EARNINGS_CALL,call-qna,FY2026Q2,0.5,Q3 2026,Q3 2026 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2026-05-21__de-us-20260521-call-qna__1042775.md
+Deere & Company,DE,2026-05-21,STRUCTURED_RESULT,q2-10q,FY2026Q2,1.0,Q2 2026,Quarterly Financial Results,challenge/offline-data/deere/filings/2026-05-21__de-us-20260521-q2-10q__1055929.md
+Deere & Company,DE,2026-05-21,STRUCTURED_RESULT,q2-8k,FY2026Q2,1.0,Q2 2026,Second Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2026-05-21__de-us-20260521-q2-8k-2__1042168.md
+Deere & Company,DE,2026-05-21,STRUCTURED_RESULT,q2-8k,FY2026Q2,1.0,Q2 2026,Second Quarter Earnings Release and Call Presentation,challenge/offline-data/deere/filings/2026-05-21__de-us-20260521-q2-8k__1042167.md
+Deere & Company,DE,2026-05-21,SLIDE,slide,FY2026Q2,1.0,2Q 2026,2Q Earnings Call Presentation,challenge/offline-data/deere/slides/2026-05-21__de-us-20260521-slide__1042212.md
+Deere & Company,DE,2026-02-26,STRUCTURED_RESULT,q1-10q,FY2026Q1,1.0,Q1 2026,Quarterly Financial Results and Outlook,challenge/offline-data/deere/filings/2026-02-26__de-us-20260226-q1-10q__636995.md
+Deere & Company,DE,2026-02-25,AGM,call-agm-pres,FY2026Q1,1.0,FY 2026,Annual Meeting of Shareholders,challenge/offline-data/deere/call-transcripts/2026-02-25__de-us-20260225-call-agm-pres__630877.md
+Deere & Company,DE,2026-02-25,AGM,call-agm-qna,FY2026Q1,1.0,FY 2026,Annual General Meeting Q&A,challenge/offline-data/deere/call-transcripts/2026-02-25__de-us-20260225-call-agm-qna__630876.md
+Deere & Company,DE,2026-02-19,EARNINGS_CALL,call-pres,FY2026Q1,1.0,Q1 2026,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2026-02-19__de-us-20260219-call-pres__605076.md
+Deere & Company,DE,2026-02-19,EARNINGS_CALL,call-qna,FY2026Q1,1.0,Q1 2026,Q1 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2026-02-19__de-us-20260219-call-qna__605077.md
+Deere & Company,DE,2026-02-19,STRUCTURED_RESULT,q1-10q,FY2026Q1,1.0,Q1 2026,First Quarter Financial Results,challenge/offline-data/deere/filings/2026-02-19__de-us-20260219-q1-10q__648937.md
+Deere & Company,DE,2026-02-19,STRUCTURED_RESULT,q1-8k,FY2026Q1,1.0,Q1 2026,First Quarter Earnings Release,challenge/offline-data/deere/filings/2026-02-19__de-us-20260219-q1-8k__603009.md
+Deere & Company,DE,2026-02-19,SLIDE,slide,FY2026Q1,1.0,1Q 2026,First Quarter 2026 Earnings Call,challenge/offline-data/deere/slides/2026-02-19__de-us-20260219-slide__603088.md
+Deere & Company,DE,2026-01-14,GENERIC_FILING,filing,,1.0,FY 2025,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2026-01-14__de-us-20260114-filing-2__401152.md
+Deere & Company,DE,2026-01-14,GENERIC_FILING,filing,,1.0,FY 2025,Annual Meeting and Proxy Statement,challenge/offline-data/deere/filings/2026-01-14__de-us-20260114-filing__401151.md
+Deere & Company,DE,2025-12-18,STRUCTURED_RESULT,fy-10k,FY2025Q4,1.0,FY 2025,Annual Report Business Overview and Operations,challenge/offline-data/deere/filings/2025-12-18__de-us-20251218-fy-10k__393777.md
+Deere & Company,DE,2025-12-08,EARNINGS_CALL,call-pres,FY2025Q4,1.0,FY 2025,Investor Day Presentation on Smart Industrial Strategy and 2030 Outlook,challenge/offline-data/deere/call-transcripts/2025-12-08__de-us-20251208-call-pres-2__384036.md
+Deere & Company,DE,2025-11-26,EARNINGS_CALL,call-q4-pres,FY2025Q4,0.75,Q4 2025,Fourth Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2025-11-26__de-us-20251126-call-q4-pres-2__361265.md
+Deere & Company,DE,2025-11-26,EARNINGS_CALL,call-q4-qna,FY2025Q4,1.0,FY 2026,Q4 Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2025-11-26__de-us-20251126-call-q4-qna__361266.md
+Deere & Company,DE,2025-11-26,STRUCTURED_RESULT,q4-10k,FY2025Q4,1.0,FY 2025,Annual Report,challenge/offline-data/deere/filings/2025-11-26__de-us-20251126-q4-10k__469216.md
+Deere & Company,DE,2025-11-26,STRUCTURED_RESULT,q4-8k,FY2025Q4,1.0,FY 2025,Fourth Quarter and Fiscal Year Earnings Release,challenge/offline-data/deere/filings/2025-11-26__de-us-20251126-q4-8k__361233.md
+Deere & Company,DE,2025-11-26,SLIDE,slide,FY2025Q4,1.0,FY 2025,Fourth Quarter and Fiscal Year Earnings Report and Outlook,challenge/offline-data/deere/slides/2025-11-26__de-us-20251126-slide__361243.md
+Deere & Company,DE,2025-08-15,EARNINGS_CALL,call-q3-pres,FY2025Q3,1.0,Q3 2025,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2025-08-15__de-us-20250815-call-q3-pres__143406.md
+Deere & Company,DE,2025-08-15,EARNINGS_CALL,call-q3-qna,FY2025Q3,1.0,Q3 2025,"Q&A on Market Conditions, Production, and Outlook",challenge/offline-data/deere/call-transcripts/2025-08-15__de-us-20250815-call-q3-qna__143409.md
+Deere & Company,DE,2025-08-15,STRUCTURED_RESULT,q3-8k,FY2025Q3,1.0,Q3 2025,Third Quarter and Nine Months 2025 Financial Results,challenge/offline-data/deere/filings/2025-08-15__de-us-20250815-q3-8k__143410.md
+Deere & Company,DE,2025-08-15,SLIDE,slide,FY2025Q3,1.0,3Q 2025,Third Quarter 2025 Earnings Call,challenge/offline-data/deere/slides/2025-08-15__de-us-20250815-slide__143404.md
+Deere & Company,DE,2025-08-14,STRUCTURED_RESULT,q3-10q,FY2025Q3,1.0,Q3 2025,Quarterly Financial Report,challenge/offline-data/deere/filings/2025-08-14__de-us-20250814-q3-10q__155834.md
+Deere & Company,DE,2025-06-10,EARNINGS_CALL,call-pres,FY2025Q2,1.0,FY 2025,"Investor Day Brazil: Agricultural Opportunity, Foundation, and Growth Strategy",challenge/offline-data/deere/call-transcripts/2025-06-10__de-us-20250610-call-pres-2__469351.md
+Deere & Company,DE,2025-06-10,EARNINGS_CALL,call-pres,FY2025Q2,1.0,Q3 2025,Investor Day Brazil Presentation,challenge/offline-data/deere/call-transcripts/2025-06-10__de-us-20250610-call-pres__46432.md
+Deere & Company,DE,2025-06-10,SLIDE,slide,FY2025Q2,1.0,FY 2025,Investor Day Presentation: Brazil Market and Growth Strategy,challenge/offline-data/deere/slides/2025-06-10__de-us-20250610-slide__46442.md
+Deere & Company,DE,2025-05-15,EARNINGS_CALL,call-pres,FY2025Q2,1.0,Q2 2025,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2025-05-15__de-us-20250515-call-pres__46417.md
+Deere & Company,DE,2025-05-15,EARNINGS_CALL,call-qna,FY2025Q2,1.0,Q2 2025,Q2 Earnings Call,challenge/offline-data/deere/call-transcripts/2025-05-15__de-us-20250515-call-qna__46440.md
+Deere & Company,DE,2025-05-15,STRUCTURED_RESULT,q2-10q,FY2025Q2,1.0,Q2 2025,Quarterly Financial Results,challenge/offline-data/deere/filings/2025-05-15__de-us-20250515-q2-10q__105831.md
+Deere & Company,DE,2025-05-15,STRUCTURED_RESULT,q2-8k,FY2025Q2,1.0,Q2 2025,Second Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2025-05-15__de-us-20250515-q2-8k__105808.md
+Deere & Company,DE,2025-05-15,SLIDE,slide,FY2025Q2,1.0,2Q 2025,Second Quarter Results and Full Year Outlook,challenge/offline-data/deere/slides/2025-05-15__de-us-20250515-slide__46462.md
+Deere & Company,DE,2025-02-24,GENERIC_FILING,filing,,1.0,Q2 2025,Schedule 14A Proxy Statement Filing,challenge/offline-data/deere/filings/2025-02-24__de-us-20250224-filing__469239.md
+Deere & Company,DE,2025-02-13,EARNINGS_CALL,call-q1-pres,FY2025Q1,1.0,Q1 2025,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2025-02-13__de-us-20250213-call-q1-pres__46459.md
+Deere & Company,DE,2025-02-13,EARNINGS_CALL,call-q1-qna,FY2025Q1,1.0,Q1 2025,Q1 Business Update and Market Outlook,challenge/offline-data/deere/call-transcripts/2025-02-13__de-us-20250213-call-q1-qna__46478.md
+Deere & Company,DE,2025-02-13,STRUCTURED_RESULT,q1-10q,FY2025Q1,1.0,Q1 2025,Quarterly Report,challenge/offline-data/deere/filings/2025-02-13__de-us-20250213-q1-10q__105832.md
+Deere & Company,DE,2025-02-13,STRUCTURED_RESULT,q1-8k,FY2025Q1,1.0,Q1 2025,First Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2025-02-13__de-us-20250213-q1-8k__105841.md
+Deere & Company,DE,2025-02-13,SLIDE,slide,FY2025Q1,1.0,Q1 2025,First Quarter 2025 Earnings Call,challenge/offline-data/deere/slides/2025-02-13__de-us-20250213-slide__46456.md
+Deere & Company,DE,2025-01-10,GENERIC_FILING,filing,,1.0,FY 2025,Annual Meeting Proxy Statement Notice,challenge/offline-data/deere/filings/2025-01-10__de-us-20250110-filing-2__469738.md
+Deere & Company,DE,2025-01-10,GENERIC_FILING,filing,,1.0,FY 2024,Proxy Statement for Annual Meeting of Shareholders,challenge/offline-data/deere/filings/2025-01-10__de-us-20250110-filing__469143.md
+Deere & Company,DE,2024-11-21,EARNINGS_CALL,call-q4-pres,FY2024Q4,0.75,Q4 2024,Fourth Quarter and Fiscal Year Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2024-11-21__de-us-20241121-call-q4-pres__46452.md
+Deere & Company,DE,2024-11-21,EARNINGS_CALL,call-q4-qna,FY2024Q4,0.67,FY 2025,"Fiscal Year 2025 Outlook, Margin, and Inventory Discussion",challenge/offline-data/deere/call-transcripts/2024-11-21__de-us-20241121-call-q4-qna__46471.md
+Deere & Company,DE,2024-11-21,STRUCTURED_RESULT,q4-10k,FY2024Q4,1.0,FY 2024,Fiscal Year 2024 Annual Report,challenge/offline-data/deere/filings/2024-11-21__de-us-20241121-q4-10k__105810.md
+Deere & Company,DE,2024-11-21,STRUCTURED_RESULT,q4-8k,FY2024Q4,0.75,FY 2024,Fourth Quarter and Fiscal Year Financial Results and 2025 Outlook,challenge/offline-data/deere/filings/2024-11-21__de-us-20241121-q4-8k__105840.md
+Deere & Company,DE,2024-11-21,SLIDE,slide,FY2024Q4,1.0,4Q 2024 and FY 2024,Fourth Quarter and Full Year 2024 Results and 2025 Outlook,challenge/offline-data/deere/slides/2024-11-21__de-us-20241121-slide__46477.md
+Deere & Company,DE,2024-08-15,EARNINGS_CALL,call-pres,FY2024Q3,1.0,Q3 2024,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2024-08-15__de-us-20240815-call-pres__46429.md
+Deere & Company,DE,2024-08-15,EARNINGS_CALL,call-qna,FY2024Q3,1.0,Q3 2024,"Earnings Call Q&A on Market Conditions, Production, and Pricing",challenge/offline-data/deere/call-transcripts/2024-08-15__de-us-20240815-call-qna__46445.md
+Deere & Company,DE,2024-08-15,STRUCTURED_RESULT,q3-10q,FY2024Q3,1.0,Q3 2024,Quarterly Financial Report,challenge/offline-data/deere/filings/2024-08-15__de-us-20240815-q3-10q__105828.md
+Deere & Company,DE,2024-08-15,STRUCTURED_RESULT,q3-8k,FY2024Q3,1.0,Q3 2024,Third Quarter and Nine Months Financial Results,challenge/offline-data/deere/filings/2024-08-15__de-us-20240815-q3-8k__105836.md
+Deere & Company,DE,2024-08-15,SLIDE,slide,FY2024Q3,1.0,3Q 2024,Third Quarter Earnings Call,challenge/offline-data/deere/slides/2024-08-15__de-us-20240815-slide__46457.md
+Deere & Company,DE,2024-05-16,EARNINGS_CALL,call-pres,FY2024Q2,1.0,Q2 2024,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2024-05-16__de-us-20240516-call-pres__46458.md
+Deere & Company,DE,2024-05-16,EARNINGS_CALL,call-qna,FY2024Q2,1.0,Q2 2024,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2024-05-16__de-us-20240516-call-qna__46474.md
+Deere & Company,DE,2024-05-16,STRUCTURED_RESULT,q2-10q,FY2024Q2,1.0,Q2 2024,Quarterly Report,challenge/offline-data/deere/filings/2024-05-16__de-us-20240516-q2-10q__105820.md
+Deere & Company,DE,2024-05-16,STRUCTURED_RESULT,q2-8k,FY2024Q2,1.0,Q2 2024,Second Quarter Financial Results and Outlook,challenge/offline-data/deere/filings/2024-05-16__de-us-20240516-q2-8k__105819.md
+Deere & Company,DE,2024-05-16,SLIDE,slide,FY2024Q2,1.0,2Q 2024,Second Quarter 2024 Results and Full Year Outlook,challenge/offline-data/deere/slides/2024-05-16__de-us-20240516-slide__46443.md
+Deere & Company,DE,2024-02-28,AGM,call-agm-pres,FY2024Q1,1.0,FY 2023,Annual Meeting of Shareholders Transcript,challenge/offline-data/deere/call-transcripts/2024-02-28__de-us-20240228-call-agm-pres__46454.md
+Deere & Company,DE,2024-02-28,AGM,call-agm-qna,FY2024Q1,1.0,FY 2024,Annual Meeting of Shareholders Q&A,challenge/offline-data/deere/call-transcripts/2024-02-28__de-us-20240228-call-agm-qna__46473.md
+Deere & Company,DE,2024-02-15,EARNINGS_CALL,call-pres,FY2024Q1,1.0,Q1 2024,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2024-02-15__de-us-20240215-call-pres__46480.md
+Deere & Company,DE,2024-02-15,EARNINGS_CALL,call-qna,FY2024Q1,1.0,Q1 2024,Financial Performance and Outlook Discussion,challenge/offline-data/deere/call-transcripts/2024-02-15__de-us-20240215-call-qna__46498.md
+Deere & Company,DE,2024-02-15,STRUCTURED_RESULT,q1-10q,FY2024Q1,1.0,Q1 2024,Quarterly Financial Results and Outlook,challenge/offline-data/deere/filings/2024-02-15__de-us-20240215-q1-10q__105826.md
+Deere & Company,DE,2024-02-15,STRUCTURED_RESULT,q1-8k,FY2024Q1,1.0,Q1 2024,First Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2024-02-15__de-us-20240215-q1-8k__105824.md
+Deere & Company,DE,2024-02-15,SLIDE,slide,FY2024Q1,1.0,1Q 2024,First Quarter 2024 Earnings Call,challenge/offline-data/deere/slides/2024-02-15__de-us-20240215-slide__46430.md
+Deere & Company,DE,2024-01-10,GENERIC_FILING,filing,,1.0,FY 2023,Proxy Statement and Annual Meeting Details,challenge/offline-data/deere/filings/2024-01-10__de-us-20240110-filing-2__469128.md
+Deere & Company,DE,2024-01-10,GENERIC_FILING,filing,,1.0,FY 2023,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2024-01-10__de-us-20240110-filing__469098.md
+Deere & Company,DE,2023-12-15,STRUCTURED_RESULT,fy-10k,FY2023Q4,1.0,FY 2023,Annual Report Business Section,challenge/offline-data/deere/filings/2023-12-15__de-us-20231215-fy-10k__645297.md
+Deere & Company,DE,2023-11-22,EARNINGS_CALL,call-pres,FY2023Q4,0.67,Q4 2023,Fourth Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2023-11-22__de-us-20231122-call-pres__46470.md
+Deere & Company,DE,2023-11-22,EARNINGS_CALL,call-qna,FY2023Q4,0.5,FY 2024,Fiscal Year 2024 Outlook and Strategy Discussion,challenge/offline-data/deere/call-transcripts/2023-11-22__de-us-20231122-call-qna__46484.md
+Deere & Company,DE,2023-11-22,STRUCTURED_RESULT,q4-10k,FY2023Q4,1.0,FY 2023,Annual Report,challenge/offline-data/deere/filings/2023-11-22__de-us-20231122-q4-10k__105844.md
+Deere & Company,DE,2023-11-22,STRUCTURED_RESULT,q4-8k,FY2023Q4,0.75,FY 2023,Fourth Quarter and Fiscal Year Financial Results,challenge/offline-data/deere/filings/2023-11-22__de-us-20231122-q4-8k__105823.md
+Deere & Company,DE,2023-11-22,SLIDE,slide,FY2023Q4,1.0,4Q 2023,Fourth Quarter and Full Year 2023 Earnings Call,challenge/offline-data/deere/slides/2023-11-22__de-us-20231122-slide__46466.md
+Deere & Company,DE,2023-10-18,SLIDE,slide,FY2023Q4,1.0,FY 2022,"Investor Presentation: Strategy, Performance, and Outlook",challenge/offline-data/deere/slides/2023-10-18__de-us-20231018-slide__46435.md
+Deere & Company,DE,2023-08-18,EARNINGS_CALL,call-pres,FY2023Q3,1.0,Q3 2023,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2023-08-18__de-us-20230818-call-pres__46455.md
+Deere & Company,DE,2023-08-18,EARNINGS_CALL,call-qna,FY2023Q3,1.0,Q3 2023 and Q4 2023 Outlook,Operational and Strategic Update Call,challenge/offline-data/deere/call-transcripts/2023-08-18__de-us-20230818-call-qna__46472.md
+Deere & Company,DE,2023-08-18,STRUCTURED_RESULT,q3-10q,FY2023Q3,1.0,Q3 2023,Q3 2023 Quarterly Report,challenge/offline-data/deere/filings/2023-08-18__de-us-20230818-q3-10q__105835.md
+Deere & Company,DE,2023-08-18,STRUCTURED_RESULT,q3-8k,FY2023Q3,1.0,Q3 2023,Third Quarter Financial Results and Full-Year Outlook,challenge/offline-data/deere/filings/2023-08-18__de-us-20230818-q3-8k__105829.md
+Deere & Company,DE,2023-08-18,SLIDE,slide,FY2023Q3,1.0,3Q 2023,Third Quarter Earnings and Full Year Forecast,challenge/offline-data/deere/slides/2023-08-18__de-us-20230818-slide__46427.md
+Deere & Company,DE,2023-05-19,EARNINGS_CALL,call-pres,FY2023Q2,1.0,Q2 2023,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2023-05-19__de-us-20230519-call-pres__46451.md
+Deere & Company,DE,2023-05-19,EARNINGS_CALL,call-qna,FY2023Q2,1.0,Q2 2023,Quarterly Earnings Call,challenge/offline-data/deere/call-transcripts/2023-05-19__de-us-20230519-call-qna__46469.md
+Deere & Company,DE,2023-05-19,STRUCTURED_RESULT,q2-10q,FY2023Q2,1.0,Q2 2023,Quarterly Report,challenge/offline-data/deere/filings/2023-05-19__de-us-20230519-q2-10q__105852.md
+Deere & Company,DE,2023-05-19,STRUCTURED_RESULT,q2-8k,FY2023Q2,1.0,Q2 2023,Second Quarter and Six Months Financial Results,challenge/offline-data/deere/filings/2023-05-19__de-us-20230519-q2-8k__105839.md
+Deere & Company,DE,2023-05-19,SLIDE,slide,FY2023Q2,1.0,Q2 2023,Second Quarter 2023 Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/slides/2023-05-19__de-us-20230519-slide__46428.md
+Deere & Company,DE,2023-02-17,EARNINGS_CALL,call-pres,FY2023Q1,0.67,Q1 2023,First Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2023-02-17__de-us-20230217-call-pres__46448.md
+Deere & Company,DE,2023-02-17,EARNINGS_CALL,call-qna,FY2023Q1,1.0,Q1 2023,Q1 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2023-02-17__de-us-20230217-call-qna__46468.md
+Deere & Company,DE,2023-02-17,STRUCTURED_RESULT,q1-10q,FY2023Q1,1.0,Q1 2023,First Quarter Financial Report,challenge/offline-data/deere/filings/2023-02-17__de-us-20230217-q1-10q__105813.md
+Deere & Company,DE,2023-02-17,STRUCTURED_RESULT,q1-8k,FY2023Q1,1.0,Q1 2023,First Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2023-02-17__de-us-20230217-q1-8k__105833.md
+Deere & Company,DE,2023-02-17,SLIDE,slide,FY2023Q1,1.0,1Q 2023,First Quarter Results and Fiscal Year Outlook,challenge/offline-data/deere/slides/2023-02-17__de-us-20230217-slide__46447.md
+Deere & Company,DE,2023-01-11,GENERIC_FILING,filing,,1.0,FY 2022,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2023-01-11__de-us-20230111-filing-2__469489.md
+Deere & Company,DE,2023-01-11,GENERIC_FILING,filing,,1.0,FY 2022,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2023-01-11__de-us-20230111-filing__469242.md
+Deere & Company,DE,2022-11-23,EARNINGS_CALL,call-pres,FY2022Q4,0.67,Q4 2022,Q4 Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2022-11-23__de-us-20221123-call-pres__46446.md
+Deere & Company,DE,2022-11-23,EARNINGS_CALL,call-qna,FY2022Q4,1.0,FY 2023,Fiscal Year End Earnings Call Discussion,challenge/offline-data/deere/call-transcripts/2022-11-23__de-us-20221123-call-qna__46465.md
+Deere & Company,DE,2022-11-23,STRUCTURED_RESULT,q4-10k,FY2022Q4,1.0,FY 2022,Annual Report,challenge/offline-data/deere/filings/2022-11-23__de-us-20221123-q4-10k__105816.md
+Deere & Company,DE,2022-11-23,STRUCTURED_RESULT,q4-8k,FY2022Q4,0.75,FY 2022,Fourth Quarter and Fiscal Year Financial Results,challenge/offline-data/deere/filings/2022-11-23__de-us-20221123-q4-8k__105825.md
+Deere & Company,DE,2022-11-23,SLIDE,slide,FY2022Q4,1.0,4Q 2022 & FY 2022,Fourth Quarter and Full Year 2022 Earnings Call,challenge/offline-data/deere/slides/2022-11-23__de-us-20221123-slide__46423.md
+Deere & Company,DE,2022-08-19,EARNINGS_CALL,call-pres,FY2022Q3,1.0,Q3 2022,Third Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2022-08-19__de-us-20220819-call-pres__46475.md
+Deere & Company,DE,2022-08-19,EARNINGS_CALL,call-qna,FY2022Q3,1.0,Q4 2022,Q3 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2022-08-19__de-us-20220819-call-qna__46489.md
+Deere & Company,DE,2022-08-19,STRUCTURED_RESULT,q3-10q,FY2022Q3,1.0,Q3 2022,Q3 Quarterly Financial Report,challenge/offline-data/deere/filings/2022-08-19__de-us-20220819-q3-10q__105818.md
+Deere & Company,DE,2022-08-19,STRUCTURED_RESULT,q3-8k,FY2022Q3,1.0,Q3 2022,Third Quarter and Nine Months Financial Results,challenge/offline-data/deere/filings/2022-08-19__de-us-20220819-q3-8k__105811.md
+Deere & Company,DE,2022-08-19,SLIDE,slide,FY2022Q3,1.0,3Q 2022,Third Quarter Earnings Call,challenge/offline-data/deere/slides/2022-08-19__de-us-20220819-slide__46460.md
+Deere & Company,DE,2022-05-26,EARNINGS_CALL,call-pres,FY2022Q2,1.0,FY 2022,Analyst Day: Technology and Growth Strategy,challenge/offline-data/deere/call-transcripts/2022-05-26__de-us-20220526-call-pres__46461.md
+Deere & Company,DE,2022-05-26,EARNINGS_CALL,call-qna,FY2022Q2,1.0,Q3 2022,Technology and Autonomy Q&A,challenge/offline-data/deere/call-transcripts/2022-05-26__de-us-20220526-call-qna__46482.md
+Deere & Company,DE,2022-05-20,EARNINGS_CALL,call-pres,FY2022Q2,1.0,Q2 2022,2nd Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2022-05-20__de-us-20220520-call-pres__46444.md
+Deere & Company,DE,2022-05-20,EARNINGS_CALL,call-qna,FY2022Q2,1.0,Q2 2022,Q2 Performance and H2 Outlook Call,challenge/offline-data/deere/call-transcripts/2022-05-20__de-us-20220520-call-qna__46464.md
+Deere & Company,DE,2022-05-20,STRUCTURED_RESULT,q2-10q,FY2022Q2,1.0,Q2 2022,Quarterly Report,challenge/offline-data/deere/filings/2022-05-20__de-us-20220520-q2-10q__105838.md
+Deere & Company,DE,2022-05-20,STRUCTURED_RESULT,q2-8k,FY2022Q2,1.0,Q2 2022,Second Quarter Financial Results and Outlook,challenge/offline-data/deere/filings/2022-05-20__de-us-20220520-q2-8k__105815.md
+Deere & Company,DE,2022-05-20,SLIDE,slide,FY2022Q2,1.0,2Q 2022,Second Quarter Earnings Call Presentation,challenge/offline-data/deere/slides/2022-05-20__de-us-20220520-slide__46463.md
+Deere & Company,DE,2022-02-18,EARNINGS_CALL,call-pres,FY2022Q1,1.0,Q1 2022,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2022-02-18__de-us-20220218-call-pres__46415.md
+Deere & Company,DE,2022-02-18,EARNINGS_CALL,call-qna,FY2022Q1,0.5,Q1 2022,Strategic Ambitions and Business Outlook,challenge/offline-data/deere/call-transcripts/2022-02-18__de-us-20220218-call-qna__46431.md
+Deere & Company,DE,2022-02-18,STRUCTURED_RESULT,q1-10q,FY2022Q1,1.0,Q1 2022,Quarterly Report on Financial Performance and Operations,challenge/offline-data/deere/filings/2022-02-18__de-us-20220218-q1-10q__105834.md
+Deere & Company,DE,2022-02-18,STRUCTURED_RESULT,q1-8k,FY2022Q1,1.0,Q1 2022,First Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2022-02-18__de-us-20220218-q1-8k__105812.md
+Deere & Company,DE,2022-02-18,SLIDE,slide,FY2022Q1,1.0,1Q 2022,First Quarter Earnings Call,challenge/offline-data/deere/slides/2022-02-18__de-us-20220218-slide__46449.md
+Deere & Company,DE,2022-01-07,GENERIC_FILING,filing,FY2022Q1,1.0,FY 2021,Annual Meeting Voting Information,challenge/offline-data/deere/filings/2022-01-07__de-us-20220107-filing-2__469706.md
+Deere & Company,DE,2022-01-07,GENERIC_FILING,filing,,1.0,FY 2021,Proxy Statement: Director Election and Executive Compensation,challenge/offline-data/deere/filings/2022-01-07__de-us-20220107-filing__469237.md
+Deere & Company,DE,2021-12-16,STRUCTURED_RESULT,fy-10k,FY2021Q4,1.0,FY 2021,Annual Business Operations and Financial Review,challenge/offline-data/deere/filings/2021-12-16__de-us-20211216-fy-10k__645298.md
+Deere & Company,DE,2021-11-24,EARNINGS_CALL,call-pres,FY2021Q4,1.0,FY 2021,Fourth Quarter and Full Year Earnings Call,challenge/offline-data/deere/call-transcripts/2021-11-24__de-us-20211124-call-pres__46419.md
+Deere & Company,DE,2021-11-24,EARNINGS_CALL,call-qna,FY2021Q4,1.0,FY 2022,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2021-11-24__de-us-20211124-call-qna__46439.md
+Deere & Company,DE,2021-11-24,STRUCTURED_RESULT,q4-10k,FY2021Q4,1.0,FY 2021,Annual Report,challenge/offline-data/deere/filings/2021-11-24__de-us-20211124-q4-10k__131650.md
+Deere & Company,DE,2021-11-24,STRUCTURED_RESULT,q4-8k,FY2021Q4,1.0,FY 2021,Fourth Quarter and Fiscal Year Financial Results,challenge/offline-data/deere/filings/2021-11-24__de-us-20211124-q4-8k__105843.md
+Deere & Company,DE,2021-11-24,SLIDE,slide,FY2021Q4,1.0,4Q 2021,Fourth Quarter and Full Year 2021 Earnings Call,challenge/offline-data/deere/slides/2021-11-24__de-us-20211124-slide__46437.md
+Deere & Company,DE,2021-08-20,EARNINGS_CALL,call-pres,FY2021Q3,1.0,Q3 2021,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2021-08-20__de-us-20210820-call-pres__46422.md
+Deere & Company,DE,2021-08-20,EARNINGS_CALL,call-qna,FY2021Q3,1.0,FY 2021 and FY 2022 Outlook,Analyst Call Discussion,challenge/offline-data/deere/call-transcripts/2021-08-20__de-us-20210820-call-qna__46436.md
+Deere & Company,DE,2021-08-20,STRUCTURED_RESULT,q3-10q,FY2021Q3,1.0,Q3 2021,Quarterly Report,challenge/offline-data/deere/filings/2021-08-20__de-us-20210820-q3-10q__105837.md
+Deere & Company,DE,2021-08-20,STRUCTURED_RESULT,q3-8k,FY2021Q3,1.0,Q3 2021,Third Quarter and Nine Months Financial Results,challenge/offline-data/deere/filings/2021-08-20__de-us-20210820-q3-8k__105827.md
+Deere & Company,DE,2021-08-20,SLIDE,slide,FY2021Q3,1.0,3Q 2021,Third Quarter Earnings Call Presentation,challenge/offline-data/deere/slides/2021-08-20__de-us-20210820-slide__46481.md
+Deere & Company,DE,2021-05-21,EARNINGS_CALL,call-pres,FY2021Q2,1.0,Q2 2021,Second Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2021-05-21__de-us-20210521-call-pres__46476.md
+Deere & Company,DE,2021-05-21,EARNINGS_CALL,call-qna,FY2021Q2,0.5,Q2 2021,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2021-05-21__de-us-20210521-call-qna__46488.md
+Deere & Company,DE,2021-05-21,STRUCTURED_RESULT,q2-10q,FY2021Q2,1.0,Q2 2021,Quarterly Financial Report,challenge/offline-data/deere/filings/2021-05-21__de-us-20210521-q2-10q__105821.md
+Deere & Company,DE,2021-05-21,STRUCTURED_RESULT,q2-8k,FY2021Q2,1.0,H1 2021,Second Quarter and First Half Financial Results,challenge/offline-data/deere/filings/2021-05-21__de-us-20210521-q2-8k__105846.md
+Deere & Company,DE,2021-05-21,SLIDE,slide,FY2021Q2,1.0,2Q 2021,2Q 2021 Earnings Call,challenge/offline-data/deere/slides/2021-05-21__de-us-20210521-slide__46479.md
+Deere & Company,DE,2021-02-24,AGM,call-agm-pres,FY2021Q1,1.0,FY 2020,Annual Meeting of Shareholders Transcript,challenge/offline-data/deere/call-transcripts/2021-02-24__de-us-20210224-call-agm-pres-2__1060756.md
+Deere & Company,DE,2021-02-24,AGM,call-agm-pres,FY2021Q1,1.0,FY 2020,Annual Meeting of Shareholders Transcript,challenge/offline-data/deere/call-transcripts/2021-02-24__de-us-20210224-call-agm-pres__46467.md
+Deere & Company,DE,2021-02-19,EARNINGS_CALL,call-pres,FY2021Q1,1.0,Q1 2021,First Quarter Earnings and Fiscal Year 2021 Outlook,challenge/offline-data/deere/call-transcripts/2021-02-19__de-us-20210219-call-pres__46420.md
+Deere & Company,DE,2021-02-19,EARNINGS_CALL,call-qna,FY2021Q1,1.0,Q1 2021,Quarterly Earnings Call Discussion,challenge/offline-data/deere/call-transcripts/2021-02-19__de-us-20210219-call-qna__46438.md
+Deere & Company,DE,2021-02-19,STRUCTURED_RESULT,q1-10q,FY2021Q1,1.0,Q1 2021,Quarterly Financial Report,challenge/offline-data/deere/filings/2021-02-19__de-us-20210219-q1-10q__105814.md
+Deere & Company,DE,2021-02-19,STRUCTURED_RESULT,q1-8k,FY2021Q1,1.0,Q1 2021,First-Quarter Financial Results and Full-Year Outlook,challenge/offline-data/deere/filings/2021-02-19__de-us-20210219-q1-8k__105842.md
+Deere & Company,DE,2021-02-19,SLIDE,slide,FY2021Q1,1.0,1Q 2021,First Quarter Earnings Call,challenge/offline-data/deere/slides/2021-02-19__de-us-20210219-slide__46421.md
+Deere & Company,DE,2021-01-08,GENERIC_FILING,filing,,1.0,FY 2020,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2021-01-08__de-us-20210108-filing-2__469258.md
+Deere & Company,DE,2021-01-08,GENERIC_FILING,filing,FY2021Q1,1.0,FY 2020,Annual Shareholder Meeting Proxy Materials and Voting Instructions,challenge/offline-data/deere/filings/2021-01-08__de-us-20210108-filing__469179.md
+Deere & Company,DE,2020-11-25,EARNINGS_CALL,call-pres,FY2020Q4,0.67,FY 2020,Fourth Quarter and Full Year Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2020-11-25__de-us-20201125-call-pres__46441.md
+Deere & Company,DE,2020-11-25,EARNINGS_CALL,call-qna,FY2020Q4,1.0,FY 2021,Fiscal Year End Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2020-11-25__de-us-20201125-call-qna__46453.md
+Deere & Company,DE,2020-11-25,STRUCTURED_RESULT,q4-10k,FY2020Q4,1.0,FY 2020,Annual Report,challenge/offline-data/deere/filings/2020-11-25__de-us-20201125-q4-10k__105845.md
+Deere & Company,DE,2020-11-25,STRUCTURED_RESULT,q4-8k,FY2020Q4,1.0,FY 2020,Fourth Quarter and Full Year Financial Results and Outlook,challenge/offline-data/deere/filings/2020-11-25__de-us-20201125-q4-8k__105817.md
+Deere & Company,DE,2020-11-25,SLIDE,slide,FY2020Q4,1.0,FY 2020,Fourth Quarter and Full Year Earnings Call,challenge/offline-data/deere/slides/2020-11-25__de-us-20201125-slide__46418.md
+Deere & Company,DE,2020-08-20,EARNINGS_CALL,call-pres,FY2020Q3,1.0,Q3 2020,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2020-08-20__de-us-20200820-call-pres__46434.md
+Deere & Company,DE,2020-08-20,EARNINGS_CALL,call-qna,FY2020Q3,1.0,Q3 2020,Analyst Q&A Session,challenge/offline-data/deere/call-transcripts/2020-08-20__de-us-20200820-call-qna__46450.md
+Deere & Company,DE,2020-08-20,STRUCTURED_RESULT,q3-10q,FY2020Q3,1.0,Q3 2020,Quarterly Financial Results,challenge/offline-data/deere/filings/2020-08-20__de-us-20200820-q3-10q__105822.md
+Deere & Company,DE,2020-08-20,STRUCTURED_RESULT,q3-8k,FY2020Q3,1.0,Q3 2020,Third Quarter Earnings Release,challenge/offline-data/deere/filings/2020-08-20__de-us-20200820-q3-8k__105830.md
+Deere & Company,DE,2020-08-20,SLIDE,slide,FY2020Q3,1.0,3Q 2020,3Q 2020 Earnings Call,challenge/offline-data/deere/slides/2020-08-20__de-us-20200820-slide__46433.md
+Deere & Company,DE,2020-05-21,EARNINGS_CALL,call-pres,FY2020Q2,1.0,Q2 2020,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2020-05-21__de-us-20200521-call-pres-2__1143269.md
+Deere & Company,DE,2020-05-21,EARNINGS_CALL,call-qna,FY2020Q2,1.0,Q2 2020,Earnings Call Transcript: Q2 2020 Performance and Outlook,challenge/offline-data/deere/call-transcripts/2020-05-21__de-us-20200521-call-qna__1143271.md
+Deere & Company,DE,2020-05-21,STRUCTURED_RESULT,q2-10q,FY2020Q2,1.0,Q2 2020,Quarterly Report,challenge/offline-data/deere/filings/2020-05-21__de-us-20200521-q2-10q__469470.md
+Deere & Company,DE,2020-05-21,STRUCTURED_RESULT,q2-8k,FY2020Q2,1.0,Q2 2020,Second Quarter and Six Months Financial Results and Outlook,challenge/offline-data/deere/filings/2020-05-21__de-us-20200521-q2-8k__469475.md
+Deere & Company,DE,2020-05-21,SLIDE,slide,FY2020Q2,1.0,Q2 2020,Second Quarter 2020 Earnings Results and Outlook,challenge/offline-data/deere/slides/2020-05-21__de-us-20200521-slide__469383.md
+Deere & Company,DE,2020-02-21,EARNINGS_CALL,call-pres,FY2020Q1,1.0,Q1 2020,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2020-02-21__de-us-20200221-call-pres-2__1306843.md
+Deere & Company,DE,2020-02-21,EARNINGS_CALL,call-qna,FY2020Q1,1.0,Q1 2020,Q1 Earnings Call Question and Answer Session,challenge/offline-data/deere/call-transcripts/2020-02-21__de-us-20200221-call-qna__1306847.md
+Deere & Company,DE,2020-02-21,STRUCTURED_RESULT,q1-10q,FY2020Q1,1.0,Q1 2020,Quarterly Report,challenge/offline-data/deere/filings/2020-02-21__de-us-20200221-q1-10q__468373.md
+Deere & Company,DE,2020-02-21,STRUCTURED_RESULT,q1-8k,FY2020Q1,1.0,Q1 2020,First-Quarter Earnings Report and Full-Year Outlook,challenge/offline-data/deere/filings/2020-02-21__de-us-20200221-q1-8k__469227.md
+Deere & Company,DE,2020-02-21,SLIDE,slide,FY2020Q1,1.0,1Q 2020,First Quarter Results and Full Year Outlook,challenge/offline-data/deere/slides/2020-02-21__de-us-20200221-slide__469359.md
+Deere & Company,DE,2020-01-10,GENERIC_FILING,filing,,1.0,FY 2019,Annual Meeting Proxy Statement and Voting Items,challenge/offline-data/deere/filings/2020-01-10__de-us-20200110-filing-2__469494.md
+Deere & Company,DE,2020-01-10,GENERIC_FILING,filing,,1.0,FY 2019,Proxy Statement for Annual Meeting,challenge/offline-data/deere/filings/2020-01-10__de-us-20200110-filing__469238.md
+Deere & Company,DE,2020-01-08,EARNINGS_CALL,call-pres,FY2020Q1,1.0,FY 2020,Analyst Day Presentation on Strategic Priorities and Outlook,challenge/offline-data/deere/call-transcripts/2020-01-08__de-us-20200108-call-pres-2__1340209.md
+Deere & Company,DE,2020-01-08,EARNINGS_CALL,call-pres,FY2020Q1,1.0,FY 2020,Investor Day Presentation and Q&A,challenge/offline-data/deere/call-transcripts/2020-01-08__de-us-20200108-call-pres__469272.md
+Deere & Company,DE,2020-01-08,EARNINGS_CALL,call-qna,FY2020Q1,1.0,FY 2020,"Precision Ag, Aftermarket, and Market Strategy Discussion",challenge/offline-data/deere/call-transcripts/2020-01-08__de-us-20200108-call-qna__1340213.md
+Deere & Company,DE,2020-01-08,SLIDE,slide,FY2020Q1,1.0,FY 2020,CES Analyst Day Presentation,challenge/offline-data/deere/slides/2020-01-08__de-us-20200108-slide__469625.md
+Deere & Company,DE,2019-12-19,GENERIC_FILING,filing,,1.0,FY 2019,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2019-12-19__de-us-20191219-filing__469719.md
+Deere & Company,DE,2019-11-27,EARNINGS_CALL,call-pres,FY2019Q4,0.67,Q4 2019,Fourth Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2019-11-27__de-us-20191127-call-pres-2__1347447.md
+Deere & Company,DE,2019-11-27,EARNINGS_CALL,call-qna,FY2019Q4,1.0,"FY 2019 (results), FY 2020 (outlook)",Fiscal Year 2019 Earnings Call and 2020 Outlook,challenge/offline-data/deere/call-transcripts/2019-11-27__de-us-20191127-call-qna__1347451.md
+Deere & Company,DE,2019-11-27,STRUCTURED_RESULT,q4-10k,FY2019Q4,1.0,FY 2019,Annual Report on Form 10-K,challenge/offline-data/deere/filings/2019-11-27__de-us-20191127-q4-10k__469283.md
+Deere & Company,DE,2019-11-27,STRUCTURED_RESULT,q4-8k,FY2019Q4,0.5,FY 2019,Fourth Quarter and Full Year Financial Results and Fiscal 2020 Outlook,challenge/offline-data/deere/filings/2019-11-27__de-us-20191127-q4-8k__469218.md
+Deere & Company,DE,2019-11-27,SLIDE,slide,FY2019Q4,1.0,FY 2019,Fourth Quarter and Fiscal Year Earnings Update,challenge/offline-data/deere/slides/2019-11-27__de-us-20191127-slide__469403.md
+Deere & Company,DE,2019-08-16,EARNINGS_CALL,call-pres,FY2019Q3,1.0,Q3 2019,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2019-08-16__de-us-20190816-call-pres-2__1373301.md
+Deere & Company,DE,2019-08-16,EARNINGS_CALL,call-qna,FY2019Q3,1.0,Q3 2019,Quarterly Earnings Call,challenge/offline-data/deere/call-transcripts/2019-08-16__de-us-20190816-call-qna__1373302.md
+Deere & Company,DE,2019-08-16,STRUCTURED_RESULT,q3-10q,FY2019Q3,1.0,Q3 2019,Quarterly Report,challenge/offline-data/deere/filings/2019-08-16__de-us-20190816-q3-10q__469206.md
+Deere & Company,DE,2019-08-16,STRUCTURED_RESULT,q3-8k,FY2019Q3,1.0,Q3 2019,Third Quarter Earnings Release and Investor Presentation,challenge/offline-data/deere/filings/2019-08-16__de-us-20190816-q3-8k__645300.md
+Deere & Company,DE,2019-08-16,SLIDE,slide,FY2019Q3,1.0,Q3 2019,Third Quarter 2019 Earnings Presentation,challenge/offline-data/deere/slides/2019-08-16__de-us-20190816-slide__469630.md
+Deere & Company,DE,2019-05-17,EARNINGS_CALL,call-pres,FY2019Q2,1.0,Q2 2019,Second Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2019-05-17__de-us-20190517-call-pres-2__1392890.md
+Deere & Company,DE,2019-05-17,EARNINGS_CALL,call-qna,FY2019Q2,1.0,Q2 2019,Second Quarter Performance and Outlook Call,challenge/offline-data/deere/call-transcripts/2019-05-17__de-us-20190517-call-qna__1392891.md
+Deere & Company,DE,2019-05-17,STRUCTURED_RESULT,q2-10q,FY2019Q2,1.0,Q2 2019,Quarterly Report,challenge/offline-data/deere/filings/2019-05-17__de-us-20190517-q2-10q__469675.md
+Deere & Company,DE,2019-05-17,STRUCTURED_RESULT,q2-8k,FY2019Q2,1.0,Q2 2019,Second Quarter and Half-Year Financial Results,challenge/offline-data/deere/filings/2019-05-17__de-us-20190517-q2-8k__645299.md
+Deere & Company,DE,2019-05-17,SLIDE,slide,FY2019Q2,1.0,Q2 2019,Second Quarter 2019 Earnings Presentation,challenge/offline-data/deere/slides/2019-05-17__de-us-20190517-slide__469810.md
+Deere & Company,DE,2019-02-15,EARNINGS_CALL,call-pres,FY2019Q1,1.0,Q1 2019,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2019-02-15__de-us-20190215-call-pres-2__1421659.md
+Deere & Company,DE,2019-02-15,EARNINGS_CALL,call-qna,FY2019Q1,1.0,Q1 2019,First Quarter Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2019-02-15__de-us-20190215-call-qna__1421664.md
+Deere & Company,DE,2019-02-15,STRUCTURED_RESULT,q1-10q,FY2019Q1,1.0,Q1 2019,Quarterly Report,challenge/offline-data/deere/filings/2019-02-15__de-us-20190215-q1-10q__469204.md
+Deere & Company,DE,2019-02-15,STRUCTURED_RESULT,q1-8k,FY2019Q1,1.0,Q1 2019,First Quarter Earnings Release and Presentation,challenge/offline-data/deere/filings/2019-02-15__de-us-20190215-q1-8k__654630.md
+Deere & Company,DE,2019-02-15,SLIDE,slide,FY2019Q1,1.0,Q1 2019,First Quarter 2019 Earnings Call,challenge/offline-data/deere/slides/2019-02-15__de-us-20190215-slide__469639.md
+Deere & Company,DE,2019-01-11,GENERIC_FILING,filing,FY2019Q1,1.0,Q1 2019,Schedule 14A Definitive Additional Materials Filing,challenge/offline-data/deere/filings/2019-01-11__de-us-20190111-filing-2__469501.md
+Deere & Company,DE,2019-01-11,GENERIC_FILING,filing,,1.0,FY 2018,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2019-01-11__de-us-20190111-filing-3__469728.md
+Deere & Company,DE,2019-01-11,GENERIC_FILING,filing,FY2019Q1,1.0,FY 2018,Annual Shareholder Meeting Proxy Materials and Voting Instructions,challenge/offline-data/deere/filings/2019-01-11__de-us-20190111-filing__469241.md
+Deere & Company,DE,2018-11-21,EARNINGS_CALL,call-pres,FY2018Q4,0.67,FY 2018,Fourth Quarter and Full Year Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2018-11-21__de-us-20181121-call-pres-2__1441802.md
+Deere & Company,DE,2018-11-21,EARNINGS_CALL,call-qna,FY2018Q4,1.0,FY 2018,Fiscal Year End Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2018-11-21__de-us-20181121-call-qna__1441804.md
+Deere & Company,DE,2018-11-21,STRUCTURED_RESULT,fy-8k,FY2018Q4,0.33,FY 2018,Fourth Quarter and Full Year 2018 Earnings Release and Fiscal 2019 Outlook,challenge/offline-data/deere/filings/2018-11-21__de-us-20181121-fy-8k__654629.md
+Deere & Company,DE,2018-11-21,STRUCTURED_RESULT,q4-10k,FY2018Q4,1.0,FY 2018,Annual Report,challenge/offline-data/deere/filings/2018-11-21__de-us-20181121-q4-10k__469201.md
+Deere & Company,DE,2018-11-21,SLIDE,slide,FY2018Q4,1.0,Q4 2018,Fourth Quarter Earnings Call,challenge/offline-data/deere/slides/2018-11-21__de-us-20181121-slide__469934.md
+Deere & Company,DE,2018-08-17,EARNINGS_CALL,call-pres,FY2018Q3,1.0,Q3 2018,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2018-08-17__de-us-20180817-call-pres-2__1469892.md
+Deere & Company,DE,2018-08-17,EARNINGS_CALL,call-qna,FY2018Q3,1.0,Q3 2018,Q3 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2018-08-17__de-us-20180817-call-qna__1469902.md
+Deere & Company,DE,2018-08-17,STRUCTURED_RESULT,q3-10q,FY2018Q3,1.0,Q3 2018,Quarterly Financial Report,challenge/offline-data/deere/filings/2018-08-17__de-us-20180817-q3-10q__469474.md
+Deere & Company,DE,2018-08-17,STRUCTURED_RESULT,q3-8k,FY2018Q3,1.0,Q3 2018,Third-Quarter Earnings Report and Fiscal Year 2018 Outlook,challenge/offline-data/deere/filings/2018-08-17__de-us-20180817-q3-8k__784667.md
+Deere & Company,DE,2018-08-17,SLIDE,slide,FY2018Q3,1.0,Q3 2018,Third Quarter 2018 Financial Results and Outlook,challenge/offline-data/deere/slides/2018-08-17__de-us-20180817-slide__468505.md
+Deere & Company,DE,2018-05-18,EARNINGS_CALL,call-pres,FY2018Q2,1.0,Q2 2018,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2018-05-18__de-us-20180518-call-pres-2__1475345.md
+Deere & Company,DE,2018-05-18,EARNINGS_CALL,call-qna,FY2018Q2,1.0,Q2 2018,Second Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2018-05-18__de-us-20180518-call-qna__1475349.md
+Deere & Company,DE,2018-05-18,STRUCTURED_RESULT,q2-10q,FY2018Q2,1.0,Q2 and H1 2018,Quarterly and Six-Month Financial Report,challenge/offline-data/deere/filings/2018-05-18__de-us-20180518-q2-10q__468389.md
+Deere & Company,DE,2018-05-18,STRUCTURED_RESULT,q2-8k,FY2018Q2,1.0,Q2 2018,Second Quarter and Six-Month Financial Results,challenge/offline-data/deere/filings/2018-05-18__de-us-20180518-q2-8k__784663.md
+Deere & Company,DE,2018-05-18,SLIDE,slide,FY2018Q2,1.0,Q2 2018,Second Quarter 2018 Earnings Overview and Fiscal Year Outlook,challenge/offline-data/deere/slides/2018-05-18__de-us-20180518-slide__469458.md
+Deere & Company,DE,2018-02-16,EARNINGS_CALL,call-pres,FY2018Q1,1.0,Q1 2018,First Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2018-02-16__de-us-20180216-call-pres-2__1477398.md
+Deere & Company,DE,2018-02-16,EARNINGS_CALL,call-qna,FY2018Q1,1.0,Q1 2018,Quarterly Financial Update and Analyst Q&A,challenge/offline-data/deere/call-transcripts/2018-02-16__de-us-20180216-call-qna__1477401.md
+Deere & Company,DE,2018-02-16,STRUCTURED_RESULT,q1-10q,FY2018Q1,1.0,Q1 2018,Quarterly Report,challenge/offline-data/deere/filings/2018-02-16__de-us-20180216-q1-10q__469205.md
+Deere & Company,DE,2018-02-16,STRUCTURED_RESULT,q1-8k,FY2018Q1,1.0,Q1 2018,First Quarter Financial Results and Fiscal Year Outlook,challenge/offline-data/deere/filings/2018-02-16__de-us-20180216-q1-8k__784666.md
+Deere & Company,DE,2018-02-16,SLIDE,slide,FY2018Q1,1.0,Q1 2018,First Quarter 2018 Financial Results and Outlook,challenge/offline-data/deere/slides/2018-02-16__de-us-20180216-slide__468566.md
+Deere & Company,DE,2018-01-12,GENERIC_FILING,filing,,1.0,FY 2017,Annual Meeting Proxy Materials,challenge/offline-data/deere/filings/2018-01-12__de-us-20180112-filing-2__469263.md
+Deere & Company,DE,2018-01-12,GENERIC_FILING,filing,,1.0,FY 2017,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2018-01-12__de-us-20180112-filing__468435.md
+Deere & Company,DE,2017-11-22,EARNINGS_CALL,call-pres,FY2017Q4,0.67,Q4 2017,Fourth Quarter and Full Year Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2017-11-22__de-us-20171122-call-pres-2__1478008.md
+Deere & Company,DE,2017-11-22,EARNINGS_CALL,call-qna,FY2017Q4,1.0,FY 2017,Fiscal Year-End Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2017-11-22__de-us-20171122-call-qna__1478009.md
+Deere & Company,DE,2017-11-22,STRUCTURED_RESULT,fy-8k,FY2017Q4,1.0,FY 2017,Fourth Quarter and Full Year Earnings,challenge/offline-data/deere/filings/2017-11-22__de-us-20171122-fy-8k__784662.md
+Deere & Company,DE,2017-11-22,STRUCTURED_RESULT,q4-10k,FY2017Q4,1.0,FY 2017,Annual Report,challenge/offline-data/deere/filings/2017-11-22__de-us-20171122-q4-10k__468364.md
+Deere & Company,DE,2017-11-22,SLIDE,slide,FY2017Q4,1.0,Q4 2017,Fourth Quarter and Fiscal Year 2017 Earnings Call Material,challenge/offline-data/deere/slides/2017-11-22__de-us-20171122-slide__469640.md
+Deere & Company,DE,2017-08-18,EARNINGS_CALL,call-pres,FY2017Q3,1.0,Q3 2017,Third Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2017-08-18__de-us-20170818-call-pres-3__1478898.md
+Deere & Company,DE,2017-08-18,EARNINGS_CALL,call-qna,FY2017Q3,1.0,Q3 2017,Quarterly Earnings Conference Call Q&A,challenge/offline-data/deere/call-transcripts/2017-08-18__de-us-20170818-call-qna__1478901.md
+Deere & Company,DE,2017-08-18,STRUCTURED_RESULT,q3-10q,FY2017Q3,1.0,Q3 2017,"Quarterly Report for Period Ended July 30, 2017",challenge/offline-data/deere/filings/2017-08-18__de-us-20170818-q3-10q__469477.md
+Deere & Company,DE,2017-08-18,STRUCTURED_RESULT,q3-8k,FY2017Q3,1.0,Q3 2017,Third-Quarter Earnings Release and Fiscal Year Outlook,challenge/offline-data/deere/filings/2017-08-18__de-us-20170818-q3-8k__784624.md
+Deere & Company,DE,2017-08-18,SLIDE,slide,FY2017Q3,1.0,Q3 2017,Third Quarter 2017 Earnings Call Presentation,challenge/offline-data/deere/slides/2017-08-18__de-us-20170818-slide__469828.md
+Deere & Company,DE,2017-06-01,EARNINGS_CALL,call-pres,FY2017Q2,0.5,FY 2017,Wirtgen Group Acquisition Announcement,challenge/offline-data/deere/call-transcripts/2017-06-01__de-us-20170601-call-pres-2__1479552.md
+Deere & Company,DE,2017-06-01,EARNINGS_CALL,call-pres,FY2017Q2,0.5,FY 2017,Acquisition of Wirtgen Group Investor Call,challenge/offline-data/deere/call-transcripts/2017-06-01__de-us-20170601-call-pres__469302.md
+Deere & Company,DE,2017-06-01,EARNINGS_CALL,call-qna,FY2017Q2,1.0,FY 2017,Wirtgen Group Acquisition Q&A Call,challenge/offline-data/deere/call-transcripts/2017-06-01__de-us-20170601-call-qna__1479561.md
+Deere & Company,DE,2017-06-01,STRUCTURED_RESULT,fy-8k,FY2017Q2,1.0,FY 2016,Acquisition Agreement Announcement,challenge/offline-data/deere/filings/2017-06-01__de-us-20170601-fy-8k__469105.md
+Deere & Company,DE,2017-06-01,SLIDE,slide,FY2017Q2,1.0,FY 2017,Acquisition of Wirtgen Group Announcement,challenge/offline-data/deere/slides/2017-06-01__de-us-20170601-slide__469476.md
+Deere & Company,DE,2017-05-19,EARNINGS_CALL,call-pres,FY2017Q2,1.0,Q2 2017,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2017-05-19__de-us-20170519-call-pres-2__1479654.md
+Deere & Company,DE,2017-05-19,EARNINGS_CALL,call-qna,FY2017Q2,1.0,Q2 2017,Analyst Q&A Session,challenge/offline-data/deere/call-transcripts/2017-05-19__de-us-20170519-call-qna__1479659.md
+Deere & Company,DE,2017-05-19,STRUCTURED_RESULT,q2-10q,FY2017Q2,1.0,Q2 2017,Quarterly Report for Period Ended April 30,challenge/offline-data/deere/filings/2017-05-19__de-us-20170519-q2-10q__469480.md
+Deere & Company,DE,2017-05-19,STRUCTURED_RESULT,q2-8k,FY2017Q2,1.0,Q2 2017,Second Quarter Financial Results,challenge/offline-data/deere/filings/2017-05-19__de-us-20170519-q2-8k__784651.md
+Deere & Company,DE,2017-05-19,SLIDE,slide,FY2017Q2,1.0,2Q 2017,2Q 2017 Earnings Call Presentation,challenge/offline-data/deere/slides/2017-05-19__de-us-20170519-slide__469652.md
+Deere & Company,DE,2017-02-17,EARNINGS_CALL,call-pres,FY2017Q1,1.0,Q1 2017,First Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2017-02-17__de-us-20170217-call-pres-2__1480472.md
+Deere & Company,DE,2017-02-17,EARNINGS_CALL,call-qna,FY2017Q1,1.0,Q1 2017,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2017-02-17__de-us-20170217-call-qna__1480475.md
+Deere & Company,DE,2017-02-17,STRUCTURED_RESULT,q1-10q,FY2017Q1,1.0,Q1 2017,Quarterly Report,challenge/offline-data/deere/filings/2017-02-17__de-us-20170217-q1-10q__469116.md
+Deere & Company,DE,2017-02-17,STRUCTURED_RESULT,q1-8k,FY2017Q1,1.0,Q1 2017,First-Quarter Earnings Release and Fiscal Year Outlook,challenge/offline-data/deere/filings/2017-02-17__de-us-20170217-q1-8k__784623.md
+Deere & Company,DE,2017-02-17,SLIDE,slide,FY2017Q1,1.0,1Q 2017,1Q 2017 Earnings Call,challenge/offline-data/deere/slides/2017-02-17__de-us-20170217-slide__469324.md
+Deere & Company,DE,2017-01-13,GENERIC_FILING,filing,,1.0,FY 2016,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2017-01-13__de-us-20170113-filing-2__469268.md
+Deere & Company,DE,2017-01-13,GENERIC_FILING,filing,,1.0,FY 2016,Proxy Statement and Annual Meeting Information,challenge/offline-data/deere/filings/2017-01-13__de-us-20170113-filing__468452.md
+Deere & Company,DE,2016-11-23,EARNINGS_CALL,call-pres,FY2016Q4,0.67,Q4 2016,Fourth Quarter and Full Year Earnings Call,challenge/offline-data/deere/call-transcripts/2016-11-23__de-us-20161123-call-pres-2__1480827.md
+Deere & Company,DE,2016-11-23,EARNINGS_CALL,call-qna,FY2016Q4,1.0,FY 2016,Earnings Call Question and Answer Session,challenge/offline-data/deere/call-transcripts/2016-11-23__de-us-20161123-call-qna__1480833.md
+Deere & Company,DE,2016-11-23,STRUCTURED_RESULT,q4-10k,FY2016Q4,1.0,FY 2016,Annual Report Filing,challenge/offline-data/deere/filings/2016-11-23__de-us-20161123-q4-10k__469184.md
+Deere & Company,DE,2016-11-23,STRUCTURED_RESULT,q4-8k,FY2016Q4,0.75,"Q4 2016, FY 2016",Fourth Quarter and Fiscal Year Earnings Release,challenge/offline-data/deere/filings/2016-11-23__de-us-20161123-q4-8k__784650.md
+Deere & Company,DE,2016-11-23,SLIDE,slide,FY2016Q4,1.0,FY 2016,Fourth Quarter and Fiscal Year Earnings Conference Call,challenge/offline-data/deere/slides/2016-11-23__de-us-20161123-slide__468519.md
+Deere & Company,DE,2016-08-19,EARNINGS_CALL,call-pres,FY2016Q3,1.0,Q3 2016,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2016-08-19__de-us-20160819-call-pres-2__1481603.md
+Deere & Company,DE,2016-08-19,EARNINGS_CALL,call-qna,FY2016Q3,1.0,Q3 2016,Q3 Earnings Call,challenge/offline-data/deere/call-transcripts/2016-08-19__de-us-20160819-call-qna__1481604.md
+Deere & Company,DE,2016-08-19,STRUCTURED_RESULT,q3-10q,FY2016Q3,1.0,Q3 2016,Quarterly Financial Report,challenge/offline-data/deere/filings/2016-08-19__de-us-20160819-q3-10q__469698.md
+Deere & Company,DE,2016-08-19,STRUCTURED_RESULT,q3-8k,FY2016Q3,1.0,Q3 2016,Third-Quarter Financial Results and Outlook,challenge/offline-data/deere/filings/2016-08-19__de-us-20160819-q3-8k__784652.md
+Deere & Company,DE,2016-08-19,SLIDE,slide,FY2016Q3,1.0,Q3 2016,Third Quarter 2016 Earnings Call Presentation,challenge/offline-data/deere/slides/2016-08-19__de-us-20160819-slide__469401.md
+Deere & Company,DE,2016-05-20,EARNINGS_CALL,call-pres,FY2016Q2,1.0,Q2 2016,Second Quarter Earnings and Fiscal 2016 Outlook Call,challenge/offline-data/deere/call-transcripts/2016-05-20__de-us-20160520-call-pres-2__1482768.md
+Deere & Company,DE,2016-05-20,EARNINGS_CALL,call-qna,FY2016Q2,1.0,Q2 2016,Quarterly Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2016-05-20__de-us-20160520-call-qna__1482770.md
+Deere & Company,DE,2016-05-20,STRUCTURED_RESULT,q2-10q,FY2016Q2,1.0,Q2 2016,"Quarterly Report for Period Ended April 30, 2016",challenge/offline-data/deere/filings/2016-05-20__de-us-20160520-q2-10q__469677.md
+Deere & Company,DE,2016-05-20,STRUCTURED_RESULT,q2-8k,FY2016Q2,1.0,Q2 2016,Second Quarter Earnings Report,challenge/offline-data/deere/filings/2016-05-20__de-us-20160520-q2-8k__784653.md
+Deere & Company,DE,2016-05-20,SLIDE,slide,FY2016Q2,1.0,Q2 2016,Second Quarter Earnings Conference Call,challenge/offline-data/deere/slides/2016-05-20__de-us-20160520-slide__469364.md
+Deere & Company,DE,2016-02-19,EARNINGS_CALL,call-pres,FY2016Q1,1.0,Q1 2016,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2016-02-19__de-us-20160219-call-pres-2__1517041.md
+Deere & Company,DE,2016-02-19,EARNINGS_CALL,call-pres,FY2016Q1,0.67,Q1 2016,Q1 Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2016-02-19__de-us-20160219-call-pres__469764.md
+Deere & Company,DE,2016-02-19,STRUCTURED_RESULT,q1-10q,FY2016Q1,1.0,Q1 2016,Quarterly Report,challenge/offline-data/deere/filings/2016-02-19__de-us-20160219-q1-10q__469699.md
+Deere & Company,DE,2016-02-19,STRUCTURED_RESULT,q1-8k,FY2016Q1,1.0,Q1 2016,First-Quarter Financial Results and Outlook,challenge/offline-data/deere/filings/2016-02-19__de-us-20160219-q1-8k__784606.md
+Deere & Company,DE,2016-02-19,SLIDE,slide,FY2016Q1,1.0,Q1 2016,First Quarter Earnings Conference Call,challenge/offline-data/deere/slides/2016-02-19__de-us-20160219-slide__469335.md
+Deere & Company,DE,2016-02-10,GENERIC_FILING,filing,FY2016Q1,1.0,FY 2016,Shareholder Voting Recommendations on Executive Compensation and Proxy Access,challenge/offline-data/deere/filings/2016-02-10__de-us-20160210-filing__469463.md
+Deere & Company,DE,2016-02-08,GENERIC_FILING,filing,,1.0,Q2 2016,SCHEDULE 14A Proxy Statement Filing,challenge/offline-data/deere/filings/2016-02-08__de-us-20160208-filing__469213.md
+Deere & Company,DE,2016-01-13,GENERIC_FILING,filing,,1.0,FY 2015,Proxy Statement and Annual Meeting Information,challenge/offline-data/deere/filings/2016-01-13__de-us-20160113-filing-2__469729.md
+Deere & Company,DE,2016-01-13,GENERIC_FILING,filing,,1.0,FY 2015,Annual Meeting Proxy Statement,challenge/offline-data/deere/filings/2016-01-13__de-us-20160113-filing__468470.md
+Deere & Company,DE,2015-11-25,EARNINGS_CALL,call-pres,FY2015Q4,0.67,FY 2015,Fourth Quarter and Fiscal Year Earnings Call,challenge/offline-data/deere/call-transcripts/2015-11-25__de-us-20151125-call-pres-2__1515778.md
+Deere & Company,DE,2015-11-25,EARNINGS_CALL,call-qna,FY2015Q4,1.0,FY 2016,Q&A Session on Business Outlook,challenge/offline-data/deere/call-transcripts/2015-11-25__de-us-20151125-call-qna__1515779.md
+Deere & Company,DE,2015-11-25,STRUCTURED_RESULT,q4-10k,FY2015Q4,1.0,FY 2015,Annual Report on Form 10-K,challenge/offline-data/deere/filings/2015-11-25__de-us-20151125-q4-10k__469104.md
+Deere & Company,DE,2015-11-25,STRUCTURED_RESULT,q4-8k,FY2015Q4,1.0,"Q4 2015, FY 2015",Fourth Quarter and Full Year Earnings Release,challenge/offline-data/deere/filings/2015-11-25__de-us-20151125-q4-8k__784605.md
+Deere & Company,DE,2015-11-25,SLIDE,slide,FY2015Q4,1.0,Q4 2015,Fourth Quarter Earnings Conference Call,challenge/offline-data/deere/slides/2015-11-25__de-us-20151125-slide__468542.md
+Deere & Company,DE,2015-08-21,EARNINGS_CALL,call-pres,FY2015Q3,1.0,Q3 2015,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2015-08-21__de-us-20150821-call-pres-2__1517193.md
+Deere & Company,DE,2015-08-21,EARNINGS_CALL,call-qna,FY2015Q3,1.0,Q3 2015,Q3 Earnings Call,challenge/offline-data/deere/call-transcripts/2015-08-21__de-us-20150821-call-qna__1517196.md
+Deere & Company,DE,2015-08-21,STRUCTURED_RESULT,q3-10q,FY2015Q3,1.0,Q3 2015,Quarterly Report,challenge/offline-data/deere/filings/2015-08-21__de-us-20150821-q3-10q__469127.md
+Deere & Company,DE,2015-08-21,STRUCTURED_RESULT,q3-8k,FY2015Q3,1.0,Q3 2015,Third-Quarter Earnings Release,challenge/offline-data/deere/filings/2015-08-21__de-us-20150821-q3-8k__784604.md
+Deere & Company,DE,2015-08-21,SLIDE,slide,FY2015Q3,1.0,Q3 2015,Third Quarter Earnings Conference Call,challenge/offline-data/deere/slides/2015-08-21__de-us-20150821-slide__469412.md
+Deere & Company,DE,2015-05-22,EARNINGS_CALL,call-pres,FY2015Q2,1.0,Q2 2015,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2015-05-22__de-us-20150522-call-pres-2__1521778.md
+Deere & Company,DE,2015-05-22,EARNINGS_CALL,call-qna,FY2015Q2,1.0,Q2 2015,Quarterly Earnings Call Question and Answer Session,challenge/offline-data/deere/call-transcripts/2015-05-22__de-us-20150522-call-qna__1521782.md
+Deere & Company,DE,2015-05-22,STRUCTURED_RESULT,q2-10q,FY2015Q2,1.0,Q2 2015,Quarterly Financial Results,challenge/offline-data/deere/filings/2015-05-22__de-us-20150522-q2-10q__468391.md
+Deere & Company,DE,2015-05-22,STRUCTURED_RESULT,q2-8k,FY2015Q2,1.0,Q2 2015,Second Quarter Financial Results and Outlook,challenge/offline-data/deere/filings/2015-05-22__de-us-20150522-q2-8k__784603.md
+Deere & Company,DE,2015-05-22,SLIDE,slide,FY2015Q2,1.0,Q2 2015,Second Quarter 2015 Earnings and Fiscal Year Outlook,challenge/offline-data/deere/slides/2015-05-22__de-us-20150522-slide__469418.md
+Deere & Company,DE,2015-02-20,EARNINGS_CALL,call-pres,FY2015Q1,1.0,Q1 2015,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2015-02-20__de-us-20150220-call-pres-2__1522566.md
+Deere & Company,DE,2015-02-20,EARNINGS_CALL,call-qna,FY2015Q1,1.0,Q1 2015,Q1 2015 Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2015-02-20__de-us-20150220-call-qna__1522571.md
+Deere & Company,DE,2015-02-20,STRUCTURED_RESULT,q1-10q,FY2015Q1,1.0,Q1 2015,Quarterly Report,challenge/offline-data/deere/filings/2015-02-20__de-us-20150220-q1-10q__469211.md
+Deere & Company,DE,2015-02-20,STRUCTURED_RESULT,q1-8k,FY2015Q1,1.0,Q1 2015,First Quarter Earnings Release and Conference Call Presentation,challenge/offline-data/deere/filings/2015-02-20__de-us-20150220-q1-8k__784661.md
+Deere & Company,DE,2015-02-20,SLIDE,slide,FY2015Q1,1.0,Q1 2015,First Quarter Earnings Conference Call,challenge/offline-data/deere/slides/2015-02-20__de-us-20150220-slide__469336.md
+Deere & Company,DE,2015-01-14,GENERIC_FILING,filing,,1.0,FY 2014,Annual Meeting Proxy Materials and Voting Information,challenge/offline-data/deere/filings/2015-01-14__de-us-20150114-filing-2__469264.md
+Deere & Company,DE,2015-01-14,GENERIC_FILING,filing,,1.0,FY 2014,Definitive Proxy Statement for Annual Meeting,challenge/offline-data/deere/filings/2015-01-14__de-us-20150114-filing__468471.md
+Deere & Company,DE,2014-11-26,EARNINGS_CALL,call-pres,FY2014Q4,0.67,Q4 2014,Fourth Quarter and Fiscal Year Earnings Call,challenge/offline-data/deere/call-transcripts/2014-11-26__de-us-20141126-call-pres__1523103.md
+Deere & Company,DE,2014-11-26,EARNINGS_CALL,call-qna,FY2014Q4,1.0,FY 2015,Fiscal Year 2015 Outlook and Market Conditions Call,challenge/offline-data/deere/call-transcripts/2014-11-26__de-us-20141126-call-qna__1523108.md
+Deere & Company,DE,2014-08-13,EARNINGS_CALL,call-pres,FY2014Q3,1.0,Q3 2014,Third Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2014-08-13__de-us-20140813-call-pres__1524329.md
+Deere & Company,DE,2014-08-13,EARNINGS_CALL,call-qna,FY2014Q3,1.0,Q3 2014,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2014-08-13__de-us-20140813-call-qna__1524330.md
+Deere & Company,DE,2014-05-14,EARNINGS_CALL,call-pres,FY2014Q2,1.0,Q2 2014,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2014-05-14__de-us-20140514-call-pres__1526775.md
+Deere & Company,DE,2014-05-14,EARNINGS_CALL,call-qna,FY2014Q2,1.0,Q2 2014,Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2014-05-14__de-us-20140514-call-qna__1526780.md
+Deere & Company,DE,2014-02-12,EARNINGS_CALL,call-pres,FY2014Q1,1.0,Q1 2014,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2014-02-12__de-us-20140212-call-pres__1527290.md
+Deere & Company,DE,2014-02-12,EARNINGS_CALL,call-qna,FY2014Q1,1.0,Q1 2014,Quarterly Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2014-02-12__de-us-20140212-call-qna__1527306.md
+Deere & Company,DE,2013-11-20,EARNINGS_CALL,call-pres,FY2013Q4,0.67,FY 2013,Fourth Quarter and Full Year Earnings Call,challenge/offline-data/deere/call-transcripts/2013-11-20__de-us-20131120-call-pres__1527987.md
+Deere & Company,DE,2013-11-20,EARNINGS_CALL,call-qna,FY2013Q4,1.0,FY 2013,Fiscal Year 2013 Earnings Call and 2014 Outlook,challenge/offline-data/deere/call-transcripts/2013-11-20__de-us-20131120-call-qna__1527996.md
+Deere & Company,DE,2013-08-14,EARNINGS_CALL,call-pres,FY2013Q3,1.0,Q3 2013,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2013-08-14__de-us-20130814-call-pres__1529031.md
+Deere & Company,DE,2013-08-14,EARNINGS_CALL,call-qna,FY2013Q3,1.0,Q3 2013,Third Quarter Earnings Call,challenge/offline-data/deere/call-transcripts/2013-08-14__de-us-20130814-call-qna__1529036.md
+Deere & Company,DE,2013-05-15,EARNINGS_CALL,call-pres,FY2013Q2,1.0,Q2 2013,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2013-05-15__de-us-20130515-call-pres__1530346.md
+Deere & Company,DE,2013-05-15,EARNINGS_CALL,call-qna,FY2013Q2,1.0,Q2 2013,Quarterly Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2013-05-15__de-us-20130515-call-qna__1530347.md
+Deere & Company,DE,2013-02-13,EARNINGS_CALL,call-pres,FY2013Q1,1.0,Q1 2013,First Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2013-02-13__de-us-20130213-call-pres__1532730.md
+Deere & Company,DE,2013-02-13,EARNINGS_CALL,call-qna,FY2013Q1,1.0,Q1 2013,Quarterly Earnings Call Q&A,challenge/offline-data/deere/call-transcripts/2013-02-13__de-us-20130213-call-qna__1532732.md
+Deere & Company,DE,2012-11-21,EARNINGS_CALL,call-pres,FY2012Q4,0.67,Q4 2012,Fourth Quarter and Full Year Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2012-11-21__de-us-20121121-call-pres__1532984.md
+Deere & Company,DE,2012-11-21,EARNINGS_CALL,call-qna,FY2012Q4,1.0,FY 2012,Fiscal Q4 2012 Earnings Call and FY 2013 Outlook,challenge/offline-data/deere/call-transcripts/2012-11-21__de-us-20121121-call-qna__1532985.md
+Deere & Company,DE,2012-08-15,EARNINGS_CALL,call-pres,FY2012Q3,1.0,Q3 2012,Third Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2012-08-15__de-us-20120815-call-pres__1533564.md
+Deere & Company,DE,2012-08-15,EARNINGS_CALL,call-qna,FY2012Q3,1.0,Q3 2012,Quarterly Earnings Call,challenge/offline-data/deere/call-transcripts/2012-08-15__de-us-20120815-call-qna__1533565.md
+Deere & Company,DE,2012-05-16,EARNINGS_CALL,call-pres,FY2012Q2,1.0,Q2 2012 and FY 2012 outlook,Second Quarter Earnings Conference Call,challenge/offline-data/deere/call-transcripts/2012-05-16__de-us-20120516-call-pres__1534116.md
+Deere & Company,DE,2012-05-16,EARNINGS_CALL,call-qna,FY2012Q2,1.0,Q2 2012,Q2 Earnings Call Transcript,challenge/offline-data/deere/call-transcripts/2012-05-16__de-us-20120516-call-qna__1534128.md

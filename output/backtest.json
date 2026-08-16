@@ -1,0 +1,518 @@
+[
+ {
+  "target": "Net sales",
+  "best_model": "seasonal_naive",
+  "prediction": 43527.5243,
+  "n_rows": 39,
+  "season": 4,
+  "features": [
+   "__target__",
+   "revenue"
+  ],
+  "features_considered": 4,
+  "baseline_mape": 0.0336,
+  "scores": [
+   {
+    "model": "seasonal_naive",
+    "mape": 0.0336,
+    "mae": 2305.1416,
+    "folds": 33
+   },
+   {
+    "model": "ridge",
+    "mape": 0.0593,
+    "mae": 3580.0126,
+    "folds": 33
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.0642,
+    "mae": 3501.4932,
+    "folds": 33
+   },
+   {
+    "model": "ols",
+    "mape": 0.0655,
+    "mae": 3432.3421,
+    "folds": 31
+   },
+   {
+    "model": "random_forest",
+    "mape": 0.0854,
+    "mae": 3627.675,
+    "folds": 27
+   },
+   {
+    "model": "extra_trees",
+    "mape": 0.0856,
+    "mae": 3776.6418,
+    "folds": 27
+   }
+  ],
+  "note": "",
+  "ticker": "HD",
+  "metric": "Net sales",
+  "period": "FY2026Q2",
+  "units": "USDm"
+ },
+ {
+  "target": "Adjusted diluted EPS",
+  "best_model": "insufficient_history",
+  "prediction": null,
+  "n_rows": 2,
+  "season": 4,
+  "features": [],
+  "features_considered": 0,
+  "baseline_mape": null,
+  "scores": [],
+  "note": "2 observations; need 9",
+  "ticker": "HD",
+  "metric": "Adjusted diluted EPS",
+  "period": "FY2026Q2",
+  "units": "USD / share"
+ },
+ {
+  "target": "Comparable sales, total company",
+  "best_model": "insufficient_history",
+  "prediction": null,
+  "n_rows": 2,
+  "season": 4,
+  "features": [],
+  "features_considered": 0,
+  "baseline_mape": null,
+  "scores": [],
+  "note": "2 observations; need 9",
+  "ticker": "HD",
+  "metric": "Comparable sales, total company",
+  "period": "FY2026Q2",
+  "units": "%"
+ },
+ {
+  "target": "Revenue",
+  "best_model": "drift",
+  "prediction": 3841.465,
+  "n_rows": 39,
+  "season": 4,
+  "features": [
+   "gross_margin",
+   "__target__",
+   "net_income"
+  ],
+  "features_considered": 4,
+  "baseline_mape": 0.2192,
+  "scores": [
+   {
+    "model": "drift",
+    "mape": 0.0536,
+    "mae": 91744.68,
+    "folds": 33
+   },
+   {
+    "model": "huber",
+    "mape": 0.0841,
+    "mae": 264.1037,
+    "folds": 29
+   },
+   {
+    "model": "grad_boost",
+    "mape": 0.1335,
+    "mae": 66030.9492,
+    "folds": 23
+   },
+   {
+    "model": "random_forest",
+    "mape": 0.1465,
+    "mae": 41309.1528,
+    "folds": 27
+   },
+   {
+    "model": "seasonal_naive",
+    "mape": 0.2192,
+    "mae": 95144.3245,
+    "folds": 33
+   },
+   {
+    "model": "extra_trees",
+    "mape": 7.3084,
+    "mae": 51907.7385,
+    "folds": 27
+   }
+  ],
+  "note": "beat the seasonal baseline by 76% MAPE",
+  "ticker": "ADI",
+  "metric": "Revenue",
+  "period": "FY2026Q3",
+  "units": "USDm"
+ },
+ {
+  "target": "Adjusted diluted EPS",
+  "best_model": "extra_trees",
+  "prediction": 2.6031,
+  "n_rows": 18,
+  "season": 4,
+  "features": [
+   "operating_profit_adjusted",
+   "operating_cash_flow",
+   "cost_of_sales"
+  ],
+  "features_considered": 14,
+  "baseline_mape": 0.2976,
+  "scores": [
+   {
+    "model": "extra_trees",
+    "mape": 0.1015,
+    "mae": 0.2866,
+    "folds": 6
+   },
+   {
+    "model": "random_forest",
+    "mape": 0.1059,
+    "mae": 0.2592,
+    "folds": 6
+   },
+   {
+    "model": "ols",
+    "mape": 0.1125,
+    "mae": 0.3142,
+    "folds": 6
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.1331,
+    "mae": 0.3421,
+    "folds": 12
+   },
+   {
+    "model": "drift",
+    "mape": 0.1362,
+    "mae": 0.31,
+    "folds": 12
+   },
+   {
+    "model": "ridge",
+    "mape": 0.1487,
+    "mae": 0.3475,
+    "folds": 12
+   }
+  ],
+  "note": "beat the seasonal baseline by 66% MAPE",
+  "ticker": "ADI",
+  "metric": "Adjusted diluted EPS",
+  "period": "FY2026Q3",
+  "units": "USD / share"
+ },
+ {
+  "target": "Adjusted gross margin",
+  "best_model": "drift",
+  "prediction": 74.0,
+  "n_rows": 24,
+  "season": 4,
+  "features": [
+   "__target__",
+   "gross_margin_adjusted",
+   "cost_of_sales",
+   "profit_before_tax"
+  ],
+  "features_considered": 13,
+  "baseline_mape": 0.0205,
+  "scores": [
+   {
+    "model": "drift",
+    "mape": 0.014,
+    "mae": 1.0694,
+    "folds": 18
+   },
+   {
+    "model": "extra_trees",
+    "mape": 0.0158,
+    "mae": 1.5104,
+    "folds": 12
+   },
+   {
+    "model": "ols",
+    "mape": 0.0158,
+    "mae": 1.1931,
+    "folds": 8
+   },
+   {
+    "model": "elasticnet",
+    "mape": 0.0161,
+    "mae": 1.3901,
+    "folds": 14
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.0168,
+    "mae": 9.6937,
+    "folds": 18
+   },
+   {
+    "model": "grad_boost",
+    "mape": 0.0186,
+    "mae": 1.4679,
+    "folds": 8
+   }
+  ],
+  "note": "beat the seasonal baseline by 32% MAPE",
+  "ticker": "ADI",
+  "metric": "Adjusted gross margin",
+  "period": "FY2026Q3",
+  "units": "%"
+ },
+ {
+  "target": "Net fees",
+  "best_model": "mean",
+  "prediction": 1071.2667,
+  "n_rows": 10,
+  "season": 1,
+  "features": [
+   "dividend_per_share",
+   "__target__"
+  ],
+  "features_considered": 10,
+  "baseline_mape": 0.1597,
+  "scores": [
+   {
+    "model": "mean",
+    "mape": 0.1295,
+    "mae": 160.5756,
+    "folds": 4
+   },
+   {
+    "model": "ridge",
+    "mape": 0.1485,
+    "mae": 150.0946,
+    "folds": 4
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.1498,
+    "mae": 152.8455,
+    "folds": 4
+   },
+   {
+    "model": "seasonal_naive",
+    "mape": 0.1597,
+    "mae": 184.3809,
+    "folds": 4
+   },
+   {
+    "model": "drift",
+    "mape": 0.1669,
+    "mae": 186.75,
+    "folds": 4
+   }
+  ],
+  "note": "beat the seasonal baseline by 19% MAPE",
+  "ticker": "HAS",
+  "metric": "Net fees",
+  "period": "FY2026",
+  "units": "GBPm"
+ },
+ {
+  "target": "Pre-exceptional basic EPS",
+  "best_model": "insufficient_history",
+  "prediction": null,
+  "n_rows": 5,
+  "season": 1,
+  "features": [],
+  "features_considered": 0,
+  "baseline_mape": null,
+  "scores": [],
+  "note": "5 observations; need 9",
+  "ticker": "HAS",
+  "metric": "Pre-exceptional basic EPS",
+  "period": "FY2026",
+  "units": "GBp"
+ },
+ {
+  "target": "Pre-exceptional operating profit",
+  "best_model": "insufficient_history",
+  "prediction": null,
+  "n_rows": 5,
+  "season": 1,
+  "features": [],
+  "features_considered": 0,
+  "baseline_mape": null,
+  "scores": [],
+  "note": "5 observations; need 9",
+  "ticker": "HAS",
+  "metric": "Pre-exceptional operating profit",
+  "period": "FY2026",
+  "units": "GBPm"
+ },
+ {
+  "target": "Worldwide net sales and revenues",
+  "best_model": "drift",
+  "prediction": 13184.5,
+  "n_rows": 34,
+  "season": 4,
+  "features": [
+   "__target__",
+   "revenue",
+   "net_income",
+   "operating_profit"
+  ],
+  "features_considered": 4,
+  "baseline_mape": 0.1709,
+  "scores": [
+   {
+    "model": "drift",
+    "mape": 0.1435,
+    "mae": 2019.5893,
+    "folds": 28
+   },
+   {
+    "model": "grad_boost",
+    "mape": 0.1445,
+    "mae": 2143.7444,
+    "folds": 18
+   },
+   {
+    "model": "mean",
+    "mape": 0.151,
+    "mae": 2127.5505,
+    "folds": 28
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.1584,
+    "mae": 2024.6955,
+    "folds": 28
+   },
+   {
+    "model": "ridge",
+    "mape": 0.1603,
+    "mae": 2222.352,
+    "folds": 28
+   },
+   {
+    "model": "elasticnet",
+    "mape": 0.1684,
+    "mae": 2299.5991,
+    "folds": 24
+   }
+  ],
+  "note": "beat the seasonal baseline by 16% MAPE",
+  "ticker": "DE",
+  "metric": "Worldwide net sales and revenues",
+  "period": "FY2026Q3",
+  "units": "USDm"
+ },
+ {
+  "target": "Diluted EPS (GAAP)",
+  "best_model": "drift",
+  "prediction": 5.385,
+  "n_rows": 25,
+  "season": 4,
+  "features": [
+   "__target__",
+   "revenue",
+   "rd_expense",
+   "net_income"
+  ],
+  "features_considered": 6,
+  "baseline_mape": 0.3806,
+  "scores": [
+   {
+    "model": "drift",
+    "mape": 0.2249,
+    "mae": 1.8311,
+    "folds": 19
+   },
+   {
+    "model": "ols",
+    "mape": 0.3588,
+    "mae": 1.9227,
+    "folds": 9
+   },
+   {
+    "model": "mean",
+    "mape": 0.3614,
+    "mae": 2.2944,
+    "folds": 19
+   },
+   {
+    "model": "grad_boost",
+    "mape": 0.3758,
+    "mae": 2.0151,
+    "folds": 9
+   },
+   {
+    "model": "elasticnet",
+    "mape": 0.3799,
+    "mae": 2.1091,
+    "folds": 15
+   },
+   {
+    "model": "seasonal_naive",
+    "mape": 0.3806,
+    "mae": 3.1781,
+    "folds": 19
+   }
+  ],
+  "note": "beat the seasonal baseline by 41% MAPE",
+  "ticker": "DE",
+  "metric": "Diluted EPS (GAAP)",
+  "period": "FY2026Q3",
+  "units": "USD / share"
+ },
+ {
+  "target": "Production & Precision Ag operating profit",
+  "best_model": "grad_boost",
+  "prediction": 725.6961,
+  "n_rows": 21,
+  "season": 4,
+  "features": [
+   "__target__",
+   "net_income",
+   "revenue",
+   "rd_expense"
+  ],
+  "features_considered": 5,
+  "baseline_mape": 0.5339,
+  "scores": [
+   {
+    "model": "grad_boost",
+    "mape": 0.3308,
+    "mae": 395.7029,
+    "folds": 5
+   },
+   {
+    "model": "ols",
+    "mape": 0.3667,
+    "mae": 450.2485,
+    "folds": 5
+   },
+   {
+    "model": "extra_trees",
+    "mape": 0.425,
+    "mae": 457.858,
+    "folds": 9
+   },
+   {
+    "model": "bayes_ridge",
+    "mape": 0.4413,
+    "mae": 515.7471,
+    "folds": 15
+   },
+   {
+    "model": "random_forest",
+    "mape": 0.458,
+    "mae": 448.0494,
+    "folds": 9
+   },
+   {
+    "model": "ridge",
+    "mape": 0.4601,
+    "mae": 519.7339,
+    "folds": 15
+   }
+  ],
+  "note": "beat the seasonal baseline by 38% MAPE",
+  "ticker": "DE",
+  "metric": "Production & Precision Ag operating profit",
+  "period": "FY2026Q3",
+  "units": "USDm"
+ }
+]

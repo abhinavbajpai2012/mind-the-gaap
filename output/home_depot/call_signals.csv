@@ -1,0 +1,25 @@
+company,ticker,fiscal_period,as_of_call,n_history,n_baseline,qa_neg,qa_neg_ord,qa_neg_z,qa_neg_change,qa_neg_change_ord,uncertainty,uncertainty_ord,guidance_language,guidance_language_ord
+Home Depot,HD,FY2020Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2020Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2020Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2021Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2021Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2021Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2021Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2022Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2022Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2022Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2022Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2023Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2023Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2023Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2023Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2024Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2024Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2024Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2024Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2025Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2025Q2,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2025Q3,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2025Q4,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1
+Home Depot,HD,FY2026Q1,2026-05-19,66,8,typical,1,0.7,worsened,2,opaque,3,neutral,1

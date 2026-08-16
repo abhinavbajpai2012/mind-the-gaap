@@ -9,3 +9,4 @@ research/
 !.env.example
 entry.json
 submission/*.xlsx
+output/**/metrics_long.csv

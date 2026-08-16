@@ -1,0 +1,4 @@
+company,ticker,fiscal_period,fiscal_year,fiscal_quarter,period_months,period_end,category,net_sales,operating_profit,operating_margin_pct,unit,sources,sales_mix_pct
+Hays plc,HAS,FY2023,2023,,12,2023-06-28,Summary Income Statement,7583.3,197.0,,USDm,2024-08-22__has-ln-20240822-h2-8k__119721.md:299; 2024-08-22__has-ln-20240822-h2-8k__119721.md:302; 2024-08-22__has-ln-20240822-h2-8k__119721.md:304,100.0
+Hays plc,HAS,FY2024,2024,,12,2024-06-28,Summary Income Statement,6949.1,105.1,,USDm,2024-08-22__has-ln-20240822-h2-8k__119721.md:299; 2024-08-22__has-ln-20240822-h2-8k__119721.md:302; 2024-08-22__has-ln-20240822-h2-8k__119721.md:304,100.0
+Hays plc,HAS,FY2025,2025,,12,2025-06-28,Summary Income Statement,6607.0,45.6,,USDm,2025-08-21__has-ln-20250821-filing__143845.md:235; 2025-08-21__has-ln-20250821-filing__143845.md:238; 2025-08-21__has-ln-20250821-filing__143845.md:240,100.0

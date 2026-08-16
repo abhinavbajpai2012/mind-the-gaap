@@ -1,0 +1,226 @@
+company,ticker,fiscal_period,fiscal_year,fiscal_quarter,period_months,period_end,category,net_sales,operating_profit,operating_margin_pct,unit,sources,sales_mix_pct
+Deere & Company,DE,FY2013,2013,,12,2013-10-28,agriculture and turf,29132.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4654,83.24
+Deere & Company,DE,FY2013,2013,,12,2013-10-28,construction and forestry,5866.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4655,16.76
+Deere & Company,DE,FY2014,2014,,12,2014-10-28,agriculture and turf,26380.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4654,80.03
+Deere & Company,DE,FY2014,2014,,12,2014-10-28,construction and forestry,6581.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4655,19.97
+Deere & Company,DE,FY2015,2015,,12,2015-10-28,agriculture and turf,19812.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4654,76.87
+Deere & Company,DE,FY2015,2015,,12,2015-10-28,construction and forestry,5963.0,,,USDm,2015-11-25__de-us-20151125-q4-10k__469104.md:4655,23.13
+Deere & Company,DE,FY2016Q1,2016,1,3,2016-01-31,agriculture and turf,,144.0,,,2017-02-17__de-us-20170217-q1-10q__469116.md:508,
+Deere & Company,DE,FY2016Q1,2016,1,3,2016-01-31,construction and forestry,,70.0,,,2017-02-17__de-us-20170217-q1-10q__469116.md:509,
+Deere & Company,DE,FY2016Q2,2016,2,3,2016-05-01,agriculture and turf,,614.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:890,
+Deere & Company,DE,FY2016Q2,2016,2,3,2016-05-01,construction and forestry,,74.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:891,
+Deere & Company,DE,FY2016,2016,,12,2016-10-28,agriculture and turf,18487.0,,,USDm,2016-11-23__de-us-20161123-q4-10k__469184.md:5348,79.05
+Deere & Company,DE,FY2016,2016,,6,2016-05-01,agriculture and turf,,759.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:890,
+Deere & Company,DE,FY2016,2016,,12,2016-10-28,construction and forestry,4900.0,,,USDm,2016-11-23__de-us-20161123-q4-10k__469184.md:5349,20.95
+Deere & Company,DE,FY2016,2016,,6,2016-05-01,construction and forestry,,143.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:891,
+Deere & Company,DE,FY2017Q1,2017,1,3,2017-01-29,agriculture and turf,,213.0,,,2017-02-17__de-us-20170217-q1-10q__469116.md:508; 2018-02-16__de-us-20180216-q1-10q__469205.md:864,
+Deere & Company,DE,FY2017Q1,2017,1,3,2017-01-29,construction and forestry,,34.0,,,2017-02-17__de-us-20170217-q1-10q__469116.md:509; 2018-02-16__de-us-20180216-q1-10q__469205.md:865,
+Deere & Company,DE,FY2017Q2,2017,2,3,2017-04-30,agriculture and turf,,1003.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:890; 2018-05-18__de-us-20180518-q2-10q__468389.md:908,
+Deere & Company,DE,FY2017Q2,2017,2,3,2017-04-30,construction and forestry,,108.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:891; 2018-05-18__de-us-20180518-q2-10q__468389.md:909,
+Deere & Company,DE,FY2017,2017,,6,2017-04-30,agriculture and turf,,1215.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:890; 2018-05-18__de-us-20180518-q2-10q__468389.md:908,
+Deere & Company,DE,FY2017,2017,,12,2017-10-28,agriculture and turf,20167.0,,,USDm,2017-11-22__de-us-20171122-q4-10k__468364.md:5707,77.91
+Deere & Company,DE,FY2017,2017,,6,2017-04-30,construction and forestry,,143.0,,,2017-05-19__de-us-20170519-q2-10q__469480.md:891; 2018-05-18__de-us-20180518-q2-10q__468389.md:909,
+Deere & Company,DE,FY2017,2017,,12,2017-10-28,construction and forestry,5718.0,,,USDm,2017-11-22__de-us-20171122-q4-10k__468364.md:5708,22.09
+Deere & Company,DE,FY2018Q1,2018,1,3,2018-01-28,agriculture and turf,,387.0,,,2018-02-16__de-us-20180216-q1-10q__469205.md:864,
+Deere & Company,DE,FY2018Q1,2018,1,3,2018-01-28,construction and forestry,,32.0,,,2018-02-16__de-us-20180216-q1-10q__469205.md:865,
+Deere & Company,DE,FY2018Q2,2018,2,3,2018-04-29,agriculture and turf,,1056.0,,,2018-05-18__de-us-20180518-q2-10q__468389.md:908,
+Deere & Company,DE,FY2018Q2,2018,2,3,2018-04-29,construction and forestry,,259.0,,,2018-05-18__de-us-20180518-q2-10q__468389.md:909,
+Deere & Company,DE,FY2018Q4,2018,4,3,2018-10-28,agriculture and turf,,567.0,,,2019-11-27__de-us-20191127-q4-8k__469218.md:208,
+Deere & Company,DE,FY2018Q4,2018,4,3,2018-10-28,construction and forestry,,295.0,,,2019-11-27__de-us-20191127-q4-8k__469218.md:209,
+Deere & Company,DE,FY2018,2018,,12,2018-10-28,Construction & Forestry,,,1.8,,2019-02-15__de-us-20190215-q1-8k__654630.md:93,
+Deere & Company,DE,FY2018,2018,,6,2018-04-29,agriculture and turf,,1443.0,,,2018-05-18__de-us-20180518-q2-10q__468389.md:908,
+Deere & Company,DE,FY2018,2018,,12,2018-10-28,agriculture and turf,23191.0,2816.0,,USDm,2018-11-21__de-us-20181121-q4-10k__469201.md:5766; 2019-11-27__de-us-20191127-q4-8k__469218.md:208,69.54
+Deere & Company,DE,FY2018,2018,,6,2018-04-29,construction and forestry,,291.0,,,2018-05-18__de-us-20180518-q2-10q__468389.md:909,
+Deere & Company,DE,FY2018,2018,,12,2018-10-28,construction and forestry,10160.0,868.0,,USDm,2018-11-21__de-us-20181121-q4-10k__469201.md:5767; 2019-11-27__de-us-20191127-q4-8k__469218.md:209,30.46
+Deere & Company,DE,FY2019Q1,2019,1,3,2019-01-27,agriculture and turf,,348.0,,,2019-02-15__de-us-20190215-q1-10q__469204.md:1277,
+Deere & Company,DE,FY2019Q1,2019,1,3,2019-01-27,construction and forestry,,229.0,,,2019-02-15__de-us-20190215-q1-10q__469204.md:1278,
+Deere & Company,DE,FY2019Q2,2019,2,3,2019-04-28,agriculture and turf,,1019.0,,,2019-05-17__de-us-20190517-q2-10q__469675.md:1502,
+Deere & Company,DE,FY2019Q2,2019,2,3,2019-04-28,construction and forestry,,347.0,,,2019-05-17__de-us-20190517-q2-10q__469675.md:1503,
+Deere & Company,DE,FY2019Q3,2019,3,3,2019-07-28,agriculture and turf,,612.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1404,
+Deere & Company,DE,FY2019Q3,2019,3,3,2019-07-28,construction and forestry,,378.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1405,
+Deere & Company,DE,FY2019Q4,2019,4,3,2019-11-03,agriculture and turf,,527.0,,,2019-11-27__de-us-20191127-q4-8k__469218.md:208,
+Deere & Company,DE,FY2019Q4,2019,4,3,2019-11-03,construction and forestry,,261.0,,,2019-11-27__de-us-20191127-q4-8k__469218.md:209,
+Deere & Company,DE,FY2019,2019,,6,2019-04-28,agriculture and turf,,1367.0,,,2019-05-17__de-us-20190517-q2-10q__469675.md:1502,
+Deere & Company,DE,FY2019,2019,,12,2019-10-28,agriculture and turf,23666.0,2506.0,,USDm,2019-11-27__de-us-20191127-q4-10k__469283.md:9526; 2019-11-27__de-us-20191127-q4-8k__469218.md:208,33.92
+Deere & Company,DE,FY2019,2019,,9,2019-07-28,agriculture and turf,,1978.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1404,
+Deere & Company,DE,FY2019,2019,,12,2019-10-28,construction & forestry,11220.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11259,16.08
+Deere & Company,DE,FY2019,2019,,6,2019-04-28,construction and forestry,,576.0,,,2019-05-17__de-us-20190517-q2-10q__469675.md:1503,
+Deere & Company,DE,FY2019,2019,,12,2019-10-28,construction and forestry,11220.0,1215.0,,USDm,2019-11-27__de-us-20191127-q4-10k__469283.md:9527; 2019-11-27__de-us-20191127-q4-8k__469218.md:209,16.08
+Deere & Company,DE,FY2019,2019,,9,2019-07-28,construction and forestry,,954.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1405,
+Deere & Company,DE,FY2019,2019,,12,2019-10-28,production & precision ag,13364.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11257,19.15
+Deere & Company,DE,FY2019,2019,,12,2019-10-28,small ag & turf,10302.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11258,14.77
+Deere & Company,DE,FY2020Q1,2020,1,3,2020-02-02,agriculture and turf,,373.0,,,2020-02-21__de-us-20200221-q1-10q__468373.md:1186,
+Deere & Company,DE,FY2020Q1,2020,1,3,2020-02-02,construction &forestry,67.0,93.0,,USDm,2021-02-19__de-us-20210219-q1-10q__105814.md:936; 2021-02-19__de-us-20210219-q1-10q__105814.md:946,100.0
+Deere & Company,DE,FY2020Q1,2020,1,3,2020-02-02,construction and forestry,,93.0,,,2020-02-21__de-us-20200221-q1-10q__468373.md:1187,
+Deere & Company,DE,FY2020Q1,2020,1,3,2020-02-02,production &precision ag,,218.0,,,2021-02-19__de-us-20210219-q1-10q__105814.md:934,
+Deere & Company,DE,FY2020Q1,2020,1,3,2020-02-02,small ag &turf,,155.0,,,2021-02-19__de-us-20210219-q1-10q__105814.md:935,
+Deere & Company,DE,FY2020Q2,2020,2,3,2020-05-03,agriculture and turf,,794.0,,,2020-05-21__de-us-20200521-q2-10q__469470.md:1452,
+Deere & Company,DE,FY2020Q2,2020,2,3,2020-05-03,construction &forestry,2256.0,96.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1214; 2021-05-21__de-us-20210521-q2-10q__105821.md:1221; 2021-05-21__de-us-20210521-q2-10q__105821.md:1231,27.43
+Deere & Company,DE,FY2020Q2,2020,2,3,2020-05-03,construction and forestry,,96.0,,,2020-05-21__de-us-20200521-q2-10q__469470.md:1453,
+Deere & Company,DE,FY2020Q2,2020,2,3,2020-05-03,production &precision ag,3365.0,568.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1212; 2021-05-21__de-us-20210521-q2-10q__105821.md:1219,40.92
+Deere & Company,DE,FY2020Q2,2020,2,3,2020-05-03,small ag &turf,2603.0,226.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1213; 2021-05-21__de-us-20210521-q2-10q__105821.md:1220,31.65
+Deere & Company,DE,FY2020Q3,2020,3,3,2020-08-02,agriculture and turf,,942.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1404,
+Deere & Company,DE,FY2020Q3,2020,3,3,2020-08-02,construction &forestry,2187.0,205.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1160; 2021-08-20__de-us-20210820-q3-10q__105837.md:1167; 2021-08-20__de-us-20210820-q3-10q__105837.md:1177,27.83
+Deere & Company,DE,FY2020Q3,2020,3,3,2020-08-02,construction and forestry,,205.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1405,
+Deere & Company,DE,FY2020Q3,2020,3,3,2020-08-02,production &precision ag,3289.0,605.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1158; 2021-08-20__de-us-20210820-q3-10q__105837.md:1165,41.85
+Deere & Company,DE,FY2020Q3,2020,3,3,2020-08-02,small ag &turf,2383.0,337.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1159; 2021-08-20__de-us-20210820-q3-10q__105837.md:1166,30.32
+Deere & Company,DE,FY2020Q4,2020,4,3,2020-11-01,agriculture and turf,,860.0,,,2020-11-25__de-us-20201125-q4-8k__105817.md:216,
+Deere & Company,DE,FY2020Q4,2020,4,3,2020-11-01,construction & forestry,2461.0,196.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:248; 2021-11-24__de-us-20211124-q4-8k__105843.md:255,28.42
+Deere & Company,DE,FY2020Q4,2020,4,3,2020-11-01,construction and forestry,,196.0,,,2020-11-25__de-us-20201125-q4-8k__105817.md:217,
+Deere & Company,DE,FY2020Q4,2020,4,3,2020-11-01,production & precision ag,3801.0,578.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:246; 2021-11-24__de-us-20211124-q4-8k__105843.md:253,43.9
+Deere & Company,DE,FY2020Q4,2020,4,3,2020-11-01,small ag & turf,2397.0,282.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:247; 2021-11-24__de-us-20211124-q4-8k__105843.md:254,27.68
+Deere & Company,DE,FY2020,2020,,6,2020-05-03,agriculture and turf,,1167.0,,,2020-05-21__de-us-20200521-q2-10q__469470.md:1452,
+Deere & Company,DE,FY2020,2020,,9,2020-08-02,agriculture and turf,,2109.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1404,
+Deere & Company,DE,FY2020,2020,,12,2020-10-28,agriculture and turf,22325.0,2969.0,,USDm,2020-11-25__de-us-20201125-q4-10k__105845.md:10382; 2020-11-25__de-us-20201125-q4-8k__105817.md:216,35.69
+Deere & Company,DE,FY2020,2020,,12,2020-10-28,construction & forestry,8947.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11259,14.31
+Deere & Company,DE,FY2020,2020,,6,2020-05-03,construction &forestry,4299.0,189.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1214; 2021-05-21__de-us-20210521-q2-10q__105821.md:1221; 2021-05-21__de-us-20210521-q2-10q__105821.md:1231,29.14
+Deere & Company,DE,FY2020,2020,,9,2020-08-02,construction &forestry,6485.0,394.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1160; 2021-08-20__de-us-20210820-q3-10q__105837.md:1167; 2021-08-20__de-us-20210820-q3-10q__105837.md:1177,28.68
+Deere & Company,DE,FY2020,2020,,6,2020-05-03,construction and forestry,,189.0,,,2020-05-21__de-us-20200521-q2-10q__469470.md:1453,
+Deere & Company,DE,FY2020,2020,,9,2020-08-02,construction and forestry,,394.0,,,2020-08-20__de-us-20200820-q3-10q__105822.md:1405,
+Deere & Company,DE,FY2020,2020,,12,2020-10-28,construction and forestry,8947.0,590.0,,USDm,2020-11-25__de-us-20201125-q4-10k__105845.md:10383; 2020-11-25__de-us-20201125-q4-8k__105817.md:217,14.31
+Deere & Company,DE,FY2020,2020,,12,2020-10-28,production & precision ag,12962.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11257,20.72
+Deere & Company,DE,FY2020,2020,,6,2020-05-03,production &precision ag,5872.0,786.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1212; 2021-05-21__de-us-20210521-q2-10q__105821.md:1219,39.8
+Deere & Company,DE,FY2020,2020,,9,2020-08-02,production &precision ag,9161.0,1391.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1158; 2021-08-20__de-us-20210820-q3-10q__105837.md:1165,40.51
+Deere & Company,DE,FY2020,2020,,12,2020-10-28,small ag & turf,9363.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11258,14.97
+Deere & Company,DE,FY2020,2020,,6,2020-05-03,small ag &turf,4583.0,381.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1213; 2021-05-21__de-us-20210521-q2-10q__105821.md:1220,31.06
+Deere & Company,DE,FY2020,2020,,9,2020-08-02,small ag &turf,6966.0,718.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1159; 2021-08-20__de-us-20210820-q3-10q__105837.md:1166,30.81
+Deere & Company,DE,FY2021Q1,2021,1,3,2021-01-31,construction &forestry,50.0,268.0,,USDm,2021-02-19__de-us-20210219-q1-10q__105814.md:936; 2021-02-19__de-us-20210219-q1-10q__105814.md:946; 2022-02-18__de-us-20220218-q1-10q__105834.md:1033,0.89
+Deere & Company,DE,FY2021Q1,2021,1,3,2021-01-31,production &precision ag,3069.0,643.0,,USDm,2021-02-19__de-us-20210219-q1-10q__105814.md:934; 2022-02-18__de-us-20220218-q1-10q__105834.md:1031,54.47
+Deere & Company,DE,FY2021Q1,2021,1,3,2021-01-31,small ag &turf,2515.0,469.0,,USDm,2021-02-19__de-us-20210219-q1-10q__105814.md:935; 2022-02-18__de-us-20220218-q1-10q__105834.md:1032,44.64
+Deere & Company,DE,FY2021Q2,2021,2,3,2021-05-02,construction &forestry,3079.0,489.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1214; 2021-05-21__de-us-20210521-q2-10q__105821.md:1221; 2021-05-21__de-us-20210521-q2-10q__105821.md:1231,28.0
+Deere & Company,DE,FY2021Q2,2021,2,3,2021-05-02,production &precision ag,4529.0,1007.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1212; 2021-05-21__de-us-20210521-q2-10q__105821.md:1219,41.18
+Deere & Company,DE,FY2021Q2,2021,2,3,2021-05-02,small ag &turf,3390.0,648.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1213; 2021-05-21__de-us-20210521-q2-10q__105821.md:1220,30.82
+Deere & Company,DE,FY2021Q3,2021,3,3,2021-08-01,construction &forestry,3016.0,463.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1160; 2021-08-20__de-us-20210820-q3-10q__105837.md:1167; 2021-08-20__de-us-20210820-q3-10q__105837.md:1177,28.96
+Deere & Company,DE,FY2021Q3,2021,3,3,2021-08-01,production &precision ag,4250.0,906.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1158; 2021-08-20__de-us-20210820-q3-10q__105837.md:1165,40.81
+Deere & Company,DE,FY2021Q3,2021,3,3,2021-08-01,small ag &turf,3147.0,583.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1159; 2021-08-20__de-us-20210820-q3-10q__105837.md:1166,30.22
+Deere & Company,DE,FY2021Q4,2021,4,3,2021-10-31,construction & forestry,2806.0,270.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:248; 2021-11-24__de-us-20211124-q4-8k__105843.md:255,27.31
+Deere & Company,DE,FY2021Q4,2021,4,3,2021-10-31,production & precision ag,4661.0,777.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:246; 2021-11-24__de-us-20211124-q4-8k__105843.md:253,45.36
+Deere & Company,DE,FY2021Q4,2021,4,3,2021-10-31,small ag & turf,2809.0,346.0,,USDm,2021-11-24__de-us-20211124-q4-8k__105843.md:247; 2021-11-24__de-us-20211124-q4-8k__105843.md:254,27.34
+Deere & Company,DE,FY2021,2021,,12,2021-10-28,construction & forestry,11368.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11259,28.61
+Deere & Company,DE,FY2021,2021,,6,2021-05-02,construction &forestry,5546.0,756.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1214; 2021-05-21__de-us-20210521-q2-10q__105821.md:1221; 2021-05-21__de-us-20210521-q2-10q__105821.md:1231,29.11
+Deere & Company,DE,FY2021,2021,,9,2021-08-01,construction &forestry,8562.0,1220.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1160; 2021-08-20__de-us-20210820-q3-10q__105837.md:1167; 2021-08-20__de-us-20210820-q3-10q__105837.md:1177,29.06
+Deere & Company,DE,FY2021,2021,,12,2021-10-28,production & precision ag,16509.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11257,41.55
+Deere & Company,DE,FY2021,2021,,6,2021-05-02,production &precision ag,7599.0,1651.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1212; 2021-05-21__de-us-20210521-q2-10q__105821.md:1219,39.89
+Deere & Company,DE,FY2021,2021,,9,2021-08-01,production &precision ag,11848.0,2557.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1158; 2021-08-20__de-us-20210820-q3-10q__105837.md:1165,40.22
+Deere & Company,DE,FY2021,2021,,12,2021-10-28,small ag & turf,11860.0,,,USDm,2021-11-24__de-us-20211124-q4-10k__131650.md:11258,29.85
+Deere & Company,DE,FY2021,2021,,6,2021-05-02,small ag &turf,5904.0,1117.0,,USDm,2021-05-21__de-us-20210521-q2-10q__105821.md:1213; 2021-05-21__de-us-20210521-q2-10q__105821.md:1220,30.99
+Deere & Company,DE,FY2021,2021,,9,2021-08-01,small ag &turf,9051.0,1699.0,,USDm,2021-08-20__de-us-20210820-q3-10q__105837.md:1159; 2021-08-20__de-us-20210820-q3-10q__105837.md:1166,30.72
+Deere & Company,DE,FY2022Q1,2022,1,3,2022-01-30,construction &forestry,2544.0,272.0,,USDm,2022-02-18__de-us-20220218-q1-10q__105834.md:1033; 2022-02-18__de-us-20220218-q1-10q__105834.md:1040; 2022-02-18__de-us-20220218-q1-10q__105834.md:1050,29.82
+Deere & Company,DE,FY2022Q1,2022,1,3,2022-01-30,production &precision ag,3356.0,296.0,,USDm,2022-02-18__de-us-20220218-q1-10q__105834.md:1031; 2022-02-18__de-us-20220218-q1-10q__105834.md:1038,39.34
+Deere & Company,DE,FY2022Q1,2022,1,3,2022-01-30,small ag &turf,2631.0,371.0,,USDm,2022-02-18__de-us-20220218-q1-10q__105834.md:1032; 2022-02-18__de-us-20220218-q1-10q__105834.md:1039,30.84
+Deere & Company,DE,FY2022Q2,2022,2,3,2022-05-01,construction &forestry,3347.0,814.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:940; 2022-05-20__de-us-20220520-q2-10q__105838.md:947; 2022-05-20__de-us-20220520-q2-10q__105838.md:957,27.81
+Deere & Company,DE,FY2022Q2,2022,2,3,2022-05-01,production &precision ag,5117.0,1057.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:938; 2022-05-20__de-us-20220520-q2-10q__105838.md:945,42.52
+Deere & Company,DE,FY2022Q2,2022,2,3,2022-05-01,small ag &turf,3570.0,520.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:939; 2022-05-20__de-us-20220520-q2-10q__105838.md:946,29.67
+Deere & Company,DE,FY2022Q3,2022,3,3,2022-07-31,construction &forestry,3269.0,514.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1204; 2022-08-19__de-us-20220819-q3-10q__105818.md:1211; 2022-08-19__de-us-20220819-q3-10q__105818.md:1221,25.15
+Deere & Company,DE,FY2022Q3,2022,3,3,2022-07-31,production &precision ag,6096.0,1293.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1202; 2022-08-19__de-us-20220819-q3-10q__105818.md:1209,46.89
+Deere & Company,DE,FY2022Q3,2022,3,3,2022-07-31,small ag &turf,3635.0,552.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1203; 2022-08-19__de-us-20220819-q3-10q__105818.md:1210,27.96
+Deere & Company,DE,FY2022Q4,2022,4,3,2022-10-30,construction & forestry,3373.0,414.0,,USDm,2022-11-23__de-us-20221123-q4-8k__105825.md:239; 2022-11-23__de-us-20221123-q4-8k__105825.md:246,23.5
+Deere & Company,DE,FY2022Q4,2022,4,3,2022-10-30,production & precision ag,,1740.0,,,2022-11-23__de-us-20221123-q4-8k__105825.md:244,
+Deere & Company,DE,FY2022Q4,2022,4,3,2022-10-30,production &precision ag,7434.0,,,USDm,2022-11-23__de-us-20221123-q4-8k__105825.md:237,51.8
+Deere & Company,DE,FY2022Q4,2022,4,3,2022-10-30,small ag & turf,3544.0,506.0,,USDm,2022-11-23__de-us-20221123-q4-8k__105825.md:238; 2022-11-23__de-us-20221123-q4-8k__105825.md:245,24.7
+Deere & Company,DE,FY2022,2022,,12,2022-10-28,construction & forestry,12534.0,,,USDm,2022-11-23__de-us-20221123-q4-10k__105816.md:4925,26.16
+Deere & Company,DE,FY2022,2022,,6,2022-05-01,construction &forestry,5891.0,1085.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:940; 2022-05-20__de-us-20220520-q2-10q__105838.md:947; 2022-05-20__de-us-20220520-q2-10q__105838.md:957,28.65
+Deere & Company,DE,FY2022,2022,,9,2022-07-31,construction &forestry,9161.0,1599.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1204; 2022-08-19__de-us-20220819-q3-10q__105818.md:1211; 2022-08-19__de-us-20220819-q3-10q__105818.md:1221,27.29
+Deere & Company,DE,FY2022,2022,,6,2022-05-01,production &precision ag,8473.0,1353.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:938; 2022-05-20__de-us-20220520-q2-10q__105838.md:945,41.2
+Deere & Company,DE,FY2022,2022,,9,2022-07-31,production &precision ag,14568.0,2646.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1202; 2022-08-19__de-us-20220819-q3-10q__105818.md:1209,43.4
+Deere & Company,DE,FY2022,2022,,12,2022-10-28,production &precision ag,22002.0,,,USDm,2023-11-22__de-us-20231122-q4-10k__105844.md:4864,45.92
+Deere & Company,DE,FY2022,2022,,12,2022-10-28,small ag & turf,13381.0,,,USDm,2022-11-23__de-us-20221123-q4-10k__105816.md:4924,27.93
+Deere & Company,DE,FY2022,2022,,6,2022-05-01,small ag &turf,6201.0,891.0,,USDm,2022-05-20__de-us-20220520-q2-10q__105838.md:939; 2022-05-20__de-us-20220520-q2-10q__105838.md:946,30.15
+Deere & Company,DE,FY2022,2022,,9,2022-07-31,small ag &turf,9836.0,1443.0,,USDm,2022-08-19__de-us-20220819-q3-10q__105818.md:1203; 2022-08-19__de-us-20220819-q3-10q__105818.md:1210,29.3
+Deere & Company,DE,FY2023Q1,2023,1,3,2023-01-29,construction &forestry,3203.0,625.0,,USDm,2023-02-17__de-us-20230217-q1-10q__105813.md:904; 2023-02-17__de-us-20230217-q1-10q__105813.md:911; 2023-02-17__de-us-20230217-q1-10q__105813.md:921,28.09
+Deere & Company,DE,FY2023Q1,2023,1,3,2023-01-29,production &precision ag,5198.0,1208.0,,USDm,2023-02-17__de-us-20230217-q1-10q__105813.md:902; 2023-02-17__de-us-20230217-q1-10q__105813.md:909,45.59
+Deere & Company,DE,FY2023Q1,2023,1,3,2023-01-29,small ag &turf,3001.0,447.0,,USDm,2023-02-17__de-us-20230217-q1-10q__105813.md:903; 2023-02-17__de-us-20230217-q1-10q__105813.md:910,26.32
+Deere & Company,DE,FY2023Q2,2023,2,3,2023-04-30,construction &forestry,4112.0,838.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:847; 2023-05-19__de-us-20230519-q2-10q__105852.md:854; 2023-05-19__de-us-20230519-q2-10q__105852.md:864,25.57
+Deere & Company,DE,FY2023Q2,2023,2,3,2023-04-30,production &precision ag,7822.0,2170.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:845; 2023-05-19__de-us-20230519-q2-10q__105852.md:852,48.65
+Deere & Company,DE,FY2023Q2,2023,2,3,2023-04-30,small ag &turf,4145.0,849.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:846; 2023-05-19__de-us-20230519-q2-10q__105852.md:853,25.78
+Deere & Company,DE,FY2023Q3,2023,3,3,2023-07-30,construction &forestry,3739.0,716.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:798; 2023-08-18__de-us-20230818-q3-10q__105835.md:805; 2023-08-18__de-us-20230818-q3-10q__105835.md:815,26.18
+Deere & Company,DE,FY2023Q3,2023,3,3,2023-07-30,production &precision ag,6806.0,1782.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:796; 2023-08-18__de-us-20230818-q3-10q__105835.md:803,47.65
+Deere & Company,DE,FY2023Q3,2023,3,3,2023-07-30,small ag &turf,3739.0,732.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:797; 2023-08-18__de-us-20230818-q3-10q__105835.md:804,26.18
+Deere & Company,DE,FY2023Q4,2023,4,3,2023-10-29,construction & forestry,3742.0,516.0,,USDm,2023-11-22__de-us-20231122-q4-8k__105823.md:229; 2023-11-22__de-us-20231122-q4-8k__105823.md:236,27.11
+Deere & Company,DE,FY2023Q4,2023,4,3,2023-10-29,production & precision ag,,1836.0,,,2023-11-22__de-us-20231122-q4-8k__105823.md:234,
+Deere & Company,DE,FY2023Q4,2023,4,3,2023-10-29,production &precision ag,6965.0,,,USDm,2023-11-22__de-us-20231122-q4-8k__105823.md:227,50.47
+Deere & Company,DE,FY2023Q4,2023,4,3,2023-10-29,small ag & turf,3094.0,444.0,,USDm,2023-11-22__de-us-20231122-q4-8k__105823.md:228; 2023-11-22__de-us-20231122-q4-8k__105823.md:235,22.42
+Deere & Company,DE,FY2023,2023,,6,2023-04-30,construction &forestry,7314.0,1463.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:847; 2023-05-19__de-us-20230519-q2-10q__105852.md:854; 2023-05-19__de-us-20230519-q2-10q__105852.md:864,26.61
+Deere & Company,DE,FY2023,2023,,9,2023-07-30,construction &forestry,11053.0,2179.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:798; 2023-08-18__de-us-20230818-q3-10q__105835.md:805; 2023-08-18__de-us-20230818-q3-10q__105835.md:815,26.46
+Deere & Company,DE,FY2023,2023,,12,2023-10-28,construction &forestry,14795.0,,,USDm,2023-11-22__de-us-20231122-q4-10k__105844.md:4866,12.58
+Deere & Company,DE,FY2023,2023,,6,2023-04-30,production &precision ag,13021.0,3378.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:845; 2023-05-19__de-us-20230519-q2-10q__105852.md:852,47.38
+Deere & Company,DE,FY2023,2023,,9,2023-07-30,production &precision ag,19826.0,5160.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:796; 2023-08-18__de-us-20230818-q3-10q__105835.md:803,47.47
+Deere & Company,DE,FY2023,2023,,12,2023-10-28,production &precision ag,26790.0,,,USDm,2023-11-22__de-us-20231122-q4-10k__105844.md:4864,22.78
+Deere & Company,DE,FY2023,2023,,12,2023-10-28,segment,62053.0,,,USDm,2025-11-26__de-us-20251126-q4-10k__469216.md:11084,52.76
+Deere & Company,DE,FY2023,2023,,6,2023-04-30,small ag &turf,7146.0,1296.0,,USDm,2023-05-19__de-us-20230519-q2-10q__105852.md:846; 2023-05-19__de-us-20230519-q2-10q__105852.md:853,26.0
+Deere & Company,DE,FY2023,2023,,9,2023-07-30,small ag &turf,10886.0,2028.0,,USDm,2023-08-18__de-us-20230818-q3-10q__105835.md:797; 2023-08-18__de-us-20230818-q3-10q__105835.md:804,26.06
+Deere & Company,DE,FY2023,2023,,12,2023-10-28,small ag &turf,13980.0,,,USDm,2023-11-22__de-us-20231122-q4-10k__105844.md:4865,11.89
+Deere & Company,DE,FY2024Q1,2024,1,3,2024-01-28,construction &forestry,3212.0,566.0,,USDm,2024-02-15__de-us-20240215-q1-10q__105826.md:765; 2024-02-15__de-us-20240215-q1-10q__105826.md:772; 2024-02-15__de-us-20240215-q1-10q__105826.md:782,30.63
+Deere & Company,DE,FY2024Q1,2024,1,3,2024-01-28,production &precision ag,4849.0,1045.0,,USDm,2024-02-15__de-us-20240215-q1-10q__105826.md:763; 2024-02-15__de-us-20240215-q1-10q__105826.md:770,46.24
+Deere & Company,DE,FY2024Q1,2024,1,3,2024-01-28,small ag &turf,2425.0,326.0,,USDm,2024-02-15__de-us-20240215-q1-10q__105826.md:764; 2024-02-15__de-us-20240215-q1-10q__105826.md:771,23.13
+Deere & Company,DE,FY2024Q2,2024,2,3,2024-04-28,construction &forestry,3844.0,668.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1159; 2024-05-16__de-us-20240516-q2-10q__105820.md:1166; 2024-05-16__de-us-20240516-q2-10q__105820.md:1176,28.24
+Deere & Company,DE,FY2024Q2,2024,2,3,2024-04-28,production &precision ag,6581.0,1650.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1157; 2024-05-16__de-us-20240516-q2-10q__105820.md:1164,48.35
+Deere & Company,DE,FY2024Q2,2024,2,3,2024-04-28,small ag &turf,3185.0,571.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1158; 2024-05-16__de-us-20240516-q2-10q__105820.md:1165,23.4
+Deere & Company,DE,FY2024Q3,2024,3,3,2024-07-28,construction &forestry,3235.0,448.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1067; 2024-08-15__de-us-20240815-q3-10q__105828.md:1074; 2024-08-15__de-us-20240815-q3-10q__105828.md:1084,28.41
+Deere & Company,DE,FY2024Q3,2024,3,3,2024-07-28,production &precision ag,5099.0,1162.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1065; 2024-08-15__de-us-20240815-q3-10q__105828.md:1072,44.78
+Deere & Company,DE,FY2024Q3,2024,3,3,2024-07-28,small ag &turf,3053.0,496.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1066; 2024-08-15__de-us-20240815-q3-10q__105828.md:1073,26.81
+Deere & Company,DE,FY2024Q4,2024,4,3,2024-10-27,construction & forestry,2664.0,328.0,,USDm,2024-11-21__de-us-20241121-q4-8k__105840.md:224; 2024-11-21__de-us-20241121-q4-8k__105840.md:231,28.72
+Deere & Company,DE,FY2024Q4,2024,4,3,2024-10-27,production & precision ag,,657.0,,,2024-11-21__de-us-20241121-q4-8k__105840.md:229,
+Deere & Company,DE,FY2024Q4,2024,4,3,2024-10-27,production &precision ag,4305.0,,,USDm,2024-11-21__de-us-20241121-q4-8k__105840.md:222,46.42
+Deere & Company,DE,FY2024Q4,2024,4,3,2024-10-27,small ag & turf,2306.0,234.0,,USDm,2024-11-21__de-us-20241121-q4-8k__105840.md:223; 2024-11-21__de-us-20241121-q4-8k__105840.md:230,24.86
+Deere & Company,DE,FY2024,2024,,12,2024-10-28,construction & forestry,12956.0,,,USDm,2024-11-21__de-us-20241121-q4-10k__105810.md:10313,17.0
+Deere & Company,DE,FY2024,2024,,6,2024-04-28,construction &forestry,7057.0,1234.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1159; 2024-05-16__de-us-20240516-q2-10q__105820.md:1166; 2024-05-16__de-us-20240516-q2-10q__105820.md:1176,29.29
+Deere & Company,DE,FY2024,2024,,9,2024-07-28,construction &forestry,10292.0,1682.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1067; 2024-08-15__de-us-20240815-q3-10q__105828.md:1074; 2024-08-15__de-us-20240815-q3-10q__105828.md:1084,29.0
+Deere & Company,DE,FY2024,2024,,6,2024-04-28,production &precision ag,11430.0,2695.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1157; 2024-05-16__de-us-20240516-q2-10q__105820.md:1164,47.43
+Deere & Company,DE,FY2024,2024,,9,2024-07-28,production &precision ag,16529.0,3857.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1065; 2024-08-15__de-us-20240815-q3-10q__105828.md:1072,46.58
+Deere & Company,DE,FY2024,2024,,12,2024-10-28,segment,52294.0,,,USDm,2025-11-26__de-us-20251126-q4-10k__469216.md:11084,68.61
+Deere & Company,DE,FY2024,2024,,12,2024-10-28,small ag & turf,10969.0,,,USDm,2024-11-21__de-us-20241121-q4-10k__105810.md:10312,14.39
+Deere & Company,DE,FY2024,2024,,6,2024-04-28,small ag &turf,5610.0,897.0,,USDm,2024-05-16__de-us-20240516-q2-10q__105820.md:1158; 2024-05-16__de-us-20240516-q2-10q__105820.md:1165,23.28
+Deere & Company,DE,FY2024,2024,,9,2024-07-28,small ag &turf,8663.0,1393.0,,USDm,2024-08-15__de-us-20240815-q3-10q__105828.md:1066; 2024-08-15__de-us-20240815-q3-10q__105828.md:1073,24.41
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,Construction &Forestry,1994.0,65.0,3.3,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2322; 2026-02-19__de-us-20260219-q1-10q__648937.md:2323; 2026-02-19__de-us-20260219-q1-10q__648937.md:2324,8.97
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,Production &Precision Agriculture,3067.0,338.0,11.0,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2292; 2026-02-19__de-us-20260219-q1-10q__648937.md:2293; 2026-02-19__de-us-20260219-q1-10q__648937.md:2294,13.8
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,Small Agriculture &Turf,1748.0,124.0,7.1,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2307; 2026-02-19__de-us-20260219-q1-10q__648937.md:2308; 2026-02-19__de-us-20260219-q1-10q__648937.md:2309,7.87
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,construction & forestry,1994.0,65.0,,USDm,2025-02-13__de-us-20250213-q1-8k__105841.md:221; 2025-02-13__de-us-20250213-q1-8k__105841.md:228,8.97
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,production & precision ag,3067.0,338.0,,USDm,2025-02-13__de-us-20250213-q1-8k__105841.md:219; 2025-02-13__de-us-20250213-q1-8k__105841.md:226,13.8
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,segment,8600.0,,,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:859,38.71
+Deere & Company,DE,FY2025Q1,2025,1,3,2025-01-26,small ag & turf,1748.0,124.0,,USDm,2025-02-13__de-us-20250213-q1-8k__105841.md:220; 2025-02-13__de-us-20250213-q1-8k__105841.md:227,7.87
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,Construction &Forestry,2947.0,379.0,12.9,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2338; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2339; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2340,8.37
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,Production &Precision Agriculture,5230.0,1148.0,22.0,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2288; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2289; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2290,14.85
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,Small Agriculture &Turf,2994.0,574.0,19.2,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2311; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2312; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2313,8.5
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,construction & forestry,2947.0,379.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:222; 2025-05-15__de-us-20250515-q2-8k__105808.md:229,8.37
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,production & precision ag,5230.0,1148.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:220; 2025-05-15__de-us-20250515-q2-8k__105808.md:227,14.85
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,segment,12875.0,,,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:1008,36.56
+Deere & Company,DE,FY2025Q2,2025,2,3,2025-04-27,small ag & turf,2994.0,574.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:221; 2025-05-15__de-us-20250515-q2-8k__105808.md:228,8.5
+Deere & Company,DE,FY2025Q3,2025,3,3,2025-07-27,construction & forestry,3059.0,237.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:215; 2025-08-15__de-us-20250815-q3-8k__143410.md:222,29.54
+Deere & Company,DE,FY2025Q3,2025,3,3,2025-07-27,production & precision ag,4273.0,580.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:213; 2025-08-15__de-us-20250815-q3-8k__143410.md:220,41.26
+Deere & Company,DE,FY2025Q3,2025,3,3,2025-07-27,small ag & turf,3025.0,485.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:214; 2025-08-15__de-us-20250815-q3-8k__143410.md:221,29.21
+Deere & Company,DE,FY2025Q4,2025,4,3,2025-11-02,construction & forestry,3382.0,348.0,,USDm,2025-11-26__de-us-20251126-q4-8k__361233.md:225; 2025-11-26__de-us-20251126-q4-8k__361233.md:232,57.92
+Deere & Company,DE,FY2025Q4,2025,4,3,2025-11-02,production & precision ag,,604.0,,,2025-11-26__de-us-20251126-q4-8k__361233.md:230,
+Deere & Company,DE,FY2025Q4,2025,4,3,2025-11-02,small ag & turf,2457.0,25.0,,USDm,2025-11-26__de-us-20251126-q4-8k__361233.md:224; 2025-11-26__de-us-20251126-q4-8k__361233.md:231,42.08
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,Construction &Forestry,4941.0,444.0,9.0,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2338; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2339; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2340,8.6
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,Production &Precision Agriculture,8297.0,1486.0,17.9,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2288; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2289; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2290,14.45
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,Small Agriculture &Turf,4742.0,698.0,14.7,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2311; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2312; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2313,8.26
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,construction & forestry,4941.0,444.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:222; 2025-05-15__de-us-20250515-q2-8k__105808.md:229,8.6
+Deere & Company,DE,FY2025,2025,,9,2025-07-27,construction & forestry,8000.0,681.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:215; 2025-08-15__de-us-20250815-q3-8k__143410.md:222,28.23
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,production & precision ag,8297.0,1486.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:220; 2025-05-15__de-us-20250515-q2-8k__105808.md:227,14.45
+Deere & Company,DE,FY2025,2025,,9,2025-07-27,production & precision ag,12571.0,2066.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:213; 2025-08-15__de-us-20250815-q3-8k__143410.md:220,44.36
+Deere & Company,DE,FY2025,2025,,12,2025-10-28,segment,46116.0,,,USDm,2025-11-26__de-us-20251126-q4-10k__469216.md:11084,100.0
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,segment,21476.0,,,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:1008,37.39
+Deere & Company,DE,FY2025,2025,,6,2025-04-27,small ag & turf,4742.0,698.0,,USDm,2025-05-15__de-us-20250515-q2-8k__105808.md:221; 2025-05-15__de-us-20250515-q2-8k__105808.md:228,8.26
+Deere & Company,DE,FY2025,2025,,9,2025-07-27,small ag & turf,7767.0,1182.0,,USDm,2025-08-15__de-us-20250815-q3-8k__143410.md:214; 2025-08-15__de-us-20250815-q3-8k__143410.md:221,27.41
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,Construction &Forestry,2670.0,137.0,5.1,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2322; 2026-02-19__de-us-20260219-q1-10q__648937.md:2323; 2026-02-19__de-us-20260219-q1-10q__648937.md:2324,10.38
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,Production &Precision Agriculture,3163.0,139.0,4.4,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2292; 2026-02-19__de-us-20260219-q1-10q__648937.md:2293; 2026-02-19__de-us-20260219-q1-10q__648937.md:2294,12.29
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,Small Agriculture &Turf,2168.0,196.0,9.0,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:2307; 2026-02-19__de-us-20260219-q1-10q__648937.md:2308; 2026-02-19__de-us-20260219-q1-10q__648937.md:2309,8.43
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,construction & forestry,2670.0,137.0,,USDm,2026-02-19__de-us-20260219-q1-8k__603009.md:217; 2026-02-19__de-us-20260219-q1-8k__603009.md:224,10.38
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,production & precision ag,3163.0,139.0,,USDm,2026-02-19__de-us-20260219-q1-8k__603009.md:215; 2026-02-19__de-us-20260219-q1-8k__603009.md:222,12.29
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,segment,9728.0,,,USDm,2026-02-19__de-us-20260219-q1-10q__648937.md:859,37.81
+Deere & Company,DE,FY2026Q1,2026,1,3,2026-02-01,small ag & turf,2168.0,196.0,,USDm,2026-02-19__de-us-20260219-q1-8k__603009.md:216; 2026-02-19__de-us-20260219-q1-8k__603009.md:223,8.43
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,Construction &Forestry,3790.0,561.0,14.8,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2338; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2339; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2340,10.22
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,Production &Precision Agriculture,4503.0,706.0,15.7,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2288; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2289; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2290,12.15
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,Small Agriculture &Turf,3485.0,719.0,20.6,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2311; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2312; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2313,9.4
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,construction & forestry,3790.0,561.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:222; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:229,10.22
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,production & precision ag,4503.0,706.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:220; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:227,12.15
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,segment,13515.0,,,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:1008,36.46
+Deere & Company,DE,FY2026Q2,2026,2,3,2026-05-03,small ag & turf,3485.0,719.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:221; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:228,9.4
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,Construction &Forestry,6460.0,698.0,10.8,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2338; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2339; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2340,10.29
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,Production &Precision Agriculture,7666.0,845.0,11.0,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2288; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2289; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2290,12.21
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,Small Agriculture &Turf,5653.0,916.0,16.2,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:2311; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2312; 2026-05-21__de-us-20260521-q2-10q__1055929.md:2313,9.0
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,construction & forestry,6460.0,698.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:222; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:229,10.29
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,production & precision ag,7666.0,845.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:220; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:227,12.21
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,segment,23244.0,,,USDm,2026-05-21__de-us-20260521-q2-10q__1055929.md:1008,37.01
+Deere & Company,DE,FY2026,2026,,6,2026-05-03,small ag & turf,5653.0,916.0,,USDm,2026-05-21__de-us-20260521-q2-8k-2__1042168.md:221; 2026-05-21__de-us-20260521-q2-8k-2__1042168.md:228,9.0
