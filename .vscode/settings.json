@@ -1,8 +1,9 @@
+// if using direnv: python.terminal.activateEnvironment": false
+// elseif using uv:     use default (true)
+// Rely on VS code defaults for:   "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+// Below assume tests using pytest 
+// Optionally restrict to speed search:  "python.testing.pytestArgs": ["tests"],
 {
-    "workbench.editorAssociations": {
-        "*.parquet": "duckdb.dataFileViewer",
-        "*.csv": "duckdb.dataFileViewer",
-        "*.tsv": "duckdb.dataFileViewer",
-        "*.xlsx": "duckdb.dataFileViewer"
-    }
+    "python.analysis.typeCheckingMode": "standard",
+    "python.testing.pytestEnabled": true
 }

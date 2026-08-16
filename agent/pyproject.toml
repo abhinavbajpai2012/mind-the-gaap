@@ -2,9 +2,11 @@
 name = "mind-the-gaap-agent"
 version = "0.1.0"
 description = "Forecasting agent and signal subagents for Agents vs Wall Street."
-requires-python = ">=3.12"
+requires-python = ">=3.13"
 dependencies = [
-    "anthropic>=0.122.0",
+    "anthropic>=0.121.0",
     "openpyxl>=3.1.5",
     "pydantic>=2.13.4",
+    "tabpfn-client>=0.3.3",
+    "tabpfn-time-series>=1.2.0",
 ]
