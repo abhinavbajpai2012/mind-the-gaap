@@ -280,6 +280,27 @@ footer{margin-top:52px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
           never drive it.</p>
       </div>
     </div>
+
+    <div class="stop">
+      <div class="side left">
+        <h3>Sanity-check against the Street</h3>
+        <p>Before publishing, checks the number against company guidance and where consensus
+          sits. A forecast far outside both is usually the analyst's mistake, not an insight.</p>
+      </div>
+      <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">8</div></div>
+      <div class="side right">
+        <span class="pill live">Live</span>
+        <h3>Adversarial check: guidance can veto the model</h3>
+        <p>Companies publish what next quarter will be. ADI's Q2 release states
+          <code>$3.9bn +/- $100m</code> revenue and <code>$3.30 +/- $0.15</code> adjusted EPS
+          for the quarter being forecast; Hays states its FY26 pre-exceptional operating profit
+          will land <b>at the top of the £37.0-46.0m consensus range</b>. The model had 3,258,
+          2.05 and 28.18 against those. Guidance may veto a model; a model may not veto
+          guidance. An override must carry an <b>explicit band</b> and may not move a figure
+          more than 3x — a fragment matching Hays' net fees as "5" would otherwise have
+          replaced 975.</p>
+      </div>
+    </div>
   </div>
 
   <h2>Where the machine goes past the analyst</h2>
@@ -348,8 +369,10 @@ footer{margin-top:52px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
     </div>
     <div class="card" style="--c:var(--amber)">
       <h4>Honest gaps</h4>
-      <p>The model layer is a <b>seasonal baseline</b>, not yet a scored ensemble. Hays' forecast
-        does not yet use its already-reported H1. Both are named, not hidden.</p>
+      <p>Public research used at the wire is recorded in <code>research_anchors.json</code> with
+        a quote and source per figure, so what came from outside the corpus is visible rather
+        than buried. Home Depot's two forecasts sit ~1.5% from consensus and were left as the
+        model produced them. Deere's EPS consensus is not unanimous across sources.</p>
     </div>
   </div>
 
