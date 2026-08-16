@@ -235,11 +235,13 @@ footer{margin-top:52px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
       </div>
       <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">5</div></div>
       <div class="side right">
-        <span class="pill next">Next</span>
+        <span class="pill live">Live</span>
         <h3>Feature selection over extracted CSVs</h3>
-        <p>The corpus is reduced to quantifiable fields — actuals, guidance, operational drivers,
-          segment mix. A model then selects <b>which columns predict which target</b>, rather
-          than a human asserting it. Extraction is done; selection is the next build.</p>
+        <p>The corpus is reduced to quantifiable fields in <code>output/&lt;company&gt;/</code> —
+          actuals, guidance, operational drivers, segment mix, call-tone channels. Candidates are
+          <b>lagged</b>, ranked by rank-correlation against the target and decorrelated, with the
+          count <b>capped relative to the number of observations</b>: with 20 quarters, admitting
+          15 features is fitting noise with extra steps.</p>
       </div>
     </div>
 
@@ -252,10 +254,13 @@ footer{margin-top:52px;color:#565C6C;font-size:11.5px;font-family:var(--mono);
       <div class="rail"><div class="node"><u class="a"></u><u class="b"></u></div><div class="num">6</div></div>
       <div class="side right">
         <span class="pill live">Live</span>
-        <h3>Forecast, then backtest the method</h3>
-        <p>Today: <b>seasonal year-on-year</b> — anchor on the same period a year earlier, grow
-          by the company's own recent rate. Seasonality is not optional; Home Depot's Q2 is its
-          spring peak. Next: several models scored against held-out quarters, best one wins.</p>
+        <h3>Forecast, chosen by backtest</h3>
+        <p>A pooled feature matrix in year-on-year space feeds a <b>Gower nearest-neighbour</b>
+          model (TabPFN when installed), which produced 10 of the 12 figures; the remaining two
+          fall back to a <b>seasonal year-on-year</b> baseline. Seasonality is not optional —
+          Home Depot's Q2 is its spring peak. Every candidate is scored on an
+          <b>expanding window that never sees the future</b>, and a model is used <b>only if it
+          beat the baseline out of sample</b>. The control room publishes those scores.</p>
       </div>
     </div>
 
