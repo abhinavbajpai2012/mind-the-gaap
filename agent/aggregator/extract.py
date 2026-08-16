@@ -66,6 +66,26 @@ def _cell_quote(table: Table, row) -> str:
     return table.doc.lines[row.line_no - 1].strip()
 
 
+#: a cell holding nothing but a unit marker, which belongs to the number before it
+_BARE_UNIT = {"%", "p", "bps", "$", "£", "€"}
+
+
+def _cell_with_unit(cells: list[str], i: int) -> str:
+    """Rejoin a number with a unit that the table split into the next cell.
+
+    Home Depot prints comparable sales as `| 1.0 | % |` — two cells. Read alone,
+    `1.0` looks like an amount and is refused for not being a percentage, which
+    is how a metric that IS in the table ends up looking absent from it.
+    """
+    raw = (cells[i] or "").strip()
+    if not raw or not any(ch.isdigit() for ch in raw):
+        return raw
+    nxt = (cells[i + 1] or "").strip() if i + 1 < len(cells) else ""
+    if nxt in _BARE_UNIT:
+        return f"{raw}{nxt}" if nxt not in "$£€" else f"{nxt}{raw}"
+    return raw
+
+
 def extract(
     docs: list[Document],
     spec: MetricSpec,
@@ -98,7 +118,7 @@ def extract(
                 for col in table.columns:
                     if col.index == 0 or col.index >= len(row.cells):
                         continue
-                    raw = row.cells[col.index]
+                    raw = _cell_with_unit(row.cells, col.index)
                     if not raw:
                         continue
                     span = col.span
@@ -151,12 +171,19 @@ def extract(
                 # ragged table: fall back to positional slots
                 if not matched_any and table.slots:
                     values = []
-                    for raw in row.cells[1:]:
+                    cells = row.cells[1:]
+                    for i in range(len(cells)):
+                        raw = _cell_with_unit(cells, i)
                         parsed = parse_cell(raw, table.units, per_share=spec.is_per_share)
                         if parsed is not None:
                             values.append((raw, parsed))
-                    if len(values) == len(table.slots):
-                        for (raw, (value, unit)), span in zip(values, table.slots):
+                    slots = table.slots
+                    if len(values) != len(slots):
+                        # a "% Change" column often holds N/A and yields no value,
+                        # so drop the value-less slots and try the alignment again
+                        slots = [s for s in slots if s is not None]
+                    if len(values) == len(slots):
+                        for (raw, (value, unit)), span in zip(values, slots):
                             if span is None or span.months != want_months \
                                     or span.fiscal != period:
                                 continue

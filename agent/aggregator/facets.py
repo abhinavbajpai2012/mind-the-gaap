@@ -75,6 +75,8 @@ class MetricSpec:
             return False
         if self.scope and not scope_matches(self.scope, other.scope):
             return False
+        if self.scope and is_total_scope(self.scope) and other.scope:
+            return False        # "total company" means the group, not a segment
         if not self.scope and other.scope:
             # "Worldwide net sales and revenues" is the group total; it must not
             # silently take Production & Precision Agriculture's 4,273.
@@ -87,6 +89,22 @@ class MetricSpec:
 
 
 _SCOPE_STOP = {"and", "&", "the", "of", "segment", "segments", "operations", "business"}
+
+#: words that name the whole company rather than one of its segments. "Net
+#: sales, total company" is not scoped to a segment called "total company".
+_TOTAL_WORDS = {"total", "company", "group", "worldwide", "consolidated", "overall"}
+
+#: concepts that ARE a rate, so "level" and "growth" are not distinct readings
+#: of them. A retailer's "Comparable sales" is already a percentage change, and
+#: its table row says so — "Comparable sales (% change)" — while the challenge
+#: label says "Comparable sales, total company". Same number, and the statistic
+#: facet must not separate them.
+RATE_CONCEPTS = {"comparable_sales", "conversion_rate", "operating_margin"}
+
+
+def is_total_scope(text: str | None) -> bool:
+    toks = scope_tokens(text or "")
+    return bool(toks) and all(t in _TOTAL_WORDS for t in toks)
 
 
 def scope_tokens(text: str) -> tuple[str, ...]:
@@ -104,7 +122,7 @@ def scope_matches(query_scope: str | None, doc_scope: str | None) -> bool:
     segment's number. Each query token must prefix the document token in the
     same order, so "ag" matches "agriculture" but never "turf".
     """
-    if not query_scope or query_scope == "total":
+    if not query_scope or is_total_scope(query_scope):
         return True
     if not doc_scope:
         return False           # a scoped query must not fall back to an unscoped row
@@ -203,13 +221,17 @@ def parse(text: str, segments: tuple[str, ...] = (),
             break
     t = residual
 
+    # --- rate concepts: "level" and "growth" are the same reading ----------
+    if concept in RATE_CONCEPTS:
+        statistic = "rate"
+
     # --- scope from the leftover text, but only if the company reports it ---
     # "Production & Precision Ag operating profit" leaves "production precision
     # ag" once the concept is removed. Treating any residual as a scope would
     # break "Worldwide net sales and revenues" (residual "worldwide") against a
     # row labelled "Total net sales and revenues", so it must match a segment
     # the company actually declares.
-    if scope is None and residual and segments:
+    if scope is None and residual and segments and not is_total_scope(residual):
         for seg in segments:
             if scope_matches(residual, seg):
                 scope = residual
