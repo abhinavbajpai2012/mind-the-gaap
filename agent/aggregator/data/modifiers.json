@@ -1,0 +1,19 @@
+{
+  "_comment": "Closed modifier lexicons, shared by every concept. A concept composes with all of these automatically, so 'adjusted free cash flow as a percentage of revenue' needs no authoring.",
+  "adjustment": {
+    "adjusted":        ["adjusted", "non-gaap", "non gaap", "underlying"],
+    "pre_exceptional": ["before exceptional items", "pre-exceptional", "pre exceptional", "excluding exceptional"],
+    "post_exceptional":["after exceptional items", "post-exceptional"],
+    "gaap":            ["gaap", "reported", "statutory"],
+    "like_for_like":   ["like-for-like", "lfl", "like for like"]
+  },
+  "share_basis": {
+    "basic":   ["basic"],
+    "diluted": ["diluted"]
+  },
+  "statistic": {
+    "margin":         ["margin percentage", "percentage", "as a percentage", "margin %"],
+    "growth":         ["growth", "change", "increase", "decrease"],
+    "pct_of_revenue": ["% of revenue", "percent of revenue", "of revenue"]
+  }
+}
